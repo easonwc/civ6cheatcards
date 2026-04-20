@@ -155,8 +155,48 @@ select, input, textarea { font-size: 16px; }
 .players-card-header .setup-card-title { margin-bottom: 2px; }
 .players-card-header .setup-card-desc { margin-bottom: 0; }
 
-.uniqueness-control { min-width: 180px; }
-.uniqueness-control .filter-select { font-size: 12px; padding: 5px 8px; }
+.uniqueness-controls {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.check-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.check-toggle input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.check-toggle input[type="checkbox"]:checked {
+  background: #00c850;
+  border-color: #00c850;
+}
+
+.check-toggle input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 12px;
+  color: #000;
+  font-weight: 600;
+}
 
 .opponent-slots {
   display: grid;
@@ -485,8 +525,8 @@ select, input, textarea { font-size: 16px; }
 
   .opponent-slots { grid-template-columns: 1fr; }
 
-  .players-card-header { flex-direction: column; }
-  .uniqueness-control { min-width: 0; width: 100%; }
+  .players-card-header { flex-direction: column; gap: 8px; }
+  .uniqueness-controls { flex-wrap: wrap; }
 
   .setup-action { flex-direction: column; gap: 8px; }
   .btn-generate { width: 100%; padding: 14px; }

@@ -93,13 +93,9 @@
               <div class="setup-card-title" id="players-card-title">Known Opponents</div>
               <p class="setup-card-desc" id="players-card-desc">Fill in opponents you know. Leave unknown slots blank.</p>
             </div>
-            <div class="control-group uniqueness-control">
-              <label>Duplicates</label>
-              <select id="uniqueness-mode" class="filter-select">
-                <option value="unique-leaders">Unique Leaders</option>
-                <option value="unique-civs">Unique Civilizations</option>
-                <option value="allow-all">Allow Duplicates</option>
-              </select>
+            <div class="uniqueness-controls">
+              <label class="check-toggle"><input type="checkbox" id="unique-leaders" checked><span>Unique Leaders</span></label>
+              <label class="check-toggle"><input type="checkbox" id="unique-civs"><span>Unique Civs</span></label>
             </div>
           </div>
           <div id="player-slots" class="opponent-slots"></div>

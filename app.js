@@ -90,7 +90,9 @@ function renderPlannerLeaderCard() {
 
 // === Player Slots ===
 function getUniquenessMode() {
-  return $('#uniqueness-mode')?.value || 'unique-leaders';
+  const uniqueLeaders = $('#unique-leaders')?.checked ?? true;
+  const uniqueCivs = $('#unique-civs')?.checked ?? false;
+  return { uniqueLeaders, uniqueCivs };
 }
 
 function renderPlayerSlots() {
@@ -114,8 +116,8 @@ function renderPlayerSlots() {
 }
 
 function refreshSlotOptions() {
-  const mode = getUniquenessMode();
-  if (mode === 'allow-all') {
+  const { uniqueLeaders, uniqueCivs } = getUniquenessMode();
+  if (!uniqueLeaders && !uniqueCivs) {
     $$('.player-slot-select').forEach(sel => {
       Array.from(sel.options).forEach(opt => { opt.disabled = false; opt.style.color = ''; });
     });
@@ -141,8 +143,8 @@ function refreshSlotOptions() {
       if (!leader) return;
       let dis = false;
       if (opt.value !== cur) {
-        if (mode === 'unique-leaders') dis = usedIds.includes(opt.value);
-        if (mode === 'unique-civs') dis = usedCivs.includes(leader.civ);
+        if (uniqueLeaders && usedIds.includes(opt.value)) dis = true;
+        if (uniqueCivs && usedCivs.includes(leader.civ)) dis = true;
       }
       opt.disabled = dis;
       opt.style.color = dis ? '#555' : '';
@@ -150,7 +152,8 @@ function refreshSlotOptions() {
   });
 }
 
-$('#uniqueness-mode')?.addEventListener('change', () => { refreshSlotOptions(); });
+$('#unique-leaders')?.addEventListener('change', refreshSlotOptions);
+$('#unique-civs')?.addEventListener('change', refreshSlotOptions);
 function getSlotPlayers() {
   // Returns all players: your leader (P1) + slot players (P2+), filling blanks with random
   const you = LEADERS.find(l => l.id === $('#planner-leader').value);
@@ -166,17 +169,17 @@ function getSlotPlayers() {
     }
   });
 
-  const mode = getUniquenessMode();
+  const { uniqueLeaders, uniqueCivs } = getUniquenessMode();
   const usedCivs = players.filter(p => p.leader).map(p => p.leader.civ);
   let available = LEADERS.filter(l => !picked.includes(l.id));
-  if (mode === 'unique-civs') available = available.filter(l => !usedCivs.includes(l.civ));
+  if (uniqueCivs) available = available.filter(l => !usedCivs.includes(l.civ));
   for (const p of players) {
     if (!p.leader && available.length > 0) {
       const idx = Math.floor(Math.random() * available.length);
       const chosen = available.splice(idx, 1)[0];
       p.leader = chosen;
       picked.push(chosen.id);
-      if (mode === 'unique-civs') {
+      if (uniqueCivs) {
         usedCivs.push(chosen.civ);
         available = available.filter(l => !usedCivs.includes(l.civ));
       }
