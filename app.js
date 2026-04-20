@@ -205,15 +205,17 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   const densityTips = DENSITY_TIPS[victory]?.[density.level] || [];
   const sizeLabel = MAP_SIZES[mapSize]?.label || mapSize;
 
-  // Header — always visible
-  let html = `
+  // Header — full width
+  let header = `
     <div class="strategy-section">
       <h3>${leader.name} (${leader.civ}) — ${capitalize(victory)} Victory</h3>
       <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players</div>
     </div>`;
 
-  // Victory Recommendation — open by default
-  html += collapsible('Recommended Victory Path', `
+  // Left column: overview
+  let left = '';
+
+  left += collapsible('Recommended Victory Path', `
     <div class="victory-rec-list">
       ${ranked.filter(r => r.synergy >= 30).map((r, i) => `
         <div class="victory-rec-item ${i===0?'victory-rec-best':''}">
@@ -225,8 +227,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     ${opponents.length > 0 ? '<p style="font-size:11px;color:#555;margin-top:6px;">Scores adjusted for opponent matchups.</p>' : ''}
   `, true);
 
-  // Map Analysis — open by default
-  html += collapsible(`Map: ${capitalize(mapType)} · ${sizeLabel}`, `
+  left += collapsible(`Map: ${capitalize(mapType)} · ${sizeLabel}`, `
     <p>${mapTip}</p>
     <div class="density-box density-${density.level}" style="margin-top:8px;">
       <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Density: ${capitalize(density.level)}</div>
@@ -235,37 +236,38 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     </div>
   `, true);
 
-  // Matchups — open by default if present
   if (opponents.length > 0) {
-    html += collapsible(`Opponent Matchups (${opponents.length})`, renderMatchupContent(leader, opponents), true);
+    left += collapsible(`Opponent Matchups (${opponents.length})`, renderMatchupContent(leader, opponents), true);
   }
 
-  // Leader Tips — collapsed
-  html += collapsible('Leader-Specific Tips', `<ul>${strat.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
+  left += collapsible('Leader-Specific Tips', `<ul>${strat.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
 
-  // Era-by-Era — collapsed
-  html += collapsible('Era-by-Era Game Plan', Object.entries(buildOrder.eras).map(([era, data]) => `
-    <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
-    <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join(''));
-
-  // Policies — collapsed
-  html += collapsible('Key Policies', `<ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul>`);
-
-  // Wonders — collapsed
-  html += collapsible('Recommended Wonders', `<ul>${buildOrder.wonders.map(w=>`<li>${w}</li>`).join('')}</ul>`);
-
-  // General Tips — collapsed
-  html += collapsible(`General ${capitalize(victory)} Tips`, `<ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
-
-  // Boosts — collapsed
-  html += collapsible('Key Eurekas & Inspirations', renderBoostContent(leader, victory));
-
-  // BBG note — collapsed if present
   if (bbgMode) {
-    html += collapsible('BBG Notes', `<div class="bbg-note">BBG: ${leader.bbgNotes||'No specific BBG changes.'}</div>`);
+    left += collapsible('BBG Notes', `<div class="bbg-note">BBG: ${leader.bbgNotes||'No specific BBG changes.'}</div>`);
   }
 
-  return html;
+  // Right column: game plan details
+  let right = '';
+
+  right += collapsible('Era-by-Era Game Plan', Object.entries(buildOrder.eras).map(([era, data]) => `
+    <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
+    <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join(''), true);
+
+  right += collapsible('Key Policies', `<ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul>`);
+
+  right += collapsible('Recommended Wonders', `<ul>${buildOrder.wonders.map(w=>`<li>${w}</li>`).join('')}</ul>`);
+
+  right += collapsible(`General ${capitalize(victory)} Tips`, `<ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
+
+  right += collapsible('Key Eurekas & Inspirations', renderBoostContent(leader, victory));
+
+  return `
+    ${header}
+    <div class="strategy-columns">
+      <div class="strategy-col">${left}</div>
+      <div class="strategy-col">${right}</div>
+    </div>
+  `;
 }
 
 // === Generate Strategy (single or team) ===

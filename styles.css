@@ -262,6 +262,16 @@ select, input, textarea { font-size: 16px; }
   padding: 20px;
 }
 
+/* === Strategy Two-Column Layout === */
+.strategy-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.strategy-col { min-width: 0; }
+
 /* === Strategy Sections === */
 .strategy-section { margin-bottom: 20px; }
 .strategy-section h3 { font-size: 16px; font-weight: 600; color: #00c850; margin-bottom: 8px; }
@@ -467,6 +477,7 @@ select, input, textarea { font-size: 16px; }
   .inline-card-header { flex-direction: column; gap: 6px; }
 
   .strategy-output { padding: 14px; border-radius: 0; border-left: none; border-right: none; }
+  .strategy-columns { grid-template-columns: 1fr; }
 
   .team-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
   .team-tab { flex-shrink: 0; font-size: 12px; padding: 6px 10px; }
