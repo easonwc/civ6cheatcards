@@ -144,6 +144,20 @@ select, input, textarea { font-size: 16px; }
 .btn-generate-team.hidden { display: none; }
 
 /* === Opponents === */
+.players-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.players-card-header .setup-card-title { margin-bottom: 2px; }
+.players-card-header .setup-card-desc { margin-bottom: 0; }
+
+.uniqueness-control { min-width: 180px; }
+.uniqueness-control .filter-select { font-size: 12px; padding: 5px 8px; }
+
 .opponent-slots {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -470,6 +484,9 @@ select, input, textarea { font-size: 16px; }
   .setup-card-full { grid-column: auto; }
 
   .opponent-slots { grid-template-columns: 1fr; }
+
+  .players-card-header { flex-direction: column; }
+  .uniqueness-control { min-width: 0; width: 100%; }
 
   .setup-action { flex-direction: column; gap: 8px; }
   .btn-generate { width: 100%; padding: 14px; }

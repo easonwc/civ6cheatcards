@@ -89,24 +89,68 @@ function renderPlannerLeaderCard() {
 }
 
 // === Player Slots ===
+function getUniquenessMode() {
+  return $('#uniqueness-mode')?.value || 'unique-leaders';
+}
+
 function renderPlayerSlots() {
   const count = parseInt($('#planner-players').value) || 2;
-  const slots = count - 1; // always minus you — your leader is picked separately
+  const slots = count - 1;
   const container = $('#player-slots');
   const existing = [];
   $$('.player-slot-select').forEach(sel => existing.push(sel.value));
   container.innerHTML = '';
-  const leaderOpts = LEADERS.sort((a, b) => a.name.localeCompare(b.name))
+  const allOpts = LEADERS.sort((a, b) => a.name.localeCompare(b.name))
     .map(l => `<option value="${l.id}">${l.name} (${l.civ})</option>`).join('');
   for (let i = 0; i < slots; i++) {
     const row = document.createElement('div');
     row.className = 'opponent-row';
-    row.innerHTML = `<span class="opponent-num">P${i + 2}</span><select class="filter-select player-slot-select"><option value="">— Unknown —</option>${leaderOpts}</select>`;
+    row.innerHTML = `<span class="opponent-num">P${i + 2}</span><select class="filter-select player-slot-select"><option value="">— Unknown —</option>${allOpts}</select>`;
     if (existing[i]) row.querySelector('select').value = existing[i];
     container.appendChild(row);
   }
+  $$('.player-slot-select').forEach(sel => sel.addEventListener('change', refreshSlotOptions));
+  refreshSlotOptions();
 }
 
+function refreshSlotOptions() {
+  const mode = getUniquenessMode();
+  if (mode === 'allow-all') {
+    $$('.player-slot-select').forEach(sel => {
+      Array.from(sel.options).forEach(opt => { opt.disabled = false; opt.style.color = ''; });
+    });
+    return;
+  }
+  const yourId = $('#planner-leader').value;
+  const usedIds = [yourId];
+  const usedCivs = [];
+  const you = LEADERS.find(l => l.id === yourId);
+  if (you) usedCivs.push(you.civ);
+  $$('.player-slot-select').forEach(sel => {
+    if (sel.value) {
+      usedIds.push(sel.value);
+      const l = LEADERS.find(x => x.id === sel.value);
+      if (l) usedCivs.push(l.civ);
+    }
+  });
+  $$('.player-slot-select').forEach(sel => {
+    const cur = sel.value;
+    Array.from(sel.options).forEach(opt => {
+      if (!opt.value) return;
+      const leader = LEADERS.find(l => l.id === opt.value);
+      if (!leader) return;
+      let dis = false;
+      if (opt.value !== cur) {
+        if (mode === 'unique-leaders') dis = usedIds.includes(opt.value);
+        if (mode === 'unique-civs') dis = usedCivs.includes(leader.civ);
+      }
+      opt.disabled = dis;
+      opt.style.color = dis ? '#555' : '';
+    });
+  });
+}
+
+$('#uniqueness-mode')?.addEventListener('change', () => { refreshSlotOptions(); });
 function getSlotPlayers() {
   // Returns all players: your leader (P1) + slot players (P2+), filling blanks with random
   const you = LEADERS.find(l => l.id === $('#planner-leader').value);
@@ -122,11 +166,20 @@ function getSlotPlayers() {
     }
   });
 
-  const available = LEADERS.filter(l => !picked.includes(l.id));
+  const mode = getUniquenessMode();
+  const usedCivs = players.filter(p => p.leader).map(p => p.leader.civ);
+  let available = LEADERS.filter(l => !picked.includes(l.id));
+  if (mode === 'unique-civs') available = available.filter(l => !usedCivs.includes(l.civ));
   for (const p of players) {
     if (!p.leader && available.length > 0) {
       const idx = Math.floor(Math.random() * available.length);
-      p.leader = available.splice(idx, 1)[0];
+      const chosen = available.splice(idx, 1)[0];
+      p.leader = chosen;
+      picked.push(chosen.id);
+      if (mode === 'unique-civs') {
+        usedCivs.push(chosen.civ);
+        available = available.filter(l => !usedCivs.includes(l.civ));
+      }
     }
   }
   return players.filter(p => p.leader);
@@ -397,6 +450,7 @@ function renderBoostSection(leader, victory) {
 
 // === Helpers ===
 function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+
 
 // === Init ===
 populatePlannerLeaders();
