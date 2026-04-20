@@ -182,6 +182,17 @@ function recommendVictory(leader, opponents) {
 }
 
 // === Build Single Player Strategy HTML ===
+// === Collapsible Section Helper ===
+function collapsible(title, content, open = false) {
+  return `<div class="collapsible ${open ? 'open' : ''}">
+    <div class="collapsible-header" onclick="this.parentElement.classList.toggle('open')">
+      <span class="collapsible-title">${title}</span>
+      <span class="collapsible-icon">›</span>
+    </div>
+    <div class="collapsible-body">${content}</div>
+  </div>`;
+}
+
 function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   const ranked = recommendVictory(leader, opponents);
   const victory = ranked[0].type;
@@ -194,47 +205,65 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   const densityTips = DENSITY_TIPS[victory]?.[density.level] || [];
   const sizeLabel = MAP_SIZES[mapSize]?.label || mapSize;
 
+  // Header — always visible
   let html = `
     <div class="strategy-section">
       <h3>${leader.name} (${leader.civ}) — ${capitalize(victory)} Victory</h3>
       <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players</div>
-    </div>
-    <div class="strategy-section">
-      <h4>Recommended Victory Path</h4>
-      <div class="victory-rec-list">
-        ${ranked.filter(r => r.synergy >= 30).map((r, i) => `
-          <div class="victory-rec-item ${i===0?'victory-rec-best':''}">
-            <div class="victory-rec-rank">${i===0?'★':i+1}</div>
-            <div class="victory-rec-info"><span class="victory-rec-name">${capitalize(r.type)}</span><span class="victory-rec-score">${r.synergy}% synergy${r.score!==r.synergy?' · '+r.score+'% adjusted':''}</span></div>
-            <div class="synergy-bar" style="flex:1;max-width:120px;"><div class="synergy-fill" style="width:${r.score}%;background:${i===0?'#00c850':r.score>=50?'#f59e0b':'#555'}"></div></div>
-          </div>`).join('')}
-      </div>
-      ${opponents.length > 0 ? '<p style="font-size:11px;color:#555;margin-top:6px;">Scores adjusted for opponent matchups.</p>' : ''}
-    </div>
-    <div class="strategy-section">
-      <h4>Map: ${capitalize(mapType)} · ${sizeLabel}</h4>
-      <p>${mapTip}</p>
-      <div class="density-box density-${density.level}" style="margin-top:8px;">
-        <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Density: ${capitalize(density.level)}</div>
-        <p style="font-size:12px;color:#ccc;margin-bottom:6px;">${density.desc}</p>
-        ${densityTips.length>0?`<ul>${densityTips.map(t=>'<li>'+t+'</li>').join('')}</ul>`:''}
-      </div>
     </div>`;
 
-  if (opponents.length > 0) html += renderMatchupAnalysis(leader, opponents);
-
-  html += `
-    <div class="strategy-section"><h4>Leader-Specific Tips</h4><ul>${strat.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>
-    <div class="strategy-section"><h4>Era-by-Era Game Plan</h4>
-      ${Object.entries(buildOrder.eras).map(([era, data]) => `
-        <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
-        <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join('')}
+  // Victory Recommendation — open by default
+  html += collapsible('Recommended Victory Path', `
+    <div class="victory-rec-list">
+      ${ranked.filter(r => r.synergy >= 30).map((r, i) => `
+        <div class="victory-rec-item ${i===0?'victory-rec-best':''}">
+          <div class="victory-rec-rank">${i===0?'★':i+1}</div>
+          <div class="victory-rec-info"><span class="victory-rec-name">${capitalize(r.type)}</span><span class="victory-rec-score">${r.synergy}% synergy${r.score!==r.synergy?' · '+r.score+'% adjusted':''}</span></div>
+          <div class="synergy-bar" style="flex:1;max-width:120px;"><div class="synergy-fill" style="width:${r.score}%;background:${i===0?'#00c850':r.score>=50?'#f59e0b':'#555'}"></div></div>
+        </div>`).join('')}
     </div>
-    <div class="strategy-section"><h4>Key Policies</h4><ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul></div>
-    <div class="strategy-section"><h4>Recommended Wonders</h4><ul>${buildOrder.wonders.map(w=>`<li>${w}</li>`).join('')}</ul></div>
-    <div class="strategy-section"><h4>General ${capitalize(victory)} Tips</h4><ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>
-    ${renderBoostSection(leader, victory)}
-    ${bbgMode?`<div class="strategy-section"><div class="bbg-note">BBG: ${leader.bbgNotes||'No specific BBG changes.'}</div></div>`:''}`;
+    ${opponents.length > 0 ? '<p style="font-size:11px;color:#555;margin-top:6px;">Scores adjusted for opponent matchups.</p>' : ''}
+  `, true);
+
+  // Map Analysis — open by default
+  html += collapsible(`Map: ${capitalize(mapType)} · ${sizeLabel}`, `
+    <p>${mapTip}</p>
+    <div class="density-box density-${density.level}" style="margin-top:8px;">
+      <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Density: ${capitalize(density.level)}</div>
+      <p style="font-size:12px;color:#ccc;margin-bottom:6px;">${density.desc}</p>
+      ${densityTips.length>0?`<ul>${densityTips.map(t=>'<li>'+t+'</li>').join('')}</ul>`:''}
+    </div>
+  `, true);
+
+  // Matchups — open by default if present
+  if (opponents.length > 0) {
+    html += collapsible(`Opponent Matchups (${opponents.length})`, renderMatchupContent(leader, opponents), true);
+  }
+
+  // Leader Tips — collapsed
+  html += collapsible('Leader-Specific Tips', `<ul>${strat.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
+
+  // Era-by-Era — collapsed
+  html += collapsible('Era-by-Era Game Plan', Object.entries(buildOrder.eras).map(([era, data]) => `
+    <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
+    <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join(''));
+
+  // Policies — collapsed
+  html += collapsible('Key Policies', `<ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul>`);
+
+  // Wonders — collapsed
+  html += collapsible('Recommended Wonders', `<ul>${buildOrder.wonders.map(w=>`<li>${w}</li>`).join('')}</ul>`);
+
+  // General Tips — collapsed
+  html += collapsible(`General ${capitalize(victory)} Tips`, `<ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
+
+  // Boosts — collapsed
+  html += collapsible('Key Eurekas & Inspirations', renderBoostContent(leader, victory));
+
+  // BBG note — collapsed if present
+  if (bbgMode) {
+    html += collapsible('BBG Notes', `<div class="bbg-note">BBG: ${leader.bbgNotes||'No specific BBG changes.'}</div>`);
+  }
 
   return html;
 }
@@ -297,9 +326,8 @@ function generateStrategy(teamMode) {
 }
 
 // === Matchup Analysis ===
-function renderMatchupAnalysis(you, opponents) {
+function renderMatchupContent(you, opponents) {
   const THREAT_RANK = { high: 0, medium: 1, low: 2 };
-  let html = '<div class="strategy-section"><h4>Opponent Matchups</h4>';
   const rated = opponents.map(o => {
     const opp = o.leader;
     const threatInfo = THREAT_MATRIX[opp.victoryTypes[0]];
@@ -309,6 +337,7 @@ function renderMatchupAnalysis(you, opponents) {
     return { opp, random: o.random, threatLevel, threatInfo, oppVictory: opp.victoryTypes[0] };
   }).sort((a, b) => THREAT_RANK[a.threatLevel] - THREAT_RANK[b.threatLevel]);
 
+  let html = '';
   rated.forEach(({ opp, random, threatLevel, threatInfo, oppVictory }) => {
     html += `<div class="matchup-card threat-${threatLevel}">
       <h4>${opp.name} (${opp.civ})${random ? ' <span class="random-badge">Random</span>' : ''}</h4>
@@ -322,7 +351,12 @@ function renderMatchupAnalysis(you, opponents) {
   if (highThreats.length > 0) {
     html += `<div class="bbg-note" style="border-color:#e8404040;background:#e8404015;color:#e84040;margin-top:8px;">⚠ ${highThreats.length} high-threat opponent(s): ${highThreats.map(h=>h.opp.name).join(', ')}.</div>`;
   }
-  return html + '</div>';
+  return html;
+}
+
+// Keep old function name for backwards compat
+function renderMatchupAnalysis(you, opponents) {
+  return '<div class="strategy-section"><h4>Opponent Matchups</h4>' + renderMatchupContent(you, opponents) + '</div>';
 }
 
 function getCounterTips(you, opp) {
@@ -336,10 +370,10 @@ function getCounterTips(you, opp) {
 }
 
 // === Boost Section ===
-function renderBoostSection(leader, victory) {
+function renderBoostContent(leader, victory) {
   const general = BOOST_GUIDES[victory];
   const specific = LEADER_BOOSTS[leader.id] || [];
-  let html = '<div class="strategy-section"><h4>Key Eurekas &amp; Inspirations</h4>';
+  let html = '';
   if (general) html += `<div class="boost-settling">${general.settling}</div>`;
   if (specific.length > 0) {
     html += `<div class="boost-subheading">${leader.name}-Specific Boosts</div>`;
@@ -352,7 +386,11 @@ function renderBoostSection(leader, victory) {
     html += `<div class="boost-subheading">${capitalize(victory)} Victory Boosts</div>`;
     html += general.critical.map(b => `<div class="boost-item"><div class="boost-header"><span class="boost-name">${b.name}</span><span class="boost-type boost-type-${b.type}">${b.type==='eureka'?'Eureka':'Inspiration'}</span></div><div class="boost-trigger">Trigger: ${b.trigger}</div><div class="boost-reason">${b.why}</div></div>`).join('');
   }
-  return html + '</div>';
+  return html;
+}
+
+function renderBoostSection(leader, victory) {
+  return '<div class="strategy-section"><h4>Key Eurekas &amp; Inspirations</h4>' + renderBoostContent(leader, victory) + '</div>';
 }
 
 // === Helpers ===

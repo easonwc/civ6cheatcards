@@ -271,6 +271,73 @@ select, input, textarea { font-size: 16px; }
 .strategy-section li { padding: 4px 0; font-size: 13px; color: #ccc; border-bottom: 1px solid #1c1c1c; }
 .strategy-section li::before { content: '→ '; color: #00c850; }
 
+/* === Collapsible Sections === */
+.collapsible {
+  margin-bottom: 8px;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #1c1c1c;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.collapsible-header:hover { background: #222; }
+
+.collapsible-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.collapsible-icon {
+  font-size: 16px;
+  color: #555;
+  transition: transform 0.15s;
+}
+
+.collapsible.open .collapsible-icon { transform: rotate(90deg); color: #00c850; }
+
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}
+
+.collapsible.open .collapsible-body {
+  max-height: 5000px;
+  transition: max-height 0.4s ease-in;
+}
+
+.collapsible-body > * {
+  padding: 0 14px;
+}
+
+.collapsible-body > *:first-child { padding-top: 10px; }
+.collapsible-body > *:last-child { padding-bottom: 14px; }
+
+/* Content inside collapsibles */
+.collapsible-body p { color: #888; font-size: 13px; margin-bottom: 6px; }
+.collapsible-body ul { list-style: none; padding: 0 14px; }
+.collapsible-body li { padding: 4px 0; font-size: 13px; color: #ccc; border-bottom: 1px solid #1c1c1c; }
+.collapsible-body li::before { content: '→ '; color: #00c850; }
+.collapsible-body .matchup-card { margin: 0 14px 10px; }
+.collapsible-body .victory-rec-list { padding: 0 14px; }
+.collapsible-body .density-box { margin: 8px 14px 0; }
+.collapsible-body .era-block { margin: 0 14px 12px; }
+.collapsible-body .boost-settling { margin: 0 14px 12px; }
+.collapsible-body .boost-subheading { padding: 0 14px; }
+.collapsible-body .boost-item { margin: 0 14px 4px; }
+.collapsible-body .bbg-note { margin: 0 14px; }
+
 .build-order { display: flex; flex-direction: column; gap: 4px; }
 
 .era-block {
