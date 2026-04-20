@@ -1,0 +1,476 @@
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Arial', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f0f0f0;
+  background: #0a0a0a;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent iOS zoom on input focus */
+select, input, textarea { font-size: 16px; }
+
+/* === Header === */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #141414;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo-text { font-size: 16px; font-weight: 600; color: #00c850; }
+
+.mod-toggle { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 12px; color: #888; }
+.mod-toggle input[type="checkbox"] {
+  appearance: none; width: 36px; height: 20px; background: #2a2a2a;
+  border-radius: 10px; position: relative; cursor: pointer; transition: background 0.15s;
+}
+.mod-toggle input[type="checkbox"]::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+  background: #888; border-radius: 50%; transition: all 0.15s;
+}
+.mod-toggle input[type="checkbox"]:checked { background: #008c37; }
+.mod-toggle input[type="checkbox"]:checked::after { left: 18px; background: #00c850; }
+
+/* === Main === */
+.app-main { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+/* === Shared Form Elements === */
+.filter-select {
+  background: #141414; border: 1px solid #2a2a2a; color: #f0f0f0;
+  padding: 6px 10px; border-radius: 4px; font-size: 13px;
+  font-family: inherit; transition: border-color 0.15s; width: 100%;
+}
+.filter-select:focus { outline: none; border-color: #00c850; }
+
+.control-group label { display: block; font-size: 12px; color: #888; margin-bottom: 4px; }
+
+.mode-toggle { display: flex; border: 1px solid #2a2a2a; border-radius: 4px; overflow: hidden; }
+.mode-btn {
+  flex: 1; padding: 6px 10px; font-size: 12px; font-family: inherit;
+  background: #141414; border: none; color: #888; cursor: pointer; transition: all 0.15s;
+}
+.mode-btn + .mode-btn { border-left: 1px solid #2a2a2a; }
+.mode-btn:hover { color: #f0f0f0; }
+.mode-btn.active { background: #00c85020; color: #00c850; }
+
+/* === Setup Screen === */
+.setup-screen { }
+.setup-screen.hidden { display: none; }
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.setup-card {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.setup-card.hidden { display: none; }
+
+.setup-card-full { grid-column: 1 / -1; }
+
+.setup-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00c850;
+  margin-bottom: 12px;
+}
+
+.setup-card-desc {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.setup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setup-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.setup-action {
+  text-align: center;
+  padding: 8px 0;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-generate {
+  background: #00c850;
+  border: none;
+  color: #000;
+  padding: 12px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.btn-generate:hover { background: #00a040; }
+
+.btn-generate-team {
+  background: #141414;
+  border: 2px solid #00c850;
+  color: #00c850;
+}
+
+.btn-generate-team:hover { background: #00c850; color: #000; }
+.btn-generate-team.hidden { display: none; }
+
+/* === Opponents === */
+.opponent-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.opponent-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.opponent-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  min-width: 26px;
+  flex-shrink: 0;
+}
+
+.opponent-row select { flex: 1; min-width: 0; }
+
+/* === Inline Leader Card === */
+.inline-leader-card {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.inline-leader-card:empty { display: none; }
+
+.inline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.inline-card-name { font-size: 14px; font-weight: 600; }
+.inline-card-civ { font-size: 12px; color: #888; }
+.inline-card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.inline-card-abilities { display: flex; flex-direction: column; gap: 4px; }
+
+.ability-block { background: #1c1c1c; border-radius: 4px; padding: 8px 10px; margin-bottom: 4px; }
+.ability-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
+.ability-desc { font-size: 12px; color: #888; margin-top: 2px; }
+
+.victory-tag {
+  font-size: 11px; padding: 2px 6px; border-radius: 10px;
+  background: #1c1c1c; color: #666; border: 1px solid #2a2a2a; white-space: nowrap;
+}
+.victory-tag.primary { color: #00c850; border-color: #00c85040; background: #00c85015; }
+
+.bbg-note {
+  background: #00c85015; border: 1px solid #00c85030;
+  border-radius: 4px; padding: 8px 10px; font-size: 12px; color: #00c850;
+}
+
+/* === Strategy Screen === */
+.strategy-screen { }
+.strategy-screen.hidden { display: none; }
+
+.strategy-toolbar {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* === Team Player Tabs === */
+.team-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.team-tab {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.team-tab:hover { color: #f0f0f0; border-color: #555; }
+.team-tab.active { color: #00c850; background: #00c85020; border-color: #00c85040; }
+
+.team-panel { display: none; }
+.team-panel.active { display: block; }
+
+.btn-back {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #888;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.btn-back:hover { color: #f0f0f0; border-color: #555; }
+
+.strategy-output {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+/* === Strategy Sections === */
+.strategy-section { margin-bottom: 20px; }
+.strategy-section h3 { font-size: 16px; font-weight: 600; color: #00c850; margin-bottom: 8px; }
+.strategy-section h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: #f0f0f0; }
+.strategy-section p { color: #888; font-size: 13px; margin-bottom: 6px; }
+.strategy-section ul { list-style: none; padding: 0; }
+.strategy-section li { padding: 4px 0; font-size: 13px; color: #ccc; border-bottom: 1px solid #1c1c1c; }
+.strategy-section li::before { content: '→ '; color: #00c850; }
+
+.build-order { display: flex; flex-direction: column; gap: 4px; }
+
+.era-block {
+  margin-bottom: 12px;
+  border-left: 2px solid #2a2a2a;
+  padding-left: 12px;
+}
+
+.era-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.era-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #00c850;
+}
+
+.era-focus {
+  font-size: 12px;
+  color: #888;
+}
+.build-step { display: flex; align-items: center; gap: 10px; padding: 6px 10px; background: #1c1c1c; border-radius: 4px; font-size: 13px; }
+.build-step-num { color: #00c850; font-weight: 600; font-size: 12px; min-width: 24px; }
+.build-step-text { color: #ccc; }
+
+.synergy-bar { height: 6px; background: #2a2a2a; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.synergy-fill { height: 100%; background: #00c850; border-radius: 3px; transition: width 0.3s; }
+
+/* === Matchups === */
+.matchup-card { background: #1c1c1c; border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+
+/* === Victory Recommendation === */
+.victory-rec-list { display: flex; flex-direction: column; gap: 4px; }
+
+.victory-rec-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 10px; background: #1c1c1c; border-radius: 4px;
+  border-left: 3px solid #2a2a2a;
+}
+
+.victory-rec-best { border-left-color: #00c850; background: #00c85008; }
+
+.victory-rec-rank {
+  font-size: 13px; font-weight: 600; min-width: 20px; text-align: center;
+  color: #555;
+}
+
+.victory-rec-best .victory-rec-rank { color: #00c850; }
+
+.victory-rec-info { display: flex; flex-direction: column; min-width: 140px; }
+.victory-rec-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
+.victory-rec-score { font-size: 11px; color: #888; }
+.matchup-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.matchup-card p { font-size: 13px; color: #888; }
+.threat-high { border-left: 3px solid #e84040; }
+.threat-medium { border-left: 3px solid #f59e0b; }
+.threat-low { border-left: 3px solid #00c850; }
+
+.random-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: #2a2a2a;
+  color: #888;
+  vertical-align: middle;
+}
+
+/* === Density === */
+.density-box { background: #1c1c1c; border-radius: 4px; padding: 10px 12px; border-left: 3px solid #2a2a2a; }
+.density-box ul { list-style: none; padding: 0; }
+.density-box li { font-size: 12px; color: #ccc; padding: 2px 0; }
+.density-box li::before { content: '→ '; color: #00c850; }
+.density-cramped { border-left-color: #e84040; }
+.density-tight { border-left-color: #f59e0b; }
+.density-normal { border-left-color: #00c850; }
+.density-spacious { border-left-color: #2563eb; }
+.density-empty { border-left-color: #7c3aed; }
+
+/* === Boost Guide === */
+.boost-settling { background: #1c1c1c; border-left: 3px solid #00c850; padding: 8px 12px; font-size: 12px; color: #ccc; margin-bottom: 12px; border-radius: 0 4px 4px 0; }
+.boost-subheading { font-size: 12px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin: 12px 0 6px; }
+.boost-item { background: #1c1c1c; border-radius: 4px; padding: 8px 10px; margin-bottom: 4px; border-left: 3px solid #2a2a2a; }
+.boost-item.boost-critical { border-left-color: #00c850; }
+.boost-item.boost-high { border-left-color: #f59e0b; }
+.boost-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+.boost-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
+.boost-type { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 10px; }
+.boost-type-eureka { background: #2563eb25; color: #60a5fa; }
+.boost-type-inspiration { background: #7c3aed25; color: #a78bfa; }
+.boost-tags { display: flex; gap: 4px; align-items: center; }
+.boost-priority { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 10px; text-transform: uppercase; }
+.boost-critical .boost-priority { background: #00c85020; color: #00c850; }
+.boost-high .boost-priority { background: #f59e0b20; color: #f59e0b; }
+.boost-trigger { font-size: 11px; color: #00c850; margin-bottom: 2px; }
+.boost-reason { font-size: 12px; color: #888; }
+
+/* === Scrollbar === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* === Responsive === */
+
+/* Tablets and small screens */
+@media (max-width: 768px) {
+  .app-main { padding: 12px; }
+
+  .app-header { padding: 8px 12px; }
+  .logo-text { font-size: 14px; }
+
+  .setup-grid { grid-template-columns: 1fr; gap: 12px; }
+  .setup-row { grid-template-columns: 1fr; }
+  .setup-card { padding: 12px; }
+  .setup-card-full { grid-column: auto; }
+
+  .opponent-slots { grid-template-columns: 1fr; }
+
+  .setup-action { flex-direction: column; gap: 8px; }
+  .btn-generate { width: 100%; padding: 14px; }
+
+  .inline-card-header { flex-direction: column; gap: 6px; }
+
+  .strategy-output { padding: 14px; border-radius: 0; border-left: none; border-right: none; }
+
+  .team-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .team-tab { flex-shrink: 0; font-size: 12px; padding: 6px 10px; }
+
+  .strategy-toolbar { flex-wrap: wrap; }
+
+  .victory-rec-item { gap: 6px; padding: 6px 8px; }
+  .victory-rec-info { min-width: 100px; }
+
+  .era-header { flex-direction: column; gap: 2px; }
+
+  .boost-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+
+  .matchup-card { padding: 10px; }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .app-main { padding: 8px; }
+
+  .app-header { padding: 6px 10px; }
+  .logo svg { width: 22px; height: 22px; }
+  .logo-text { font-size: 13px; }
+  .mod-toggle { font-size: 11px; gap: 6px; }
+  .mod-toggle input[type="checkbox"] { width: 32px; height: 18px; }
+  .mod-toggle input[type="checkbox"]::after { width: 14px; height: 14px; }
+  .mod-toggle input[type="checkbox"]:checked::after { left: 16px; }
+
+  .setup-card { padding: 10px; }
+  .setup-card-title { font-size: 13px; margin-bottom: 8px; }
+
+  .filter-select { font-size: 14px; padding: 8px 10px; }
+  .control-group label { font-size: 11px; }
+
+  .mode-btn { padding: 8px 6px; font-size: 11px; }
+
+  .btn-generate { font-size: 15px; padding: 14px; border-radius: 8px; }
+  .btn-back { font-size: 12px; padding: 8px 12px; }
+
+  .inline-card-name { font-size: 13px; }
+  .ability-block { padding: 6px 8px; }
+  .ability-name { font-size: 12px; }
+  .ability-desc { font-size: 11px; }
+
+  .strategy-output { padding: 10px; }
+  .strategy-section h3 { font-size: 15px; }
+  .strategy-section h4 { font-size: 13px; }
+  .strategy-section li { font-size: 12px; }
+
+  .build-step { padding: 5px 8px; font-size: 12px; }
+  .build-step-num { min-width: 20px; font-size: 11px; }
+
+  .era-block { padding-left: 8px; }
+  .era-name { font-size: 12px; }
+  .era-focus { font-size: 11px; }
+
+  .boost-item { padding: 6px 8px; }
+  .boost-name { font-size: 12px; }
+  .boost-reason { font-size: 11px; }
+  .boost-trigger { font-size: 10px; }
+
+  .matchup-card h4 { font-size: 13px; }
+  .matchup-card p { font-size: 12px; }
+
+  .density-box { padding: 8px 10px; }
+
+  .team-tab { font-size: 11px; padding: 5px 8px; }
+
+  .victory-rec-item { flex-wrap: wrap; }
+  .victory-rec-info { min-width: 0; flex: 1; }
+  .synergy-bar { max-width: none !important; }
+
+  .opponent-num { font-size: 10px; min-width: 22px; }
+}

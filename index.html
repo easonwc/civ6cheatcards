@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civ 6 Strategy Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="13" stroke="#00c850" stroke-width="2"/>
+        <path d="M14 4 L14 24 M4 14 L24 14 M7 7 L21 21 M21 7 L7 21" stroke="#00c850" stroke-width="1.2" opacity="0.4"/>
+        <circle cx="14" cy="14" r="4" fill="#00c850"/>
+      </svg>
+      <span class="logo-text">Civ 6 Planner</span>
+    </div>
+    <div class="header-controls">
+      <label class="mod-toggle">
+        <input type="checkbox" id="bbg-toggle" checked>
+        <span class="toggle-label">BBG Mode</span>
+      </label>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- SETUP SCREEN -->
+    <div id="setup-screen" class="setup-screen">
+      <div class="setup-grid">
+        <!-- Your Leader -->
+        <div class="setup-card">
+          <div class="setup-card-title">Your Leader</div>
+          <select id="planner-leader" class="filter-select"></select>
+          <div id="planner-leader-card" class="inline-leader-card"></div>
+        </div>
+
+        <!-- Game Settings -->
+        <div class="setup-card">
+          <div class="setup-card-title">Game Settings</div>
+          <div class="setup-fields">
+            <div class="control-group">
+              <label>Map Type</label>
+              <select id="planner-map" class="filter-select">
+                <option value="pangaea">Pangaea</option>
+                <option value="continents">Continents</option>
+                <option value="continents-islands">Continents and Islands</option>
+                <option value="small-continents">Small Continents</option>
+                <option value="fractal">Fractal</option>
+                <option value="archipelago">Archipelago</option>
+                <option value="islands">Island Plates</option>
+                <option value="inland-sea">Inland Sea</option>
+                <option value="lakes">Lakes</option>
+                <option value="terra">Terra</option>
+                <option value="primordial">Primordial</option>
+                <option value="splintered-fractal">Splintered Fractal</option>
+                <option value="seven-seas">Seven Seas</option>
+                <option value="tilted-axis">Tilted Axis</option>
+                <option value="shuffle">Shuffle</option>
+              </select>
+            </div>
+            <div class="setup-row">
+              <div class="control-group">
+                <label>Map Size</label>
+                <select id="planner-size" class="filter-select">
+                  <option value="duel">Duel</option>
+                  <option value="tiny">Tiny</option>
+                  <option value="small">Small</option>
+                  <option value="standard" selected>Standard</option>
+                  <option value="large">Large</option>
+                  <option value="huge">Huge</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label>Players</label>
+                <select id="planner-players" class="filter-select"></select>
+              </div>
+            </div>
+            <div class="control-group">
+              <label>Mode</label>
+              <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="sp">Single Player</button>
+                <button class="mode-btn" data-mode="mp">Multiplayer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Players -->
+        <div id="players-card" class="setup-card setup-card-full">
+          <div class="setup-card-title" id="players-card-title">Known Opponents</div>
+          <p class="setup-card-desc" id="players-card-desc">Fill in opponents you know. Leave unknown slots blank.</p>
+          <div id="player-slots" class="opponent-slots"></div>
+        </div>
+      </div>
+
+      <div class="setup-action">
+        <button id="generate-plan" class="btn-generate">Generate My Strategy</button>
+        <button id="generate-team" class="btn-generate btn-generate-team hidden">Generate Team Strategies</button>
+      </div>
+    </div>
+
+    <!-- STRATEGY SCREEN -->
+    <div id="strategy-screen" class="strategy-screen hidden">
+      <div class="strategy-toolbar">
+        <button id="back-to-setup" class="btn-back">← Back to Setup</button>
+      </div>
+      <div id="strategy-output" class="strategy-output"></div>
+    </div>
+  </main>
+
+  <script src="data/leaders.js"></script>
+  <script src="data/builds.js"></script>
+  <script src="data/boosts.js"></script>
+  <script src="data/strategy.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
