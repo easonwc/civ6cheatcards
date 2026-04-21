@@ -618,3 +618,87 @@ select, input, textarea { font-size: 16px; }
 
   .opponent-num { font-size: 10px; min-width: 22px; }
 }
+
+/* === Print / PDF Export === */
+@media print {
+  body { background: #fff; color: #000; font-size: 11px; }
+
+  .app-header, .strategy-toolbar, .setup-screen, .team-tabs { display: none !important; }
+
+  .strategy-screen { display: block !important; }
+  .strategy-screen.hidden { display: block !important; }
+
+  .strategy-output {
+    background: #fff; border: none; padding: 0;
+    box-shadow: none;
+  }
+
+  .strategy-columns { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Expand all collapsibles */
+  .collapsible { border: 1px solid #ccc; margin-bottom: 6px; break-inside: avoid; }
+  .collapsible-header { background: #f5f5f5; }
+  .collapsible-icon { display: none; }
+  .collapsible-body { max-height: none !important; overflow: visible !important; }
+  .collapsible-title { color: #000; }
+
+  /* Content colors for print */
+  .strategy-section h3 { color: #000; }
+  .strategy-section h4 { color: #333; }
+  .strategy-section li { color: #333; border-color: #ddd; }
+  .strategy-section li::before { color: #333; }
+  .strategy-section p { color: #555; }
+
+  .era-block { border-left-color: #999; }
+  .era-name { color: #000; }
+  .era-focus { color: #555; }
+
+  .build-step { background: #f9f9f9; color: #333; }
+  .build-step-num { color: #000; }
+  .build-step-text { color: #333; }
+
+  .matchup-card { background: #f9f9f9; border-left-width: 3px; break-inside: avoid; }
+  .matchup-card h4 { color: #000; }
+  .matchup-card p { color: #333; }
+
+  .threat-high { border-left-color: #c00; }
+  .threat-medium { border-left-color: #c80; }
+  .threat-low { border-left-color: #080; }
+
+  .victory-rec-item { background: #f9f9f9; border-left-width: 3px; }
+  .victory-rec-best { border-left-color: #080; background: #f0fff0; }
+  .victory-rec-name { color: #000; }
+  .victory-rec-score { color: #555; }
+
+  .synergy-bar { background: #ddd; }
+  .synergy-fill { background: #333; }
+
+  .density-box, .map-affinity { background: #f9f9f9; border-left-width: 3px; }
+  .density-box li { color: #333; }
+
+  .boost-item { background: #f9f9f9; border-left-width: 3px; break-inside: avoid; }
+  .boost-name { color: #000; }
+  .boost-reason { color: #555; }
+  .boost-trigger { color: #333; }
+  .boost-settling { background: #f0f0f0; border-left-color: #333; color: #333; }
+  .boost-subheading { color: #333; }
+  .boost-type { background: #eee; color: #333; }
+  .boost-priority { background: #eee; color: #333; }
+
+  .bbg-note { background: #f0f0f0; border-color: #999; color: #333; }
+  .random-badge { background: #eee; color: #555; }
+
+  .collapsible-body .matchup-card,
+  .collapsible-body .victory-rec-list,
+  .collapsible-body .density-box,
+  .collapsible-body .map-affinity,
+  .collapsible-body .era-block,
+  .collapsible-body .boost-settling,
+  .collapsible-body .boost-item,
+  .collapsible-body .bbg-note,
+  .collapsible-body ul { margin-left: 0; padding-left: 0; }
+
+  /* Team mode: show all panels */
+  .team-panel { display: block !important; page-break-before: always; }
+  .team-panel .strategy-output { border: none; padding: 0; }
+}

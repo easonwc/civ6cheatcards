@@ -36,6 +36,12 @@ $('#back-to-setup')?.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
 
+$('#print-strategy')?.addEventListener('click', () => {
+  // Expand all collapsible sections before printing
+  $$('.collapsible').forEach(c => c.classList.add('open'));
+  window.print();
+});
+
 // === Leader Setup ===
 function populatePlannerLeaders() {
   const select = $('#planner-leader');
