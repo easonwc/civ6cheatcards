@@ -344,12 +344,14 @@ function generateStrategy(teamMode) {
   const mapSize = $('#planner-size').value;
   const playerCount = parseInt($('#planner-players').value) || MAP_SIZES[mapSize]?.defaultPlayers || 8;
 
+  lastTeamCards = null;
+
   if (teamMode) {
-    // Team mode: generate for every player
     const allPlayers = getSlotPlayers();
     if (allPlayers.length < 2) return;
 
-    // Build tabs + panels
+    lastTeamCards = [];
+
     let tabsHtml = '<div class="team-tabs">';
     let panelsHtml = '';
 
