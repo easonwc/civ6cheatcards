@@ -1430,22 +1430,22 @@ const LEADERS = [
     }
   },
   {
-    id: "john-iii", name: "John III Sobieski", civ: "Poland",
-    victoryTypes: ["domination", "religion"],
-    tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Lion of Lehistan", desc: "+4 combat strength for all units when fighting in or adjacent to an Encampment district. Encampments provide +2 Faith and +2 Gold." },
-    civAbility: { name: "Golden Liberty", desc: "Culture bomb when building Encampments or Fort. One Military policy slot converted to Wildcard." },
+    id: "cleopatra-ptolemaic", name: "Cleopatra (Ptolemaic)", civ: "Egypt",
+    victoryTypes: ["science", "culture"],
+    tier: { vanilla: "A", bbg: "A" },
+    leaderAbility: { name: "Ptolemaic Dynasty", desc: "+100% Alliance points from trade routes. +15% Production toward projects in cities with a Campus. Gain +1 Great Scientist point per turn for each Alliance." },
+    civAbility: { name: "Iteru", desc: "+15% production toward districts and wonders built next to rivers. Floodplains don't block district/wonder placement." },
     unique: [
-      { name: "Winged Hussar (UU)", desc: "Replaces Cavalry. Pushes back defenders when dealing more damage." },
-      { name: "Sukiennice (UB)", desc: "Replaces Market. International trade routes provide +2 Production, domestic +4 Gold." }
+      { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement when starting on open terrain. Ranged attack." },
+      { name: "Sphinx (UI)", desc: "+1 Culture, +1 Faith. +1 Culture if adjacent to a Wonder. Cannot be built on hills." }
     ],
-    bbgNotes: "Encampment focus is more military-oriented than Jadwiga. Faith from Encampments is a nice bonus.",
+    bbgNotes: "Alliance-focused science is strong. Great Scientist points from alliances stack well in longer games.",
     strategy: {
-      domination: { synergy: 75, tips: ["Encampment combat bonus", "Winged Hussar push-back", "Culture bomb from Encampments", "Wildcard slot flexibility"] },
-      science: { synergy: 40, tips: ["Not focused on science"] },
-      culture: { synergy: 45, tips: ["Culture bomb territory", "Wildcard slot"] },
-      religion: { synergy: 65, tips: ["Encampment faith generation", "Wildcard slot for religious policies", "Culture bomb spreads territory"] },
-      diplomacy: { synergy: 35, tips: ["Not focused on diplomacy"] }
+      domination: { synergy: 25, tips: ["Not focused on domination", "Maryannu Chariot Archer is decent early"] },
+      science: { synergy: 80, tips: ["Great Scientist points from alliances", "+15% project production with Campus", "Form alliances early and trade"] },
+      culture: { synergy: 70, tips: ["Sphinx culture and faith", "Iteru wonder production", "Alliance points for diplomacy"] },
+      religion: { synergy: 50, tips: ["Sphinx faith generation", "River production for Holy Sites"] },
+      diplomacy: { synergy: 65, tips: ["Alliance-focused abilities", "Trade route alliance points", "Natural diplomatic playstyle"] }
     }
   },
   {

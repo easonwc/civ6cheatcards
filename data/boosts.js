@@ -439,10 +439,10 @@ const LEADER_BOOSTS = {
     { name: "Foreign Trade", priority: "critical", reason: "Earn a Trade Route. River production (+50% for districts/buildings) needs trade income." },
     { name: "Stirrups", priority: "high", reason: "Unlocks Cavalry path. Huszár gets +3 combat per active alliance." }
   ],
-  "john-iii": [
-    { name: "Bronze Working", priority: "critical", reason: "Kill 3 Barbarians. Encampments culture bomb territory + give +2 Faith and +2 Gold." },
-    { name: "Masonry", priority: "critical", reason: "Build a Quarry. Encampment combat bonus (+4) needs early military infrastructure." },
-    { name: "Stirrups", priority: "high", reason: "Unlocks Cavalry path. Winged Hussar push-back is your timing attack." }
+  "cleopatra-ptolemaic": [
+    { name: "Writing", priority: "critical", reason: "Meet a civ. Campus + alliances = Great Scientist points. Form alliances ASAP." },
+    { name: "Political Philosophy", priority: "critical", reason: "Meet 3 city-states. Alliances unlock with civics — you need alliance points flowing early." },
+    { name: "Masonry", priority: "high", reason: "Build a Quarry. Iteru river production helps rush wonders and districts." }
   ],
   "victoria-steam": [
     { name: "Apprenticeship", priority: "critical", reason: "Build 3 Mines. Industrial focus — powered buildings give +4 yields." },
