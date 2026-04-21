@@ -37,6 +37,7 @@ $('#back-to-setup')?.addEventListener('click', () => {
 });
 
 $('#save-card')?.addEventListener('click', exportStrategyCard);
+$('#save-all-cards')?.addEventListener('click', exportAllCards);
 
 // === Leader Setup ===
 function populatePlannerLeaders() {
@@ -336,6 +337,8 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
 }
 
 // === Generate Strategy (single or team) ===
+let lastTeamCards = null;
+
 function generateStrategy(teamMode) {
   const mapType = $('#planner-map').value;
   const mapSize = $('#planner-size').value;
@@ -355,6 +358,7 @@ function generateStrategy(teamMode) {
       const stratHtml = buildStrategyHTML(p.leader, others, mapType, mapSize, playerCount);
       const active = i === 0 ? ' active' : '';
       tabsHtml += `<button class="team-tab${active}" data-player="${i}">P${i + 1}: ${p.leader.name}${p.random ? ' *' : ''}</button>`;
+      lastTeamCards.push({ leader: p.leader, html: stratHtml });
       panelsHtml += `<div class="team-panel${active}" data-player="${i}"><div class="strategy-output">${stratHtml}</div></div>`;
     });
 
@@ -386,6 +390,10 @@ function generateStrategy(teamMode) {
 
     $('#strategy-output').innerHTML = buildStrategyHTML(leader, finalOpponents, mapType, mapSize, playerCount);
   }
+
+  // Show/hide appropriate save buttons
+  $('#save-card').classList.toggle('hidden', !!lastTeamCards);
+  $('#save-all-cards').classList.toggle('hidden', !lastTeamCards);
 
   $('#setup-screen').classList.add('hidden');
   $('#strategy-screen').classList.remove('hidden');
@@ -463,6 +471,16 @@ function renderBoostSection(leader, victory) {
 // === Helpers ===
 function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
 
+
+// === Export All Team Cards ===
+function exportAllCards() {
+  if (!lastTeamCards || lastTeamCards.length === 0) return;
+  lastTeamCards.forEach((card, i) => {
+    setTimeout(() => {
+      downloadCard(card.leader.name + ' (' + card.leader.civ + ')', card.html);
+    }, i * 300); // stagger downloads so browser doesn't block them
+  });
+}
 
 // === Export Strategy Card ===
 function exportStrategyCard() {
@@ -593,6 +611,46 @@ h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
   a.download = filename;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+function buildCardHTML(title, contentHTML) {
+  const date = new Date().toLocaleDateString();
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:'Arial','Segoe UI',system-ui,sans-serif;font-size:14px;line-height:1.5;color:#f0f0f0;background:#0a0a0a;padding:16px;max-width:800px;margin:0 auto}h3{font-size:16px;font-weight:600;color:#00c850;margin-bottom:8px}h4{font-size:14px;font-weight:600;margin-bottom:6px;color:#f0f0f0}p{color:#888;font-size:13px;margin-bottom:6px}ul{list-style:none;padding:0}li{padding:4px 0;font-size:13px;color:#ccc;border-bottom:1px solid #1c1c1c}li::before{content:'→ ';color:#00c850}.card-header{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #2a2a2a}.card-header small{font-size:11px;color:#555;display:block;margin-top:4px}.collapsible{margin-bottom:8px;border:1px solid #2a2a2a;border-radius:6px;overflow:hidden}.collapsible-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#1c1c1c;cursor:pointer;user-select:none}.collapsible-title{font-size:14px;font-weight:600;color:#f0f0f0}.collapsible-icon{font-size:16px;color:#555;transition:transform .15s}.collapsible.open .collapsible-icon{transform:rotate(90deg);color:#00c850}.collapsible-body{max-height:0;overflow:hidden;transition:max-height .25s ease-out}.collapsible.open .collapsible-body{max-height:9999px}.collapsible-body>*{padding:0 14px}.collapsible-body>*:first-child{padding-top:10px}.collapsible-body>*:last-child{padding-bottom:14px}.collapsible-body ul{padding:0 14px}.collapsible-body li{padding:4px 0;font-size:13px;color:#ccc;border-bottom:1px solid #1c1c1c}.collapsible-body li::before{content:'→ ';color:#00c850}.collapsible-body p{color:#888;font-size:13px;margin-bottom:6px}.victory-rec-list{display:flex;flex-direction:column;gap:4px;padding:0 14px}.victory-rec-item{display:flex;align-items:center;gap:10px;padding:6px 10px;background:#1c1c1c;border-radius:4px;border-left:3px solid #2a2a2a}.victory-rec-best{border-left-color:#00c850;background:#00c85008}.victory-rec-rank{font-size:13px;font-weight:600;min-width:20px;text-align:center;color:#555}.victory-rec-best .victory-rec-rank{color:#00c850}.victory-rec-info{display:flex;flex-direction:column;min-width:100px}.victory-rec-name{font-size:13px;font-weight:600;color:#f0f0f0}.victory-rec-score{font-size:11px;color:#888}.synergy-bar{height:6px;background:#2a2a2a;border-radius:3px;overflow:hidden;margin-top:4px;flex:1;max-width:120px}.synergy-fill{height:100%;border-radius:3px}.matchup-card{background:#1c1c1c;border-radius:6px;padding:12px;margin:0 14px 10px}.matchup-card h4{font-size:14px;font-weight:600;margin-bottom:6px}.matchup-card p{font-size:13px;color:#888}.threat-high{border-left:3px solid #e84040}.threat-medium{border-left:3px solid #f59e0b}.threat-low{border-left:3px solid #00c850}.random-badge{font-size:10px;font-weight:600;padding:1px 6px;border-radius:10px;background:#2a2a2a;color:#888}.density-box,.map-affinity{background:#1c1c1c;border-radius:4px;padding:10px 12px;border-left:3px solid #2a2a2a;margin:8px 14px 0}.density-box ul{list-style:none;padding:0}.density-box li{font-size:12px;color:#ccc;padding:2px 0}.density-box li::before{content:'→ ';color:#00c850}.density-cramped{border-left-color:#e84040}.density-tight{border-left-color:#f59e0b}.density-normal{border-left-color:#00c850}.density-spacious{border-left-color:#2563eb}.density-empty{border-left-color:#7c3aed}.map-affinity-excellent{border-left-color:#00c850}.map-affinity-good{border-left-color:#2563eb}.map-affinity-neutral{border-left-color:#888}.map-affinity-mixed{border-left-color:#f59e0b}.map-affinity-poor{border-left-color:#e84040}.era-block{margin:0 14px 12px;border-left:2px solid #2a2a2a;padding-left:12px}.era-header{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}.era-name{font-size:13px;font-weight:600;color:#00c850}.era-focus{font-size:12px;color:#888}.build-order{display:flex;flex-direction:column;gap:4px}.build-step{display:flex;align-items:center;gap:10px;padding:6px 10px;background:#1c1c1c;border-radius:4px;font-size:13px}.build-step-num{color:#00c850;font-weight:600;font-size:12px;min-width:24px}.build-step-text{color:#ccc}.boost-settling{background:#1c1c1c;border-left:3px solid #00c850;padding:8px 12px;font-size:12px;color:#ccc;margin:0 14px 12px;border-radius:0 4px 4px 0}.boost-subheading{font-size:12px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.5px;margin:12px 14px 6px}.boost-item{background:#1c1c1c;border-radius:4px;padding:8px 10px;margin:0 14px 4px;border-left:3px solid #2a2a2a}.boost-item.boost-critical{border-left-color:#00c850}.boost-item.boost-high{border-left-color:#f59e0b}.boost-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}.boost-name{font-size:13px;font-weight:600;color:#f0f0f0}.boost-tags{display:flex;gap:4px;align-items:center}.boost-type{font-size:10px;font-weight:600;padding:1px 6px;border-radius:10px}.boost-type-eureka{background:#2563eb25;color:#60a5fa}.boost-type-inspiration{background:#7c3aed25;color:#a78bfa}.boost-priority{font-size:10px;font-weight:600;padding:1px 6px;border-radius:10px;text-transform:uppercase}.boost-critical .boost-priority{background:#00c85020;color:#00c850}.boost-high .boost-priority{background:#f59e0b20;color:#f59e0b}.boost-trigger{font-size:11px;color:#00c850;margin-bottom:2px}.boost-reason{font-size:12px;color:#888}.bbg-note{background:#00c85015;border:1px solid #00c85030;border-radius:4px;padding:8px 10px;font-size:12px;color:#00c850;margin:0 14px}.strategy-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.strategy-col{min-width:0}@media(max-width:700px){.strategy-columns{grid-template-columns:1fr}.era-header{flex-direction:column;gap:2px}.boost-header{flex-direction:column;align-items:flex-start;gap:4px}.victory-rec-item{flex-wrap:wrap}.synergy-bar{max-width:none!important}}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:3px}</style>
+</head>
+<body>
+<div class="card-header">
+<h3>${title}</h3>
+<small>Generated by Civ 6 Planner · ${date}</small>
+</div>
+${contentHTML}
+<script>
+document.querySelectorAll('.collapsible-header').forEach(h=>{
+h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
+});
+<\/script>
+</body>
+</html>`;
+}
+
+function downloadFile(filename, content) {
+  const blob = new Blob([content], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadCard(title, strategyHTML) {
+  const filename = title.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase() + '.html';
+  downloadFile(filename, buildCardHTML(title, strategyHTML));
 }
 
 // === Init ===
