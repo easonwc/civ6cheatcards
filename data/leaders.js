@@ -11,7 +11,7 @@ const LEADERS = [
       { name: "Hetairoi (UU)", desc: "Replaces Horseman. +5 when adjacent to a Great General. Generates Great General points on kill." },
       { name: "Basilikoi Paides (UB)", desc: "Replaces Barracks. Provides Science when a non-civilian unit is trained." }
     ],
-    bbgNotes: "Hypaspist and Hetairoi slightly nerfed in BBG. Still strong domination but less snowbally.",
+    bbgNotes: "BBG: Combat victories give Science (20% of defeated unit strength). Hellenistic Fusion gives +20% Production for 10 turns on conquest plus Eurekas/Inspirations from districts. Hypaspist +10 CS vs districts. Hetairoi unlocked at Horseback Riding with free promotion.",
     strategy: {
       domination: { synergy: 95, tips: ["Rush Classical era units", "Chain city captures for healing", "Use Eurekas from conquest to stay ahead in tech"] },
       science: { synergy: 50, tips: ["Basilikoi Paides gives science", "Conquer cities with Campuses", "Not ideal but workable through conquest"] },
@@ -31,7 +31,7 @@ const LEADERS = [
       { name: "Tagma (UU)", desc: "Replaces Knight. +4 combat or religious strength to nearby land units." },
       { name: "Hippodrome (UD)", desc: "Replaces Entertainment Complex. Provides a free heavy cavalry unit when built and buildings completed." }
     ],
-    bbgNotes: "Taxis bonus reduced per city in BBG. Hippodrome free units nerfed. Still very strong but requires more setup.",
+    bbgNotes: "BBG: Taxis gives +2 CS/RS per converted Holy City (not +3). +1 Great Prophet from Holy Sites. Kills spread religion. Tagma gives +2 CS/RS (not +4). Dromon +5 CS vs units (not +10). Hippodrome still gives free cavalry on buildings.",
     strategy: {
       domination: { synergy: 90, tips: ["Spread religion first, then attack", "Tagma + cavalry = devastating", "Hippodrome for free units"] },
       science: { synergy: 30, tips: ["No direct science bonuses", "Must rely on conquest for campuses"] },
@@ -50,7 +50,7 @@ const LEADERS = [
       { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement when starting on open terrain. Ranged attack." },
       { name: "Sphinx (UI)", desc: "+1 Culture, +1 Faith. +1 Culture if adjacent to a Wonder. Cannot be built on hills." }
     ],
-    bbgNotes: "Sphinx yields slightly improved in BBG. Iteru bonus unchanged. Solid mid-tier pick.",
+    bbgNotes: "BBG: Iteru unchanged (+15% Production near rivers). Mediterranean's Bride unchanged. Maryannu Chariot Archer has 4 Movement on open terrain.",
     strategy: {
       domination: { synergy: 25, tips: ["Maryannu Chariot Archer is decent early", "No lasting military bonuses"] },
       science: { synergy: 40, tips: ["River production helps build Campuses", "Trade route gold funds research agreements"] },
@@ -69,7 +69,7 @@ const LEADERS = [
       { name: "Immortal (UU)", desc: "Replaces Swordsman. Ranged attack with melee strength. Heals faster." },
       { name: "Pairidaeza (UI)", desc: "+1 Culture, +2 Gold, +2 Appeal. Bonus Culture/Gold from adjacent districts and wonders." }
     ],
-    bbgNotes: "Surprise War movement bonus reduced to +1 in BBG. Immortal combat values adjusted. Still strong.",
+    bbgNotes: "BBG: Fall of Babylon reworked — +3 CS when attacking (always active, not just Surprise War). +5 Loyalty in occupied cities with garrison. Surprise War counts as Formal War for grievances. Domestic trade routes give Culture scaling with civics.",
     strategy: {
       domination: { synergy: 85, tips: ["Surprise War timing attacks", "Immortals are incredibly versatile", "Use movement bonus to blitz"] },
       science: { synergy: 40, tips: ["No direct science bonuses", "Conquer campuses with Surprise Wars"] },
@@ -88,7 +88,7 @@ const LEADERS = [
       { name: "U-Boat (UU)", desc: "Replaces Submarine. Cheaper, +1 sight, +10 combat in ocean." },
       { name: "Hansa (UD)", desc: "Replaces Industrial Zone. Major adjacency from Commercial Hubs, Aqueducts, and other Hansas." }
     ],
-    bbgNotes: "Hansa adjacency unchanged in BBG. Extra district is very strong for any victory type.",
+    bbgNotes: "BBG: Free Imperial Cities now requires Guilds civic to unlock extra district. Hansa loses Commercial Hub major adjacency (gets it from Encampments instead via Holy Roman Emperor). Tiger I unique tank replaces U-Boat timing. Extra Military policy slot unchanged.",
     strategy: {
       domination: { synergy: 70, tips: ["Extra Military policy slot is huge", "Hansa production powers military", "Bully city-states early"] },
       science: { synergy: 85, tips: ["Extra district = Campus in every city", "Hansa production accelerates space projects", "Build Campus + Hansa combos"] },
@@ -107,7 +107,7 @@ const LEADERS = [
       { name: "Varu (UU)", desc: "Replaces Horseman. -5 combat strength to adjacent enemy units." },
       { name: "Stepwell (UI)", desc: "+1 Food, +1 Housing. +1 Faith if adjacent to Holy Site. +1 Food if adjacent to Farm." }
     ],
-    bbgNotes: "Dharma is very strong in BBG multiplayer — collecting follower beliefs is a unique advantage.",
+    bbgNotes: "BBG: Satyagraha reworked — grants extra belief when founding religion. +5 Faith per civ met with religion and at peace. Settlers/Builders from Holy Site cities get +1 Movement. Dharma gives +1 Amenity per religion following yours. Missionaries get +2 spreads. +100% religious pressure from trade routes.",
     strategy: {
       domination: { synergy: 25, tips: ["Varu is decent but era-limited", "War weariness on enemies helps defensively"] },
       science: { synergy: 45, tips: ["Stepwell housing helps city growth", "No direct science bonuses"] },
@@ -126,7 +126,7 @@ const LEADERS = [
       { name: "War-Cart (UU)", desc: "No tech required. No penalty vs anti-cavalry. +5 vs barbarians." },
       { name: "Ziggurat (UI)", desc: "+2 Science, +1 Culture if adjacent to river. Cannot be built on hills." }
     ],
-    bbgNotes: "War-Cart nerfed in BBG — reduced combat strength. Ziggurat unchanged. Still good early game.",
+    bbgNotes: "BBG: Civ ability reworked — Farms get +1 Food adjacent to rivers, +1 Production adjacent to Ziggurat with Early Empire. No flood damage. Adventures of Enkidu adds tribal village rewards from barb camps, half-cost levies, and alliance bonuses. War-Cart gets 4 Movement on open terrain, escorts civilians.",
     strategy: {
       domination: { synergy: 80, tips: ["War-Cart rush is devastating early", "Joint wars with allies for no penalties", "Barbarian outposts = free bonuses"] },
       science: { synergy: 75, tips: ["Ziggurat is one of the best early science improvements", "Build Ziggurats along rivers", "War-Cart protects early expansion"] },
@@ -145,7 +145,7 @@ const LEADERS = [
       { name: "Samurai (UU)", desc: "Replaces Man-at-Arms. Does not suffer combat penalties when damaged." },
       { name: "Electronics Factory (UB)", desc: "Replaces Factory. Provides Culture to all cities within 6 tiles in addition to Production." }
     ],
-    bbgNotes: "Half-price districts unchanged. Meiji Restoration makes Japan incredibly flexible in BBG.",
+    bbgNotes: "BBG: Meiji Restoration changed — all districts except Commercial Hubs/Harbors get standard adjacency from adjacent districts. Commercial Hubs lose river adjacency. Divine Wind gives +100% Production to Theater Square/Holy Site/Encampment. +3 CS (not +5) near coast/shallow water. Hurricane immunity.",
     strategy: {
       domination: { synergy: 70, tips: ["Samurai are strong mid-game", "Coastal combat bonus on island maps", "Half-price Encampments"] },
       science: { synergy: 65, tips: ["Meiji Restoration boosts Campus adjacency", "Electronics Factory production helps"] },
@@ -164,7 +164,7 @@ const LEADERS = [
       { name: "Winged Hussar (UU)", desc: "Replaces Cavalry. Pushes back defenders when dealing more damage." },
       { name: "Sukiennice (UB)", desc: "Replaces Market. International trade routes provide +2 Production, domestic +4 Gold." }
     ],
-    bbgNotes: "Winged Hussar timing is key in BBG. Holy Site adjacency from districts is very strong.",
+    bbgNotes: "BBG: Golden Liberty and Lithuanian Union unchanged from vanilla. Relics provide bonus Faith (+2), Culture (+2), Gold (+4). Winged Hussar replaces Cuirassier (not Cavalry), unlocked at Reformed Church civic.",
     strategy: {
       domination: { synergy: 55, tips: ["Winged Hussar is a strong timing push", "Culture bombs expand territory", "Wildcard slot is flexible"] },
       science: { synergy: 40, tips: ["No direct science bonuses", "Wildcard slot can hold science policies"] },
@@ -183,7 +183,7 @@ const LEADERS = [
       { name: "Digger (UU)", desc: "Replaces Infantry. +10 combat on coastal tiles, +5 outside home territory." },
       { name: "Outback Station (UI)", desc: "+1 Food, +1 Production. Bonus from adjacent Pastures." }
     ],
-    bbgNotes: "Production bonus reduced to +50% in BBG. Appeal adjacency unchanged. Very consistent pick.",
+    bbgNotes: "BBG: Citadel of Civilization nerfed to +50% Production only from liberating cities (no longer triggers from being declared on). Land Down Under adds +1 Production on Pastures at Political Philosophy, Pastures trigger Culture Bomb. Appeal adjacency unchanged.",
     strategy: {
       domination: { synergy: 45, tips: ["Digger is strong late-game", "Production bonus when attacked", "Defensive into counter-attack"] },
       science: { synergy: 85, tips: ["Appeal-based Campus adjacency is incredible", "Settle near mountains + coast", "Production bonus accelerates space race"] },
@@ -202,7 +202,7 @@ const LEADERS = [
       { name: "Toa (UU)", desc: "Replaces Swordsman. Can construct Pa improvement. Adjacent enemies get -5 combat strength." },
       { name: "Marae (UB)", desc: "Replaces Amphitheater. +1 Culture and +1 Faith for each passable feature tile in the city." }
     ],
-    bbgNotes: "Kupe's ocean start is unique. Mana bonuses make unimproved terrain valuable. Strong in BBG island maps.",
+    bbgNotes: "BBG: Mana reworked — embarked units +2 Movement with Shipbuilding. Fishing Boats Culture Bomb and give +1 Food with Celestial Navigation. Unimproved Woods/Rainforest gain Production scaling through eras. Cannot harvest resources. Kupe's Voyage — Settlers can embark with Sailing, Palace gives +3 Housing.",
     strategy: {
       domination: { synergy: 35, tips: ["Toa debuff is useful defensively", "Not suited for aggression"] },
       science: { synergy: 55, tips: ["Early science from voyage", "No direct science infrastructure bonuses"] },
@@ -221,7 +221,7 @@ const LEADERS = [
       { name: "Hul'che (UU)", desc: "Replaces Archer. +5 ranged strength when attacking wounded units." },
       { name: "Observatory (UD)", desc: "Replaces Campus. +2 Science from adjacent Farms and +1 from adjacent Plantations." }
     ],
-    bbgNotes: "Capital radius bonus/penalty unchanged. Observatory adjacency from farms is very strong in BBG.",
+    bbgNotes: "BBG: Ix Mutal Ajaw changed to +5% yields within 6 tiles (not +10%), -10% beyond (not -15%). +3 CS for units within 6 tiles of capital. Mayab adds +1 Production per adjacent Observatory on Farms, +1 Gold on Farms. Plantations give +1 Science per adjacent Observatory.",
     strategy: {
       domination: { synergy: 40, tips: ["Hul'che is a strong early unit", "Compact empire limits expansion"] },
       science: { synergy: 95, tips: ["Observatory + Farms = massive adjacency", "Compact empire maximizes yield bonus", "Settle tightly around capital"] },
@@ -240,7 +240,7 @@ const LEADERS = [
       { name: "Mandekalu Cavalry (UU)", desc: "Replaces Knight. Prevents traders within 4 tiles from being plundered. Gains Gold from kills." },
       { name: "Suguba (UD)", desc: "Replaces Commercial Hub. 20% discount on Gold and Faith purchases in the city." }
     ],
-    bbgNotes: "Suguba discount is very strong in BBG. Mine penalty hurts production but gold compensates.",
+    bbgNotes: "BBG: Sahel Merchants reworked — +1 Trade Route with Banking. Holy Sites give major adjacency to Suguba. +15% Production toward Holy Sites. Songs of the Jeli unchanged. Suguba gets standard adjacency from Holy Sites.",
     strategy: {
       domination: { synergy: 35, tips: ["Mandekalu Cavalry is decent", "Gold can fund military purchases", "Production penalty hurts unit building"] },
       science: { synergy: 50, tips: ["Gold purchases can supplement", "Suguba discount helps"] },
@@ -259,7 +259,7 @@ const LEADERS = [
       { name: "Eagle Warrior (UU)", desc: "Replaces Warrior. Can convert defeated units into Builders." },
       { name: "Tlachtli (UB)", desc: "Replaces Arena. +2 Faith, +1 Great General point, +1 Amenity." }
     ],
-    bbgNotes: "Eagle Warrior conversion chance reduced in BBG. Builder rush for districts still strong.",
+    bbgNotes: "BBG: Legend of Five Suns buffed to 30% district completion per Builder charge (not 20%). +50% Production toward land melee units. Gifts for the Tlatoani — luxuries give Amenity to 2 extra cities. +1 CS per luxury when attacking. Tlachtli gives +1 Culture to nearby cities, +3 Tourism.",
     strategy: {
       domination: { synergy: 90, tips: ["Eagle Warrior rush is iconic", "Convert enemies to Builders", "Luxury combat bonus stacks"] },
       science: { synergy: 55, tips: ["Builder charges rush Campuses", "Legend of Five Suns is versatile"] },
@@ -278,7 +278,7 @@ const LEADERS = [
       { name: "Minas Geraes (UU)", desc: "Replaces Battleship. Stronger ranged and combat strength." },
       { name: "Street Carnival (UD)", desc: "Replaces Entertainment Complex. Provides Great People points." }
     ],
-    bbgNotes: "Rainforest adjacency is solid in BBG. Great Person refund helps long-term.",
+    bbgNotes: "BBG: Amazon adds +1 Production to unimproved Rainforest at Construction. Rainforest adjacency and appeal bonus unchanged. Magnanimous 20% refund unchanged. Minas Geraes unlocked at Nationalism with +10 Ranged/Melee CS with Refining.",
     strategy: {
       domination: { synergy: 30, tips: ["Minas Geraes is strong but late", "Not suited for domination"] },
       science: { synergy: 55, tips: ["Rainforest Campus adjacency", "Great Scientist refund"] },
@@ -297,7 +297,7 @@ const LEADERS = [
       { name: "Cossack (UU)", desc: "Replaces Cavalry. +5 combat in or adjacent to home territory. Can move after attacking." },
       { name: "Lavra (UD)", desc: "Replaces Holy Site. +1 Great Prophet point. City gains a tile when a Great Person is used." }
     ],
-    bbgNotes: "Tundra bonuses make Russia very consistent. Lavra is one of the best unique districts in BBG.",
+    bbgNotes: "BBG: Mother Russia changed — +1 Production from Tundra (not +1 Faith). Cities in Tundra with Shrine get +1 Food. Blizzard immunity. Grand Embassy unchanged. Lavra gives +1 Great Writer with Temple, +1 Great Artist with Worship building.",
     strategy: {
       domination: { synergy: 50, tips: ["Cossack is strong defensively", "Tundra production helps military"] },
       science: { synergy: 55, tips: ["Grand Embassy catches up in tech", "Not primary focus"] },
@@ -316,7 +316,7 @@ const LEADERS = [
       { name: "Okihtcitaw (UU)", desc: "Replaces Scout. Stronger combat, free promotion." },
       { name: "Mekewap (UI)", desc: "+1 Production, +1 Housing. Bonus Gold from adjacent Luxury resources, Food from adjacent Bonus resources." }
     ],
-    bbgNotes: "Early Trader and territory grab is solid in BBG. Alliance bonuses are underrated.",
+    bbgNotes: "BBG: Nihithaw unchanged. Favorable Terms — allies share visibility, trade routes give +1 Food per Camp/Pasture at destination, incoming trade gives +1 Gold per Camp/Pasture. Okihtcitaw gets +5 CS vs stronger units.",
     strategy: {
       domination: { synergy: 30, tips: ["Okihtcitaw is a better scout, not a military unit", "Not suited for aggression"] },
       science: { synergy: 60, tips: ["Trade routes fund science", "Mekewap production helps", "Alliance shared visibility"] },
@@ -335,7 +335,7 @@ const LEADERS = [
       { name: "Mamluk (UU)", desc: "Replaces Knight. Heals at the end of every turn even after moving or attacking." },
       { name: "Madrasa (UB)", desc: "Replaces University. Provides Faith equal to the adjacency bonus of the Campus." }
     ],
-    bbgNotes: "Guaranteed Great Prophet is huge in BBG where religion is contested. Madrasa science+faith combo is strong.",
+    bbgNotes: "BBG: Righteousness of the Faith — worship building costs 1/10 Faith. Gives 5% Science/Culture/Faith, +5% with Reformed Church, +5% when completing religion. Last Prophet unchanged.",
     strategy: {
       domination: { synergy: 45, tips: ["Mamluk self-healing is strong", "Religious combat support"] },
       science: { synergy: 80, tips: ["Madrasa provides science AND faith", "Last Prophet guarantees religion for bonuses", "+1 Science per converted foreign city"] },
@@ -354,7 +354,7 @@ const LEADERS = [
       { name: "Hwacha (UU)", desc: "Replaces Field Cannon. Stronger ranged attack but cannot move and attack in the same turn." },
       { name: "Seowon (UD)", desc: "Replaces Campus. +4 base Science but loses Science for each adjacent district." }
     ],
-    bbgNotes: "Seowon adjacency penalty means careful placement. Still the best pure science civ in BBG.",
+    bbgNotes: "BBG: Hwarang reworked — +1 Amenity in cities with Governor. +30% yield to Seowon buildings per Governor promotion. Cities without Governor get -10% yields after Feudalism. +1 Governor Title at Feudalism. Seowon reworked — +1 base Science, +1 per 2 adjacent mines, +2 per Geothermal. Culture bombs. Science specialists give +1 Food.",
     strategy: {
       domination: { synergy: 30, tips: ["Hwacha is defensive", "Tech lead enables advanced units"] },
       science: { synergy: 98, tips: ["Seowon is the best Campus replacement", "Place Seowon away from other districts", "Mines give science", "Promote Governors for bonus"] },
@@ -373,7 +373,7 @@ const LEADERS = [
       { name: "Llanero (UU)", desc: "Replaces Cavalry. Low maintenance. +4 combat per adjacent Llanero. Fully heals when in range of a retiring Comandante General." },
       { name: "Hacienda (UI)", desc: "+2 Gold, +1 Production, +0.5 Housing. Bonus Food from adjacent Plantations." }
     ],
-    bbgNotes: "Even with BBG nerfs, +1 movement to all units is the strongest ability in the game. S-tier in competitive play.",
+    bbgNotes: "BBG: Ejército Patriota nerfed — +1 Movement only after Political Philosophy (not from start). Promoting cavalry/air/spies doesn't end turn. Campaña Admirable — may not recruit Great Generals. Llanero +2 CS per adjacent (not +4).",
     strategy: {
       domination: { synergy: 98, tips: ["+1 movement is game-breaking for military", "Comandante Generals every era", "Llanero swarms are devastating", "Best domination civ in the game"] },
       science: { synergy: 45, tips: ["Movement helps exploration", "Hacienda provides some yields"] },
@@ -392,7 +392,7 @@ const LEADERS = [
       { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent. Can disembark without movement cost." },
       { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units. Gold and Loyalty when built on foreign continent." }
     ],
-    bbgNotes: "Continental bonuses are map-dependent. Strong on Continents map, weaker on Pangaea.",
+    bbgNotes: "BBG: Pax Britannica reworked — cities 10+ tiles from capital get free melee unit. Royal Navy Dockyard grants strongest naval unit you can build. Naval melee escorts civilians. Redcoat +5 CS on foreign continent (not +10). Workshop of the World is now the civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Production to Military Engineers.",
     strategy: {
       domination: { synergy: 65, tips: ["Redcoat is strong on foreign continents", "Free units when settling abroad", "Naval dominance with Dockyard"] },
       science: { synergy: 55, tips: ["Trade routes from foreign continents fund science", "Not directly focused"] },
@@ -411,7 +411,7 @@ const LEADERS = [
       { name: "De Zeven Provinciën (UU)", desc: "Replaces Frigate. +7 ranged strength when attacking defensible districts." },
       { name: "Polder (UI)", desc: "+1 Food, +1 Production, +1 Gold. +0.5 Housing. Must be built on coast adjacent to 3+ land tiles." }
     ],
-    bbgNotes: "River adjacency is very consistent. Polder is situational but strong when available.",
+    bbgNotes: "BBG: Grote Rivieren adds +50% Production toward Dam and Flood Barrier. Radio Oranje reworked — domestic trade gives +2 Loyalty, international trade gives +2 Culture to you. +3 CS for naval units defending on Polder. Dutch Campuses give +1 Great Admiral point.",
     strategy: {
       domination: { synergy: 35, tips: ["De Zeven Provinciën is a strong naval unit", "Not focused on domination"] },
       science: { synergy: 75, tips: ["River Campus adjacency is excellent", "Settle along rivers", "Industrial Zone adjacency helps production"] },
@@ -430,7 +430,7 @@ const LEADERS = [
       { name: "Warak'aq (UU)", desc: "Replaces Skirmisher. Can attack twice if it hasn't moved." },
       { name: "Terrace Farm (UI)", desc: "+1 Food. +1 Food for each adjacent Mountain. +1 Production for adjacent Aqueduct." }
     ],
-    bbgNotes: "Mountain workability is unique and powerful. Terrace Farms scale incredibly well in BBG.",
+    bbgNotes: "BBG: Mit'a buffed — Mountains give +2 Production (+3 in Industrial era), +1 Food per adjacent Terrace Farm. Cities don't suffer non-food yield penalties from negative amenities. Warak'aq gets +1 additional attack per turn.",
     strategy: {
       domination: { synergy: 35, tips: ["Warak'aq is decent but niche", "Mountain terrain is defensive"] },
       science: { synergy: 80, tips: ["Mountain Campus adjacency is guaranteed", "Huge population from Terrace Farms", "Production from mountains"] },
@@ -449,7 +449,7 @@ const LEADERS = [
       { name: "Hoplite (UU)", desc: "Replaces Spearman. +10 combat when adjacent to another Hoplite." },
       { name: "Acropolis (UD)", desc: "Replaces Theater Square. +1 adjacency from districts. Must be built on hills." }
     ],
-    bbgNotes: "Wildcard slot + culture from kills makes Gorgo versatile. Acropolis adjacency is strong in BBG.",
+    bbgNotes: "BBG: Plato's Republic — Wildcard slot requires Early Empire civic. Thermopylae adds +1 CS per Military policy slot. Culture from kills at 50% of defeated unit CS. Hoplite +7 CS (not +10) when adjacent to another Hoplite.",
     strategy: {
       domination: { synergy: 75, tips: ["Culture from kills accelerates civics", "Hoplite formation is strong early", "Wildcard slot for military policies"] },
       science: { synergy: 45, tips: ["Wildcard slot can hold science policies", "Not directly focused"] },
@@ -468,7 +468,7 @@ const LEADERS = [
       { name: "Hoplite (UU)", desc: "Replaces Spearman. +10 combat when adjacent to another Hoplite." },
       { name: "Acropolis (UD)", desc: "Replaces Theater Square. +1 adjacency from districts. Must be built on hills." }
     ],
-    bbgNotes: "City-state suzerainty culture bonus is strong but requires envoy investment. Solid culture pick in BBG.",
+    bbgNotes: "BBG: Surrounded by Glory buffed — +5% Culture AND +5% Tourism per suzerain city-state. +1 Envoy when Amphitheater completed. Acropolis gets Production adjacency from wonders/districts. Wildcard slot requires Early Empire.",
     strategy: {
       domination: { synergy: 30, tips: ["Hoplite is decent early", "Not focused on domination"] },
       science: { synergy: 40, tips: ["Wildcard slot flexibility", "Not focused"] },
@@ -488,7 +488,7 @@ const LEADERS = [
       { name: "Gaesatae (UU)", desc: "Replaces Warrior. +10 combat vs stronger units and district defenses. +5 combat from adjacent units." },
       { name: "Oppidum (UD)", desc: "Replaces Industrial Zone. Unlocked at Iron Working. Lower cost. Can perform a ranged attack. Major adjacency from Quarries and strategic resources." }
     ],
-    bbgNotes: "Gaesatae rush is strong but predictable in BBG. Oppidum adjacency is excellent for production.",
+    bbgNotes: "BBG: Hallstatt Culture reworked — Quarries give standard adjacency (doubled for Oppidum), Mines give minor adjacency. Districts can't be adjacent to City Center. King of Eburones — Mines trigger Culture Bomb. +1 CS per adjacent military unit for melee/anti-cav. Culture equal to 25% of military unit production cost.",
     strategy: {
       domination: { synergy: 85, tips: ["Gaesatae rush is devastating early", "Adjacent unit bonus stacks well", "Oppidum production fuels military"] },
       science: { synergy: 45, tips: ["Oppidum production helps", "No direct science bonuses"] },
@@ -507,7 +507,7 @@ const LEADERS = [
       { name: "Pítati Archer (UU)", desc: "Replaces Archer. Stronger, faster. Upgrades to Crossbowman." },
       { name: "Nubian Pyramid (UI)", desc: "+2 Faith. Bonus yields from adjacent districts. Must be built on Desert/Desert Hills." }
     ],
-    bbgNotes: "Pítati Archer timing nerfed slightly. Nubian Pyramid adjacency is still very strong in desert starts.",
+    bbgNotes: "BBG: Ta-Seti changed to +30% Production toward Ranged and Naval Ranged units (not +50%). +50% combat XP for ranged. Kandake of Meroë — +20% Production to all districts, +40% if Nubian Pyramid in city (not just adjacent to City Center).",
     strategy: {
       domination: { synergy: 80, tips: ["Pítati Archer rush is top-tier", "Ranged unit production bonus is huge", "Upgrade path to Crossbowman"] },
       science: { synergy: 55, tips: ["Nubian Pyramid adjacent to Campus", "Production bonus for districts"] },
@@ -526,7 +526,7 @@ const LEADERS = [
       { name: "Voi Chiến (UU)", desc: "Replaces Crossbowman. +5 combat strength when in features. Can move after attacking." },
       { name: "Thành (UI)", desc: "+2 Culture. +2 Tourism after Flight. +4 Culture if adjacent to a district. Provides +2 Science, +2 Production, +2 Faith from features." }
     ],
-    bbgNotes: "Feature-dependent placement is restrictive but powerful. Thành tourism is strong late game in BBG.",
+    bbgNotes: "BBG: Drive Out the Aggressors reworked — +2 Movement in features within your empire. +2 CS in features, +4 in your own territory features. Nine Dragon River Delta adds Floodplains as buildable terrain. Woods plantable with Medieval Faires.",
     strategy: {
       domination: { synergy: 70, tips: ["Feature combat bonus is strong defensively", "Voi Chiến is a great crossbow replacement", "Fight in forests/jungles"] },
       science: { synergy: 55, tips: ["Feature buildings give science", "District placement is restrictive"] },
@@ -545,7 +545,7 @@ const LEADERS = [
       { name: "Garde Impériale (UU)", desc: "Replaces Line Infantry. +10 combat on home continent. Generates Great General points on kill." },
       { name: "Château (UI)", desc: "+1 Culture, +2 Gold. +1 Culture per adjacent Wonder. Must be adjacent to river." }
     ],
-    bbgNotes: "Spy bonuses are useful in multiplayer for intel. Wonder tourism doubling is strong for culture.",
+    bbgNotes: "BBG: Grand Tour adds free Spy with Castles, all spies get free promotion. +20% Production toward mid-era wonders. +50% Tourism from wonders (not +100%). Catherine's Flying Squadron — +1 Diplomatic Visibility unchanged.",
     strategy: {
       domination: { synergy: 35, tips: ["Garde Impériale is decent defensively", "Spies for sabotage"] },
       science: { synergy: 40, tips: ["Spies can steal tech", "Not focused"] },
@@ -564,7 +564,7 @@ const LEADERS = [
       { name: "Garde Impériale (UU)", desc: "Replaces Line Infantry. +10 combat on home continent. Generates Great General points on kill." },
       { name: "Château (UI)", desc: "+1 Culture, +2 Gold. +1 Culture per adjacent Wonder. Must be adjacent to river." }
     ],
-    bbgNotes: "Luxury culture bonus is niche. Wonder tourism is the main draw.",
+    bbgNotes: "BBG: Catherine's Magnificences reworked — improved resources get +1 Culture at Craftsmanship. +1 Culture adjacent to Theater Square. Chateau adjacent to luxury gives +1 Amenity. Happy cities gain scaling Culture bonus. Theater Square cities gain Great People points based on happiness. Court Festival project available.",
     strategy: {
       domination: { synergy: 30, tips: ["Garde Impériale is decent defensively", "Not focused"] },
       science: { synergy: 35, tips: ["Not focused on science"] },
@@ -583,7 +583,7 @@ const LEADERS = [
       { name: "Varu (UU)", desc: "Replaces Horseman. -5 combat strength to adjacent enemy units." },
       { name: "Stepwell (UI)", desc: "+1 Food, +1 Housing. +1 Faith if adjacent to Holy Site. +1 Food if adjacent to Farm." }
     ],
-    bbgNotes: "Territorial Expansion war is telegraphed in multiplayer. Varu debuff is useful but era-limited.",
+    bbgNotes: "BBG: Arthashastra completely reworked — Shrines grant +1 Movement, Temples grant +1 Sight to newly trained military units. Units get +1 CS per Holy Site building in production city. Dharma gives +1 Amenity per religion, Missionaries +2 spreads, +100% religious pressure from trade.",
     strategy: {
       domination: { synergy: 75, tips: ["Territorial Expansion timing attack", "Varu debuff weakens defenders", "Movement bonus for blitz"] },
       science: { synergy: 40, tips: ["Stepwell housing helps growth", "Not focused"] },
@@ -602,7 +602,7 @@ const LEADERS = [
       { name: "Bireme (UU)", desc: "Replaces Galley. +5 combat strength. Protects adjacent Traders from plunder." },
       { name: "Cothon (UD)", desc: "Replaces Harbor. +50% Production toward naval units and Settlers in this city. Naval units healed fully each turn in this city." }
     ],
-    bbgNotes: "Capital moving is a unique mechanic. Cothon settler production is strong for wide play.",
+    bbgNotes: "BBG: Founder of Carthage — Settlers get +2 Movement/Sight embarked, ignore embark/disembark costs. +1 Trade Route per Government Plaza building. +50% Production toward districts in Government Plaza city. Cothon gives +25% Production to naval/Settlers (not +50%).",
     strategy: {
       domination: { synergy: 60, tips: ["Naval dominance with Bireme and Cothon", "Settler spam for wide empire", "Move capital strategically"] },
       science: { synergy: 55, tips: ["Wide empire means more Campuses", "Cothon production helps", "Writing Eureka is nice early"] },
@@ -621,7 +621,7 @@ const LEADERS = [
       { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
       { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units. Gold when built on foreign continent." }
     ],
-    bbgNotes: "Loyalty flipping is slow and unreliable in competitive BBG. Fun but not meta.",
+    bbgNotes: "BBG: Court of Love unchanged. Workshop of the World is now England's civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Production to Military Engineers, +2 charges. Sea Dog replaces Privateer (not Redcoat).",
     strategy: {
       domination: { synergy: 25, tips: ["Loyalty pressure is passive domination", "Very slow approach"] },
       science: { synergy: 35, tips: ["Not focused on science"] },
@@ -640,7 +640,7 @@ const LEADERS = [
       { name: "Garde Impériale (UU)", desc: "Replaces Line Infantry. +10 combat on home continent." },
       { name: "Château (UI)", desc: "+1 Culture, +2 Gold. +1 Culture per adjacent Wonder. Must be adjacent to river." }
     ],
-    bbgNotes: "France's wonder tourism + loyalty flipping is thematic but slow. Better than England version due to wonder bonus.",
+    bbgNotes: "BBG: Court of Love unchanged. Grand Tour — free Spy with Castles, +20% mid-era wonder Production, +50% wonder Tourism.",
     strategy: {
       domination: { synergy: 25, tips: ["Loyalty flipping is passive", "Very slow"] },
       science: { synergy: 35, tips: ["Not focused"] },
@@ -659,7 +659,7 @@ const LEADERS = [
       { name: "Keshig (UU)", desc: "Replaces Cavalry. Ranged unit. Shares movement speed with civilian and support units in formation." },
       { name: "Ordu (UB)", desc: "Replaces Stable. +1 Movement for cavalry trained in this city." }
     ],
-    bbgNotes: "Diplomatic Visibility combat bonus is strong but requires trade routes. Keshig nerfed slightly in BBG.",
+    bbgNotes: "BBG: Örtöö — Mongolian units double the usual combat bonus from Diplomatic Visibility (not +6 flat). Mongol Horde — light cavalry and Keshig get +3 CS, chance to capture enemy cavalry. Ordu gives +1 Movement to cavalry, +25% XP for cavalry and siege.",
     strategy: {
       domination: { synergy: 90, tips: ["Keshig is one of the best unique units", "Diplomatic Visibility stacking is huge", "Send trade routes before attacking", "Ordu movement bonus for cavalry"] },
       science: { synergy: 30, tips: ["Must conquer for science"] },
@@ -678,7 +678,7 @@ const LEADERS = [
       { name: "Jong (UU)", desc: "Replaces Frigate. Stronger. Gains escort formation movement bonus. +5 combat in formation." },
       { name: "Kampung (UI)", desc: "+1 Production, +1 Housing, +1 Food. Must be built on coast adjacent to a sea resource. Bonus yields with tech." }
     ],
-    bbgNotes: "Faith-purchased navy is unique. Kampung scaling is excellent on island maps in BBG.",
+    bbgNotes: "BBG: Exalted Goddess reworked — after Sailing, City Centers near coast give +2 Faith, other districts near coast give +1 Faith (+2 with Shipbuilding). Naval units and Harbor buildings purchasable with Faith. Religious units free embark/disembark. Great Nusantara — coast/lake give minor adjacency to Campus/Theater/Holy Site/Industrial Zone.",
     strategy: {
       domination: { synergy: 55, tips: ["Jong is a strong naval unit", "Faith-buy navy is flexible", "Strong on water maps"] },
       science: { synergy: 45, tips: ["Kampung production helps", "Not focused"] },
@@ -697,7 +697,7 @@ const LEADERS = [
       { name: "Sabum Kibittum (UU)", desc: "Ancient era melee unit. +17 combat vs anti-cavalry. 3 movement." },
       { name: "Palgum (UB)", desc: "Replaces Water Mill. +2 Food, +1 Faith. +1 Food for each freshwater Farm." }
     ],
-    bbgNotes: "Eureka completion is game-warping. BBG nerfs some Eureka triggers. Still very strong with good planning.",
+    bbgNotes: "BBG: Enuma Anu Enlil completely reworked — receive a free Eureka after constructing each Library (not full tech completion from all Eurekas). Ninu Ilu Sirum — first specialty district of each type gives lowest-cost building. Palgum reworked — +2 Production, +1 Food to improved freshwater tiles, +1 Production to all farms.",
     strategy: {
       domination: { synergy: 75, tips: ["Sabum Kibittum is strong early", "Eureka-rush advanced military techs", "Can access units eras ahead"] },
       science: { synergy: 90, tips: ["Eureka completion IS your science", "Plan city builds around Eurekas", "Free buildings from first districts", "-50% science means Eurekas are essential"] },
@@ -716,7 +716,7 @@ const LEADERS = [
       { name: "Berserker (UU)", desc: "Replaces Man-at-Arms. +7 attack, -7 defense. +2 Movement when in enemy territory." },
       { name: "Stave Church (UB)", desc: "Replaces Temple. +1 Faith for each adjacent Woods tile. Holy Site gets adjacency from Woods." }
     ],
-    bbgNotes: "Naval focus is map-dependent. Berserker glass cannon playstyle is risky in BBG.",
+    bbgNotes: "BBG: Knarr reworked — adds +50% Production toward Holy Sites. Coast/Lake give standard adjacency to Holy Sites. Harbors get major adjacency from Holy Sites. Thunderbolt of the North — +3 CS and +25% Production to naval melee. Coastal raids give Science from Mines, Culture from Quarries/Pastures/Plantations/Camps.",
     strategy: {
       domination: { synergy: 70, tips: ["Coastal raids for pillaging", "Berserker blitz in enemy territory", "Naval dominance on water maps"] },
       science: { synergy: 30, tips: ["No science bonuses"] },
@@ -735,7 +735,7 @@ const LEADERS = [
       { name: "Berserker (UU)", desc: "Replaces Man-at-Arms. +7 attack, -7 defense. +2 Movement in enemy territory." },
       { name: "Stave Church (UB)", desc: "Replaces Temple. +1 Faith for each adjacent Woods tile." }
     ],
-    bbgNotes: "Pillage yields make Varangian Harald better than base version. Still map-dependent.",
+    bbgNotes: "BBG: Knarr same as Konge version — +50% Holy Site Production, coast adjacency for Holy Sites. Varangian Guard ability details not fully specified in BBG 7.4 changelog. Berserker reworked — +2 Movement in enemy territory or embarked, +10 CS attacking, purchasable with Faith.",
     strategy: {
       domination: { synergy: 75, tips: ["Pillage for science and culture", "Coastal raids are more rewarding", "Berserker + pillage combo"] },
       science: { synergy: 40, tips: ["Pillaging gives science", "Requires aggression"] },
@@ -754,7 +754,7 @@ const LEADERS = [
       { name: "Domrey (UU)", desc: "Replaces Trebuchet. Can move and shoot in the same turn. +10 combat vs districts." },
       { name: "Prasat (UB)", desc: "Replaces Temple. Missionaries from this city gain the Martyr promotion. +6 Faith." }
     ],
-    bbgNotes: "Holy Site food/housing makes Khmer cities grow huge. Prasat Martyrs generate relics for tourism.",
+    bbgNotes: "BBG: Monasteries of the King reworked — Holy Sites get major adjacency from rivers, Culture Bomb, Food equal to adjacency bonus, +2 Housing if on river. Grand Barays — Aqueducts give +1 Amenity, Farms +2 Food adjacent to Aqueduct, +1 Faith adjacent to Holy Site.",
     strategy: {
       domination: { synergy: 40, tips: ["Domrey is a strong siege unit", "Not focused on domination"] },
       science: { synergy: 50, tips: ["Population growth helps science", "Not focused"] },
@@ -773,7 +773,7 @@ const LEADERS = [
       { name: "Nau (UU)", desc: "Replaces Caravel. Cheaper maintenance. Can build Feitorias." },
       { name: "Navigation School (UB)", desc: "Replaces University. +25% Production toward naval units. +1 Science for every 2 coast/lake tiles in the city." }
     ],
-    bbgNotes: "Trade route yields are massive. Coastal restriction is limiting but manageable. Strong gold generation.",
+    bbgNotes: "BBG: Casa da Índia reworked — international trade must originate from coastal city, can only travel over water/canal tiles. +50% Gold with Cartography, +50% Science with Education, +50% Culture with Medieval Faires. Porta do Cerco — +1 Trade Route per new era (not per civ met). Open Borders with city-states.",
     strategy: {
       domination: { synergy: 35, tips: ["Naval units from Navigation School", "Gold funds military"] },
       science: { synergy: 80, tips: ["Navigation School science from coast tiles", "Trade route gold funds research", "+50% trade yields are huge"] },
@@ -792,7 +792,7 @@ const LEADERS = [
       { name: "Legion (UU)", desc: "Replaces Swordsman. Can build roads and forts. Stronger." },
       { name: "Bath (UD)", desc: "Replaces Aqueduct. Provides +2 Housing and +1 Amenity beyond normal Aqueduct." }
     ],
-    bbgNotes: "Conquest gold helps snowball. Legion is strong but iron-dependent. Solid domination pick in BBG.",
+    bbgNotes: "BBG: Veni Vidi Vici completely reworked — melee/siege/ranged/heavy cavalry get +50% XP (+100% in Medieval). +1 CS per promotion. Free melee unit when founding non-capital cities. Extra Wildcard slot from capturing a major civ's city. Onager unique siege unit replaces Catapult.",
     strategy: {
       domination: { synergy: 85, tips: ["Conquest gold fuels expansion", "Legion can build forts for defense", "+5 attack is always active", "Roads from conquest help logistics"] },
       science: { synergy: 45, tips: ["Bath housing helps growth", "Not focused"] },
@@ -811,7 +811,7 @@ const LEADERS = [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement. Short range but high power." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments. Must be built on border." }
     ],
-    bbgNotes: "Trade post bonuses are solid. Dynastic Cycle 60% Eurekas is consistently good.",
+    bbgNotes: "BBG: Dynastic Cycle nerfed — Eurekas/Inspirations give 45% (not 60%). Gerege unchanged. Crouching Tiger reworked — +7 Ranged Strength vs adjacent enemies.",
     strategy: {
       domination: { synergy: 35, tips: ["Crouching Tiger is decent defensively", "Not focused"] },
       science: { synergy: 65, tips: ["60% Eurekas help tech progression", "Trade post science bonuses"] },
@@ -830,7 +830,7 @@ const LEADERS = [
       { name: "Keshig (UU)", desc: "Replaces Cavalry. Ranged unit. Shares movement speed with civilian and support units." },
       { name: "Ordu (UB)", desc: "Replaces Stable. +1 Movement for cavalry trained in this city." }
     ],
-    bbgNotes: "Gerege + Örtöö combo gives gold and combat strength from trade. Strong synergy.",
+    bbgNotes: "BBG: Örtöö — double combat bonus from Diplomatic Visibility. Gerege unchanged. Ordu gives +1 Movement to cavalry, +25% XP for cavalry/siege.",
     strategy: {
       domination: { synergy: 85, tips: ["Trade routes give combat strength AND gold", "Keshig is excellent", "Economic policy slot for military policies"] },
       science: { synergy: 45, tips: ["Trade post science bonuses", "Not primary focus"] },
@@ -849,7 +849,7 @@ const LEADERS = [
       { name: "Carolean (UU)", desc: "Replaces Pike and Shot. +3 combat strength for each unused Movement point." },
       { name: "Open-Air Museum (UB)", desc: "Replaces Broadcast Center. +2 Culture and +2 Tourism for each type of terrain in the city." }
     ],
-    bbgNotes: "Auto-theming is incredibly powerful. Nobel Prize diplomatic favor adds up. Top culture pick in BBG.",
+    bbgNotes: "BBG: Nobel Prize and Minerva of the North unchanged. Queen's Bibliotheque gives +6 Great Work slots (any type), +1 Governor Title. Open-Air Museum gives +2 Culture/Tourism per terrain type where a Swedish city is founded, +2 Loyalty.",
     strategy: {
       domination: { synergy: 30, tips: ["Carolean is decent", "Not focused"] },
       science: { synergy: 50, tips: ["Great Scientist points from Universities", "Not primary focus"] },
@@ -868,7 +868,7 @@ const LEADERS = [
       { name: "Malón Raider (UU)", desc: "Replaces Cavalry. +5 combat within 4 tiles of friendly territory. Pillaging costs 1 movement." },
       { name: "Chemamull (UI)", desc: "+1 Production. +1 Culture for every 2 Appeal. Tourism after Flight." }
     ],
-    bbgNotes: "Anti-Golden Age bonus is situational. Loyalty pressure from kills is unique in BBG multiplayer.",
+    bbgNotes: "BBG: Toqui reworked — cities with Governor give +5% Culture, +5% Production, +10% XP. Tripled in non-founded cities. +4 Loyalty per turn within 9 tiles of Governor city. Swift Hawk — +10 CS vs Free Cities or civs in Golden/Heroic Age. Kills cause -20 Loyalty (-40 vs Golden Age civs). Chemamull requires Breathtaking appeal, gives Culture equal to 75% of appeal.",
     strategy: {
       domination: { synergy: 75, tips: ["Target civs in Golden Ages", "Loyalty pressure from kills", "Governor combat bonus in all cities", "Malón Raider for pillaging"] },
       science: { synergy: 35, tips: ["Not focused on science"] },
@@ -887,7 +887,7 @@ const LEADERS = [
       { name: "U-Boat (UU)", desc: "Replaces Submarine. Cheaper, +1 sight, +10 combat in ocean." },
       { name: "Hansa (UD)", desc: "Replaces Industrial Zone. Major adjacency from Commercial Hubs, Aqueducts, and other Hansas." }
     ],
-    bbgNotes: "Wonder culture/tourism stacking is strong. Extra district from Germany helps build more wonders.",
+    bbgNotes: "BBG: Free Imperial Cities requires Guilds. Swan King — Wonders get +1 Culture per adjacent district as adjacency. All Culture adjacencies provide Tourism with Castles. Hansa gets major adjacency from Commercial Hubs.",
     strategy: {
       domination: { synergy: 30, tips: ["Not focused on domination"] },
       science: { synergy: 55, tips: ["Extra district for Campus", "Hansa production"] },
@@ -906,7 +906,7 @@ const LEADERS = [
       { name: "Oromo Cavalry (UU)", desc: "Replaces Courser. Stronger. No sight penalty from terrain. +10 combat on Hills." },
       { name: "Rock-Hewn Church (UI)", desc: "+1 Faith. Can only be built on Hills. +1 Faith for adjacent Mountains and Hills." }
     ],
-    bbgNotes: "Hill combat bonus + Oromo Cavalry is strong. Rock-Hewn Church faith on hills is excellent in BBG.",
+    bbgNotes: "BBG: Aksumite Legacy — international trade gives +0.5 Faith per resource at origin. Improved resources give +1 Faith after Political Philosophy. Can purchase Archaeological Museums/Archaeologists with Faith. Council of Ministers — Science and Culture equal to 10% of Faith generation in cities on Hills or Resources. Rock-Hewn Church buildable on Hills or Volcanic Soil.",
     strategy: {
       domination: { synergy: 55, tips: ["Oromo Cavalry is strong on hills", "+4 combat on hills is always useful", "Defensive terrain advantage"] },
       science: { synergy: 55, tips: ["Governor science from resources", "Not primary focus"] },
@@ -925,7 +925,7 @@ const LEADERS = [
       { name: "Ngao Mbeba (UU)", desc: "Replaces Swordsman. No iron required. +10 defense vs ranged attacks." },
       { name: "Mbanza (UD)", desc: "Replaces Neighborhood. Available earlier. +5 Housing, +2 Food, +4 Gold. Can only be built in Rainforest/Woods." }
     ],
-    bbgNotes: "No religion is a huge drawback. Great Work yields are strong but you depend on others for beliefs.",
+    bbgNotes: "BBG: Religious Convert — cannot build Holy Sites or found religion. Gets all beliefs of majority religion. Receives Apostle when finishing Mbanza or Theater Square. Nkisi unchanged.",
     strategy: {
       domination: { synergy: 35, tips: ["Ngao Mbeba is decent early", "Not focused"] },
       science: { synergy: 45, tips: ["Mbanza housing helps growth", "Not focused"] },
@@ -944,7 +944,7 @@ const LEADERS = [
       { name: "Ngao Mbeba (UU)", desc: "Replaces Swordsman. No iron required. +10 defense vs ranged attacks." },
       { name: "Mbanza (UD)", desc: "Replaces Neighborhood. Available earlier. +5 Housing, +2 Food, +4 Gold." }
     ],
-    bbgNotes: "Governor bonuses make Nzinga better than Mvemba in BBG. Still can't found religion.",
+    bbgNotes: "BBG: Queen of Ndongo and Matamba reworked — +15% Gold and Culture in cities with Mbanza. Mbanza gives +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists 50% cheaper. Civilians ignore forest/jungle movement penalty. +50% Great Merchant points.",
     strategy: {
       domination: { synergy: 40, tips: ["Governor combat XP bonus", "Ngao Mbeba is decent"] },
       science: { synergy: 50, tips: ["Governor food helps growth", "Not focused"] },
@@ -963,7 +963,7 @@ const LEADERS = [
       { name: "Conquistador (UU)", desc: "Replaces Musketman. +10 combat when adjacent to a Missionary, Apostle, or Inquisitor. Converts city to Spain's religion on capture." },
       { name: "Mission (UI)", desc: "+2 Faith. +1 Science on foreign continent. +2 Faith if adjacent to Campus." }
     ],
-    bbgNotes: "Religious combat bonus is strong. Conquistador + religious unit combo is devastating in BBG.",
+    bbgNotes: "BBG: El Escorial reworked — Inquisitors get extra Remove Heresy charge, eliminate 100% of other religions. +3 CS (not +5) vs other religions for combat and religious units. Missionaries 25% cheaper. Conquistador +5 CS (not +10) near religious units.",
     strategy: {
       domination: { synergy: 70, tips: ["Conquistador + religious unit combo", "Religious combat strength bonus", "Convert cities on capture"] },
       science: { synergy: 45, tips: ["Mission science on foreign continent", "Not primary focus"] },
@@ -982,7 +982,7 @@ const LEADERS = [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement. Short range but high power." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
     ],
-    bbgNotes: "Builder wonder rushing is fun but expensive. 60% Eurekas is the real strength.",
+    bbgNotes: "BBG: The First Emperor unchanged — Builder charges for 15% wonder cost, extra Builder charge, Canals at Masonry. Dynastic Cycle nerfed to 45% Eurekas/Inspirations (not 60%).",
     strategy: {
       domination: { synergy: 30, tips: ["Crouching Tiger is decent defensively", "Not focused"] },
       science: { synergy: 60, tips: ["60% Eurekas help tech", "Builder charges for early wonders"] },
@@ -1001,7 +1001,7 @@ const LEADERS = [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
     ],
-    bbgNotes: "Alliance combat bonus is strong in team games. 60% Eurekas remain solid.",
+    bbgNotes: "BBG: Thirty-Six Stratagems completely reworked — melee units can Convert Barbarians (consumes the unit). +50% Encampment building Production. +1 Great Writer from Encampments. Barracks/Stable get 2 Great Work of Writing slots. Great Works of Writing give +1 Food. Great General/Writer recruitment gives random Eureka and Inspiration. Dynastic Cycle at 45%.",
     strategy: {
       domination: { synergy: 60, tips: ["Alliance combat bonus stacks", "Form alliances before attacking others"] },
       science: { synergy: 55, tips: ["60% Eurekas", "Alliance Inspirations help"] },
@@ -1020,7 +1020,7 @@ const LEADERS = [
       { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement on open terrain. Ranged attack." },
       { name: "Sphinx (UI)", desc: "+1 Culture, +1 Faith. +1 Culture if adjacent to a Wonder." }
     ],
-    bbgNotes: "Wonder-focused Egypt. Builder wonder rushing + Iteru production is strong for wonder spam.",
+    bbgNotes: "BBG: Abu Simbel reworked — gain Culture equal to 10% of building cost (doubled in wonder cities, 25% for wonders). Holy Sites get +1 Production adjacent to river. +15% Production for Holy Sites and Industrial Zones on rivers. Iteru unchanged.",
     strategy: {
       domination: { synergy: 25, tips: ["Not focused on domination"] },
       science: { synergy: 40, tips: ["River production helps", "Not focused"] },
@@ -1039,7 +1039,7 @@ const LEADERS = [
       { name: "Highlander (UU)", desc: "Replaces Ranger. +5 combat in Hills and Woods." },
       { name: "Golf Course (UI)", desc: "+2 Gold, +1 Culture, +1 Amenity. +1 Culture if adjacent to City Center or Entertainment Complex." }
     ],
-    bbgNotes: "Amenity management is key. Golf Course amenities help trigger Scottish Enlightenment bonuses.",
+    bbgNotes: "BBG: Bannockburn reworked — Recon units get +50% combat XP (no longer War of Liberation). Scottish Enlightenment buffed — happy cities get +5% Science/Production plus Great Scientist/Engineer points. Ecstatic doubles, Euphoric (+8 amenity) triples.",
     strategy: {
       domination: { synergy: 55, tips: ["War of Liberation production bonus", "Highlander in terrain", "Liberation wars are justified"] },
       science: { synergy: 75, tips: ["Happy/Ecstatic science bonus", "Golf Course amenities help happiness", "Production bonus for districts"] },
@@ -1058,7 +1058,7 @@ const LEADERS = [
       { name: "Mamluk (UU)", desc: "Replaces Knight. Heals at the end of every turn." },
       { name: "Madrasa (UB)", desc: "Replaces University. Provides Faith equal to Campus adjacency." }
     ],
-    bbgNotes: "Production bonus toward buildings is more consistent than base Saladin. Guaranteed Prophet remains key.",
+    bbgNotes: "BBG: Same as base Saladin — Righteousness of the Faith worship building at 1/10 cost, 5% yields scaling. Last Prophet unchanged.",
     strategy: {
       domination: { synergy: 50, tips: ["Mamluk self-healing", "Free military policies from worship buildings"] },
       science: { synergy: 80, tips: ["Madrasa science + faith", "Guaranteed Prophet for religion bonuses", "+10% building production"] },
@@ -1077,7 +1077,7 @@ const LEADERS = [
       { name: "Hwacha (UU)", desc: "Replaces Field Cannon. Stronger ranged attack but cannot move and attack." },
       { name: "Seowon (UD)", desc: "Replaces Campus. +4 base Science but loses Science for each adjacent district." }
     ],
-    bbgNotes: "Governor science stacking is strong. More flexible than Seondeok for district-heavy cities.",
+    bbgNotes: "BBG: Hangul reworked — completing first tech from a new era gives double Science per turn as Culture. Seowon gets -1 Science per adjacent district. Seowon and Theater Squares get major adjacency from each other. Cities with both get +1 Culture and +2 Tourism per district. +30% Builder Production in cities without Governors after Feudalism.",
     strategy: {
       domination: { synergy: 30, tips: ["Hwacha is defensive", "Tech lead for advanced units"] },
       science: { synergy: 95, tips: ["Governor science per district is incredible", "Seowon + Mines for science", "Promote Governors for bonus", "Build many districts per city"] },
@@ -1096,7 +1096,7 @@ const LEADERS = [
       { name: "Impi (UU)", desc: "Replaces Pike and Shot. Cheaper, faster, earns XP faster. +25 flanking bonus." },
       { name: "Ikanda (UD)", desc: "Replaces Encampment. Provides +1 Housing. Units gain unique promotions." }
     ],
-    bbgNotes: "Early Corps/Armies is game-changing. Impi flanking bonus is devastating in BBG multiplayer.",
+    bbgNotes: "BBG: Isibongo — garrisoned units give +3 Loyalty (+5 for Corps/Army). Conquest upgrades to Corps/Army. Amabutho — Corps at Mercenaries, Armies at Nationalism. +2 base CS to Corps/Armies at Mobilization. Ikanda buildings get +2 Gold and +1 Culture. Direct Corps/Army training with scaling cost reduction.",
     strategy: {
       domination: { synergy: 95, tips: ["Early Corps and Armies are devastating", "Impi flanking bonus stacks", "Conquering upgrades units", "Ikanda promotions are unique"] },
       science: { synergy: 30, tips: ["Must conquer for science"] },
@@ -1115,7 +1115,7 @@ const LEADERS = [
       { name: "Janissary (UU)", desc: "Replaces Musketman. Stronger and cheaper. Starts with a free promotion. -1 population in non-conquered cities when trained." },
       { name: "Grand Bazaar (UB)", desc: "Replaces Bank. +1 extra amenity and strategic resource for each type of resource improved." }
     ],
-    bbgNotes: "Siege bonus + no population loss on conquest is excellent. Ibrahim Governor is versatile in BBG.",
+    bbgNotes: "BBG: Grand Vizier — unique Governor Ibrahim with military/diplomatic abilities. Janissary and Governor Title at Gunpowder. Great Turkish Bombard — +50% siege Production, +3 CS for siege (not +5). Conquered cities keep population, +1 Amenity, +4 Loyalty. Grand Bazaar gives Governor Title on first build, +1 Trade Route.",
     strategy: {
       domination: { synergy: 90, tips: ["Siege units are incredibly strong", "Conquered cities keep population", "Janissary is a top-tier unique unit", "Ibrahim Governor for loyalty/combat"] },
       science: { synergy: 55, tips: ["Conquer cities with Campuses", "Governor production bonus for buildings"] },
@@ -1134,7 +1134,7 @@ const LEADERS = [
       { name: "Janissary (UU)", desc: "Replaces Musketman. Stronger and cheaper. Free promotion." },
       { name: "Grand Bazaar (UB)", desc: "Replaces Bank. +1 extra amenity and strategic resource." }
     ],
-    bbgNotes: "Golden Age combat bonus is situational. Free Janissaries on conquest help snowball.",
+    bbgNotes: "BBG: Same civ ability as Kanuni. Muhteşem leader ability details not fully specified in BBG 7.4 — likely similar conquest bonuses.",
     strategy: {
       domination: { synergy: 85, tips: ["Free Janissaries from conquest", "Golden Age combat bonus", "Siege unit bonuses", "Snowball through conquest"] },
       science: { synergy: 40, tips: ["Conquer for science"] },
@@ -1153,7 +1153,7 @@ const LEADERS = [
       { name: "Mandekalu Cavalry (UU)", desc: "Replaces Knight. Protects traders. Gains Gold from kills." },
       { name: "Suguba (UD)", desc: "Replaces Commercial Hub. 20% discount on Gold and Faith purchases." }
     ],
-    bbgNotes: "Governor bonuses are more consistent than Mansa Musa's trade focus. Suguba discount remains strong.",
+    bbgNotes: "BBG: Sogolon leader ability — details not fully specified in BBG 7.4 changelog. Songs of the Jeli civ ability same as Mansa Musa. Suguba and Mandekalu Cavalry unchanged.",
     strategy: {
       domination: { synergy: 35, tips: ["Mandekalu Cavalry is decent", "Production penalty hurts"] },
       science: { synergy: 45, tips: ["Gold/faith purchases supplement", "Not focused"] },
@@ -1172,7 +1172,7 @@ const LEADERS = [
       { name: "Khevsur (UU)", desc: "Replaces Man-at-Arms. +7 combat in Hills. No movement penalty on Hills." },
       { name: "Tsikhe (UB)", desc: "Replaces Renaissance Walls. Higher defense. +3 Faith. +4 Tourism after Conservation." }
     ],
-    bbgNotes: "Double envoys with religion is strong but requires founding a religion first. Niche pick in BBG.",
+    bbgNotes: "BBG: Glory of the World, Kingdom, and Faith — details not fully specified in BBG 7.4. Strength in Unity unchanged. Tsikhe and Khevsur unchanged.",
     strategy: {
       domination: { synergy: 30, tips: ["Khevsur is decent in hills", "Not focused"] },
       science: { synergy: 35, tips: ["Not focused on science"] },
@@ -1191,7 +1191,7 @@ const LEADERS = [
       { name: "P-51 Mustang (UU)", desc: "Replaces Fighter. +5 combat vs fighters. +2 flight range. +50% XP." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure to civs in a Modern era or later." }
     ],
-    bbgNotes: "National Park bonuses are strong late game. Film Studio tourism pressure is excellent in BBG.",
+    bbgNotes: "BBG: Founding Fathers reworked — all Diplomatic policy slots converted to Wildcard. +1 Diplomatic Favor per Wildcard slot. Antiquities and Parks reworked — breathtaking tiles get +1 Science near Natural Wonders/Mountains (doubled with Astronomy), +1 Culture near Wonders/Woods (doubled with Enlightenment). Woods plantable with Medieval Faires. Film Studio nerfed to +30% Tourism (not +100%).",
     strategy: {
       domination: { synergy: 30, tips: ["P-51 Mustang is strong but late", "Not focused"] },
       science: { synergy: 65, tips: ["National Park science bonus", "Government legacy bonuses help"] },
@@ -1210,7 +1210,7 @@ const LEADERS = [
       { name: "Rough Rider (UU)", desc: "Unique cavalry. +10 combat on Hills. Earns Culture from kills on home continent. Low maintenance." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure." }
     ],
-    bbgNotes: "Home continent combat bonus is strong defensively. Envoys from kills help city-state control.",
+    bbgNotes: "BBG: Roosevelt Corollary reworked — units get +1 CS per era reached (capped at +5 in Industrial). Envoys to city-states with trade routes count as two. Rough Rider unlocked at Ballistics, replaces Cuirassier. +5 CS on Hills (not +10). Culture from kills at 25% of CS. Founding Fathers same as Bull Moose. Film Studio +30%.",
     strategy: {
       domination: { synergy: 65, tips: ["Home continent combat bonus", "Rough Rider on hills", "Envoys from kills"] },
       science: { synergy: 40, tips: ["Government legacy bonuses", "Not focused"] },
@@ -1229,7 +1229,7 @@ const LEADERS = [
       { name: "Samurai (UU)", desc: "Replaces Man-at-Arms. Does not suffer combat penalties when damaged." },
       { name: "Electronics Factory (UB)", desc: "Replaces Factory. Provides Culture to all cities within 6 tiles." }
     ],
-    bbgNotes: "Domestic trade focus rewards tall play. International trade penalty is significant in BBG multiplayer.",
+    bbgNotes: "BBG: Bakuhan reworked — international trade gets -25% yields and Tourism. Domestic trade gives +0.5 Culture (+1 with Humanism) and +0.5 Science (+1 with Education) per specialty district at destination. Cities within 6 tiles of capital get 100% Loyalty. After Flight, +1 Tourism per district. Meiji Restoration same as Hojo (minus Commercial Hub/Harbor adjacency).",
     strategy: {
       domination: { synergy: 65, tips: ["Samurai doesn't weaken when damaged", "Domestic trade for self-sufficiency", "Meiji adjacency for production"] },
       science: { synergy: 60, tips: ["Domestic trade science", "Meiji adjacency for Campus"] },
@@ -1248,7 +1248,7 @@ const LEADERS = [
       { name: "Saka Horse Archer (UU)", desc: "Unique ranged cavalry. 4 movement. Does not require horses." },
       { name: "Kurgan (UI)", desc: "+1 Faith, +1 Gold. +1 Faith for each adjacent Pasture." }
     ],
-    bbgNotes: "Double cavalry production is strong early. Saka Horse Archer rush is predictable but effective in BBG.",
+    bbgNotes: "BBG: People of the Steppe reworked — may purchase light, heavy, and ranged cavalry with Faith (no longer double production). Killer of Cyrus — +3 CS vs wounded (+5 after Medieval era). Heal 30 HP on kill. Saka Horse Archer has Range 2 and 4 Movement.",
     strategy: {
       domination: { synergy: 85, tips: ["Double cavalry production is incredible", "Saka Horse Archer rush", "Heal on kill sustains attacks", "+5 vs wounded units for finishing"] },
       science: { synergy: 30, tips: ["Must conquer for science"] },
@@ -1267,7 +1267,7 @@ const LEADERS = [
       { name: "Legion (UU)", desc: "Replaces Swordsman. Can build roads and forts. Stronger." },
       { name: "Bath (UD)", desc: "Replaces Aqueduct. +2 Housing and +1 Amenity beyond normal." }
     ],
-    bbgNotes: "Free Monument in every city is simple but strong. Roads and Trading Posts help wide play.",
+    bbgNotes: "BBG: Trajan's Column — free City Center building after Early Empire (not immediate Monument). All Roads Lead to Rome unchanged. Bath gets +1 Culture per 2 adjacent districts.",
     strategy: {
       domination: { synergy: 70, tips: ["Legion is strong early", "Free roads for logistics", "Wide empire with free Monuments"] },
       science: { synergy: 55, tips: ["Bath housing helps growth", "Wide empire for more Campuses"] },
@@ -1286,7 +1286,7 @@ const LEADERS = [
       { name: "Mountie (UU)", desc: "Unique cavalry. Can create National Parks. +5 combat near a National Park." },
       { name: "Ice Hockey Rink (UI)", desc: "+1 Amenity, +1 Culture. +2 Culture if adjacent to Stadium. +4 Tourism after Flight." }
     ],
-    bbgNotes: "Diplomatic Favor from tourism is unique. Cannot be surprise warred is huge in BBG multiplayer.",
+    bbgNotes: "BBG: The Last Best West massively buffed — City Centers in Tundra get +1 Food. Farms on Tundra. After Civil Engineering, Farms on Tundra Hills. Tundra/Snow improvements get bonus yields: Mines/Lumber Mills +2 Production, Farms/Camps +2 Food, Pastures +1 Food. Double strategic resource accumulation in Tundra/Snow. Four Faces of Peace unchanged. Ice Hockey Rink gives +1 Culture per adjacent Tundra/Snow tile. Mountie has Sight 4, creates 2 National Parks.",
     strategy: {
       domination: { synergy: 20, tips: ["Cannot declare Surprise Wars", "Mountie is decent defensively"] },
       science: { synergy: 40, tips: ["Tundra farming helps growth", "Not focused"] },
@@ -1305,7 +1305,7 @@ const LEADERS = [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
     ],
-    bbgNotes: "Spy bonuses are useful in multiplayer for sabotage and intel. 60% Eurekas remain solid.",
+    bbgNotes: "BBG: Manual of Entrapment — details not fully specified in BBG 7.4. Dynastic Cycle at 45% Eurekas/Inspirations.",
     strategy: {
       domination: { synergy: 30, tips: ["Spies for sabotage", "Not focused"] },
       science: { synergy: 60, tips: ["60% Eurekas", "Spies can steal tech", "Spy sabotage slows opponents"] },
@@ -1324,7 +1324,7 @@ const LEADERS = [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
     ],
-    bbgNotes: "Project yields are consistent. Extra trade route helps economy. Solid all-rounder in BBG.",
+    bbgNotes: "BBG: Lijia — details not fully specified in BBG 7.4. Dynastic Cycle at 45% Eurekas/Inspirations.",
     strategy: {
       domination: { synergy: 30, tips: ["Not focused on domination"] },
       science: { synergy: 65, tips: ["Project science yields", "60% Eurekas", "Trade route for gold"] },
@@ -1344,7 +1344,7 @@ const LEADERS = [
       { name: "Tagma (UU)", desc: "Replaces Knight. +4 combat or religious strength to nearby units." },
       { name: "Hippodrome (UD)", desc: "Replaces Entertainment Complex. Free heavy cavalry unit." }
     ],
-    bbgNotes: "Any belief choice is incredibly flexible. Loyalty from Holy Cities helps hold conquered territory.",
+    bbgNotes: "BBG: Metanoia reworked — after Political Philosophy, Holy Sites give +1 Culture per adjacent district. Farms give Faith adjacency to Hippodromes and Holy Sites. Taxis same as Basil (+2 CS/RS per converted Holy City). Hippodrome and Dromon same as Basil.",
     strategy: {
       domination: { synergy: 75, tips: ["Taxis combat strength from conversions", "Hippodrome free units", "Tagma support bonus"] },
       science: { synergy: 30, tips: ["Not focused on science"] },
@@ -1363,7 +1363,7 @@ const LEADERS = [
       { name: "Immortal (UU)", desc: "Replaces Swordsman. Ranged attack with melee strength. Heals faster." },
       { name: "Pairidaeza (UI)", desc: "+1 Culture, +2 Gold, +2 Appeal. Bonus from adjacent districts and wonders." }
     ],
-    bbgNotes: "Conquest snowball is strong. +2 base combat strength is always active. Better domination than Cyrus in BBG.",
+    bbgNotes: "BBG: Sword of Persia — +5 CS when attacking defensible districts and full health units. Domestic trade gives +1 Science, scaling with Education and Scientific Theory. Satrapies same as Cyrus — +1 Trade Route at Political Philosophy, domestic trade gives Gold scaling.",
     strategy: {
       domination: { synergy: 90, tips: ["+2 combat strength always active", "Conquest triggers movement and combat bonus", "Immortals are versatile", "Chain conquests for permanent bonuses"] },
       science: { synergy: 35, tips: ["Must conquer for science"] },
@@ -1382,7 +1382,7 @@ const LEADERS = [
       { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
       { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units." }
     ],
-    bbgNotes: "Gold from city-state trade is strong. British Museum for culture victory. Solid mid-tier.",
+    bbgNotes: "BBG: Drake's Legacy — details not fully specified in BBG 7.4. Workshop of the World is civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Military Engineer Production, +2 charges. Sea Dog replaces Privateer.",
     strategy: {
       domination: { synergy: 35, tips: ["Redcoat on foreign continents", "Gold funds military"] },
       science: { synergy: 55, tips: ["Gold funds research", "British Museum not science-focused"] },
@@ -1401,7 +1401,7 @@ const LEADERS = [
       { name: "P-51 Mustang (UU)", desc: "Replaces Fighter. +5 combat vs fighters. +2 flight range." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure." }
     ],
-    bbgNotes: "Free melee units from Industrial Zones help military. Government legacy bonuses are consistently good.",
+    bbgNotes: "BBG: Emancipation Proclamation reworked — +100% Production to Industrial Zone and Aqueduct. Industrial Zones give +2 Amenities and +3 Loyalty. Plantations give -2 Loyalty. Free melee unit from Industrial Zone and buildings (+5 CS, no resource cost). Founding Fathers — Diplomatic slots become Wildcard, +1 Favor per Wildcard. Film Studio +30%.",
     strategy: {
       domination: { synergy: 65, tips: ["+5 melee/anti-cav combat strength", "Free units from Industrial Zones", "Government legacy bonuses"] },
       science: { synergy: 45, tips: ["Government legacy bonuses", "Not focused"] },
@@ -1420,7 +1420,7 @@ const LEADERS = [
       { name: "Huszár (UU)", desc: "Replaces Cavalry. +3 combat strength for each active alliance." },
       { name: "Thermal Bath (UB)", desc: "Replaces Zoo. +2 Amenities, +2 Production, +3 Tourism. +3 Amenities if adjacent to a Geothermal Fissure." }
     ],
-    bbgNotes: "Levy abuse is strong in BBG. River production bonus is consistently good. Alliance combat stacking on Huszár.",
+    bbgNotes: "BBG: Pearl of the Danube unchanged (+50% Production across river). Raven King — levied units get +1 Movement. 75% cheaper upgrades for levied units. +1 Envoy when levying. Black Army unique Courser at Castles (+2 CS per adjacent levied unit). Huszár — +2 CS per suzerain city-state (not per alliance).",
     strategy: {
       domination: { synergy: 80, tips: ["Levy city-state armies with bonuses", "Huszár alliance combat stacking", "Cheap upgrades for levied units", "River production for military buildings"] },
       science: { synergy: 50, tips: ["River production for Campuses", "Not primary focus"] },
@@ -1439,7 +1439,7 @@ const LEADERS = [
       { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement when starting on open terrain. Ranged attack." },
       { name: "Sphinx (UI)", desc: "+1 Culture, +1 Faith. +1 Culture if adjacent to a Wonder. Cannot be built on hills." }
     ],
-    bbgNotes: "Alliance-focused science is strong. Great Scientist points from alliances stack well in longer games.",
+    bbgNotes: "BBG: Arrival of Hapi reworked — military units cross rivers without penalty from Classical era. +15% Production for Campus and Encampment on rivers. Campus and Encampment get major Science adjacency from rivers. Iteru unchanged.",
     strategy: {
       domination: { synergy: 25, tips: ["Not focused on domination", "Maryannu Chariot Archer is decent early"] },
       science: { synergy: 80, tips: ["Great Scientist points from alliances", "+15% project production with Campus", "Form alliances early and trade"] },
@@ -1458,7 +1458,7 @@ const LEADERS = [
       { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
       { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units." }
     ],
-    bbgNotes: "Industrial focus is strong for production. Free strategic resources help military. Top England variant in BBG.",
+    bbgNotes: "BBG: Age of Steam reworked — +5% Production per Factory and Power Plant in city. Powered buildings get +4 of their yield. Industrial Zones get standard adjacency from Royal Navy Dockyards. +20% Production toward Industrial Zone buildings. Lighthouse gives +1 Great Engineer point. Workshop of the World civ ability.",
     strategy: {
       domination: { synergy: 60, tips: ["Free Iron and Coal for units", "Military Engineer production bonus", "Redcoat on foreign continents"] },
       science: { synergy: 75, tips: ["Powered buildings +4 yields is huge", "Production for space projects", "Industrial focus accelerates late game"] },
