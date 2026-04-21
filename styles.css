@@ -311,6 +311,9 @@ select, input, textarea { font-size: 16px; }
 
 .btn-back:hover { color: #f0f0f0; border-color: #555; }
 
+.btn-save { color: #00c850; border-color: #00c85060; }
+.btn-save:hover { background: #00c85020; border-color: #00c850; }
+
 .strategy-output {
   background: #141414;
   border: 1px solid #2a2a2a;
