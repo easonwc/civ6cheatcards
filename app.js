@@ -260,6 +260,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   const density = getMapDensity(mapSize, playerCount);
   const densityTips = DENSITY_TIPS[victory]?.[density.level] || [];
   const sizeLabel = MAP_SIZES[mapSize]?.label || mapSize;
+  const mapAdvice = getLeaderMapAdvice(leader.id, mapType);
 
   // Header — full width
   let header = `
@@ -285,6 +286,12 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
 
   left += collapsible(`Map: ${capitalize(mapType)} · ${sizeLabel}`, `
     <p>${mapTip}</p>
+    ${mapAdvice ? `
+      <div class="map-affinity map-affinity-${mapAdvice.rating}" style="margin-top:8px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Leader Fit: ${capitalize(mapAdvice.rating)}</div>
+        <p style="font-size:12px;color:#ccc;">${mapAdvice.advice}</p>
+      </div>
+    ` : ''}
     <div class="density-box density-${density.level}" style="margin-top:8px;">
       <div style="font-size:12px;font-weight:600;margin-bottom:4px;">Density: ${capitalize(density.level)}</div>
       <p style="font-size:12px;color:#ccc;margin-bottom:6px;">${density.desc}</p>

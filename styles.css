@@ -476,6 +476,13 @@ select, input, textarea { font-size: 16px; }
 
 /* === Density === */
 .density-box { background: #1c1c1c; border-radius: 4px; padding: 10px 12px; border-left: 3px solid #2a2a2a; }
+
+.map-affinity { background: #1c1c1c; border-radius: 4px; padding: 10px 12px; border-left: 3px solid #2a2a2a; }
+.map-affinity-excellent { border-left-color: #00c850; }
+.map-affinity-good { border-left-color: #2563eb; }
+.map-affinity-neutral { border-left-color: #888; }
+.map-affinity-mixed { border-left-color: #f59e0b; }
+.map-affinity-poor { border-left-color: #e84040; }
 .density-box ul { list-style: none; padding: 0; }
 .density-box li { font-size: 12px; color: #ccc; padding: 2px 0; }
 .density-box li::before { content: '→ '; color: #00c850; }

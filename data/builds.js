@@ -266,3 +266,134 @@ const DENSITY_TIPS = {
     empty: ["Diplomacy is strong — peaceful map means steady favor", "Maximize city-state relationships", "Carbon Recapture projects for late-game points"]
   }
 };
+
+// Map characteristics — what terrain/features each map emphasizes
+const MAP_CHARACTERISTICS = {
+  pangaea:              { tags: ["land", "hills", "wide"], water: "low", desc: "One large landmass" },
+  continents:           { tags: ["land", "coastal", "naval"], water: "medium", desc: "Multiple continents with ocean" },
+  "continents-islands": { tags: ["coastal", "naval", "islands"], water: "medium-high", desc: "Continents plus islands" },
+  "small-continents":   { tags: ["coastal", "naval"], water: "medium-high", desc: "Many medium landmasses" },
+  fractal:              { tags: ["mixed", "coastal"], water: "variable", desc: "Unpredictable terrain" },
+  archipelago:          { tags: ["naval", "coastal", "islands"], water: "high", desc: "Many small islands" },
+  islands:              { tags: ["naval", "coastal", "islands"], water: "high", desc: "Island plates" },
+  "inland-sea":         { tags: ["coastal", "land"], water: "medium", desc: "Central sea surrounded by land" },
+  lakes:                { tags: ["land", "freshwater", "wide"], water: "low", desc: "Many lakes, lots of fresh water" },
+  terra:                { tags: ["land", "coastal", "wide", "colonial"], water: "medium", desc: "One settled continent, one empty" },
+  primordial:           { tags: ["volcanic", "jungle", "marsh"], water: "medium", desc: "Volcanic terrain with disasters" },
+  "splintered-fractal": { tags: ["land", "chokepoints", "coastal"], water: "medium", desc: "Fragmented with land bridges" },
+  "seven-seas":         { tags: ["coastal", "naval", "mixed"], water: "medium-high", desc: "Multiple small seas" },
+  "tilted-axis":        { tags: ["tundra", "desert", "extreme"], water: "low", desc: "Extreme climate zones" },
+  shuffle:              { tags: ["mixed"], water: "variable", desc: "Random generation" }
+};
+
+// Leader map affinities — what terrain/features benefit each leader
+const LEADER_MAP_AFFINITY = {
+  "alexander":            { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Domination needs land borders. Water maps slow conquest." },
+  "basil":                { strong: ["land", "mixed"], weak: ["islands"], note: "Needs land neighbors to spread religion then attack. Naval maps limit cavalry." },
+  "cleopatra":            { strong: ["freshwater", "land"], weak: [], note: "Rivers everywhere = Iteru production bonus on everything." },
+  "cyrus":                { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Surprise War blitz needs land borders. Water maps negate movement bonus." },
+  "frederick":            { strong: ["land", "wide", "hills"], weak: [], note: "Extra district works everywhere. Hansa adjacency from rivers/aqueducts." },
+  "gandhi":               { strong: ["land", "mixed"], weak: [], note: "Stepwells need flat land. Works on most maps." },
+  "gilgamesh":            { strong: ["land", "freshwater"], weak: ["naval", "islands"], note: "Ziggurats need rivers. War-Cart rush needs land neighbors." },
+  "hojo":                 { strong: ["coastal", "islands", "naval"], weak: [], note: "Coastal combat bonus + half-price districts. Excellent on water maps." },
+  "jadwiga":              { strong: ["land", "mixed"], weak: [], note: "Culture bombs work everywhere. Holy Site adjacency from districts." },
+  "john-curtin":          { strong: ["coastal", "hills"], weak: [], note: "Appeal adjacency loves coast + mountains. Coastal housing bonus." },
+  "kupe":                 { strong: ["naval", "islands", "coastal"], weak: ["land"], note: "Ocean start is perfect for water maps. Struggles on Pangaea." },
+  "lady-six-sky":         { strong: ["land"], weak: ["wide", "islands"], note: "Compact empire — needs tight settling. Large maps spread cities too far." },
+  "mansa-musa":           { strong: ["desert", "extreme"], weak: ["tundra"], note: "Desert faith is massive. Tilted Axis is ideal. Tundra is terrible." },
+  "montezuma":            { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Eagle Warrior rush needs land neighbors. Luxury diversity helps." },
+  "pedro":                { strong: ["jungle"], weak: ["tundra", "desert"], note: "Rainforest adjacency is everything. Needs jungle-heavy maps." },
+  "peter":                { strong: ["tundra", "extreme"], weak: ["desert"], note: "Tundra faith + production. Tilted Axis is Peter's dream map." },
+  "poundmaker":           { strong: ["land", "wide"], weak: [], note: "Trade routes grab territory. Wide maps give room to expand." },
+  "saladin":              { strong: ["desert", "mixed"], weak: [], note: "Guaranteed Prophet works everywhere. Desert starts boost Madrasa." },
+  "seondeok":             { strong: ["hills", "land"], weak: [], note: "Seowon away from districts + mines for science. Hills maps are ideal." },
+  "simon-bolivar":        { strong: ["land", "wide"], weak: ["naval", "islands"], note: "+1 movement is best on land. Water maps waste the movement bonus." },
+  "victoria":             { strong: ["coastal", "colonial", "naval"], weak: ["land"], note: "Foreign continent bonuses. Continents/Terra maps are ideal." },
+  "wilhelmina":           { strong: ["freshwater", "coastal"], weak: [], note: "River adjacency for districts. Polder needs specific coast tiles." },
+  "pachacuti":            { strong: ["hills"], weak: ["islands", "naval"], note: "Mountains are everything. Terrace Farms scale with mountain adjacency." },
+  "gorgo":                { strong: ["land", "hills"], weak: [], note: "Culture from kills works everywhere. Acropolis needs hills." },
+  "pericles":             { strong: ["mixed"], weak: [], note: "City-state suzerainty works on any map." },
+  "ambiorix":             { strong: ["land", "hills"], weak: ["naval", "islands"], note: "Adjacent unit bonus needs land combat. Oppidum from quarries/strategic resources." },
+  "amanitore":            { strong: ["desert"], weak: ["tundra"], note: "Nubian Pyramids need desert tiles. Desert starts are essential." },
+  "ba-trieu":             { strong: ["jungle", "marsh"], weak: ["desert", "tundra"], note: "Districts only on features. Needs jungle/marsh/woods-heavy maps." },
+  "catherine-black-queen":{ strong: ["mixed"], weak: [], note: "Spy network works everywhere. Wonder tourism from any map." },
+  "catherine-magnificence":{ strong: ["mixed"], weak: [], note: "Luxury culture works everywhere. Wonder tourism from any map." },
+  "chandragupta":         { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Territorial Expansion war needs land borders." },
+  "dido":                 { strong: ["coastal", "naval", "colonial"], weak: ["land"], note: "Cothon + settler production. Capital moving. Best on water/continents maps." },
+  "eleanor-england":      { strong: ["land"], weak: ["islands"], note: "Loyalty pressure needs adjacent cities. Islands spread cities too far." },
+  "eleanor-france":       { strong: ["land"], weak: ["islands"], note: "Loyalty pressure needs adjacent cities. Wonder tourism helps." },
+  "genghis-khan":         { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Cavalry dominance needs open land. Trade routes for visibility." },
+  "gitarja":              { strong: ["naval", "coastal", "islands"], weak: ["land"], note: "Faith-buy navy + Kampung on coast. Water maps are ideal." },
+  "hammurabi":            { strong: ["mixed"], weak: [], note: "Eureka completion works everywhere. Adapt to whatever terrain you get." },
+  "harald":               { strong: ["naval", "coastal"], weak: ["land"], note: "Coastal raids + naval production. Needs water to function." },
+  "harald-varangian":     { strong: ["naval", "coastal"], weak: ["land"], note: "Pillage yields from coastal raids. Water maps are essential." },
+  "jayavarman":           { strong: ["freshwater", "land"], weak: [], note: "Aqueducts + Holy Sites. Rivers and mountains are key." },
+  "joao":                 { strong: ["coastal", "naval"], weak: ["land"], note: "Trade routes to coastal cities only. Harbors are mandatory." },
+  "julius-caesar":        { strong: ["land", "wide"], weak: ["naval"], note: "Conquest gold + roads. Land maps for Legion rush." },
+  "kublai-china":         { strong: ["mixed"], weak: [], note: "Trade post bonuses work everywhere. 60% Eurekas are universal." },
+  "kublai-mongolia":      { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Trade routes + cavalry. Needs land for Keshig." },
+  "kristina":             { strong: ["mixed"], weak: [], note: "Auto-theming works everywhere. Open-Air Museum likes terrain variety." },
+  "lautaro":              { strong: ["land", "hills"], weak: [], note: "Governor combat bonus + Chemamull appeal. Hills help." },
+  "ludwig":               { strong: ["mixed"], weak: [], note: "Wonder building works everywhere. Hansa production helps." },
+  "menelik":              { strong: ["hills"], weak: ["islands"], note: "Rock-Hewn Church on hills. Oromo Cavalry +10 on hills. Hill-heavy maps are ideal." },
+  "mvemba":               { strong: ["jungle"], weak: ["desert", "tundra"], note: "Mbanza needs rainforest/woods. Great Works need population from food." },
+  "nzinga-mbande":        { strong: ["jungle"], weak: ["desert", "tundra"], note: "Mbanza needs rainforest/woods. Governor bonuses per district." },
+  "philip":               { strong: ["land", "colonial"], weak: [], note: "Conquistador + religion. Mission science on foreign continents." },
+  "qin-shi-huang":        { strong: ["mixed"], weak: [], note: "Builder wonder rushing works everywhere. Great Wall on borders." },
+  "qin-shi-huang-unifier":{ strong: ["mixed"], weak: [], note: "Alliance combat works everywhere. 60% Eurekas are universal." },
+  "ramses":               { strong: ["freshwater", "land"], weak: [], note: "Wonder rushing + Iteru river production. Settle along rivers." },
+  "robert-bruce":         { strong: ["mixed"], weak: [], note: "Amenity bonuses work everywhere. Golf Course for amenities." },
+  "saladin-vizier":       { strong: ["desert", "mixed"], weak: [], note: "Guaranteed Prophet + building production. Desert starts help." },
+  "sejong":               { strong: ["hills", "land"], weak: [], note: "Seowon + mines. Governor science per district. Hills maps ideal." },
+  "shaka":                { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Corps/Armies need land combat. Impi flanking needs open terrain." },
+  "suleiman-kanuni":      { strong: ["land", "wide"], weak: ["islands"], note: "Siege bonuses + conquered city loyalty. Land maps for conquest." },
+  "suleiman-muhtesem":    { strong: ["land", "wide"], weak: ["islands"], note: "Conquest snowball needs land neighbors." },
+  "sundiata":             { strong: ["desert", "extreme"], weak: ["tundra"], note: "Desert faith + Governor bonuses. Similar to Mansa Musa." },
+  "tamar":                { strong: ["mixed"], weak: [], note: "City-state envoys work everywhere. Tsikhe faith + tourism." },
+  "teddy-bull-moose":     { strong: ["coastal", "hills"], weak: [], note: "Appeal matters — coast, forests, mountains. National Parks need high appeal." },
+  "teddy-rough-rider":    { strong: ["land", "hills"], weak: [], note: "Home continent combat. Rough Rider on hills." },
+  "tokugawa":             { strong: ["land", "mixed"], weak: [], note: "Domestic trade focus. Meiji adjacency works everywhere." },
+  "tomyris":              { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Double cavalry needs open land. Saka Horse Archer rush needs neighbors." },
+  "trajan":               { strong: ["land", "wide"], weak: [], note: "Free Monuments + roads. Wide play on any land map." },
+  "wilfrid-laurier":      { strong: ["tundra", "extreme"], weak: ["desert"], note: "Tundra farming + cheap tundra tiles. Tilted Axis is perfect." },
+  "wu-zetian":            { strong: ["mixed"], weak: [], note: "Spy bonuses work everywhere. 60% Eurekas are universal." },
+  "yongle":               { strong: ["mixed"], weak: [], note: "Project yields + trade routes work everywhere." },
+  "theodora":             { strong: ["land", "mixed"], weak: ["islands"], note: "Any belief choice. Needs land neighbors for religion + cavalry." },
+  "nader-shah":           { strong: ["land", "wide"], weak: ["naval", "islands"], note: "Conquest snowball needs land borders. Immortals are land units." },
+  "elizabeth":            { strong: ["coastal", "naval"], weak: [], note: "City-state trade gold. British Museum for artifacts." },
+  "abraham-lincoln":      { strong: ["land", "mixed"], weak: [], note: "Melee bonus + Industrial Zone free units. Works on most maps." },
+  "matthias-corvinus":    { strong: ["freshwater", "mixed"], weak: [], note: "River production + city-state levies. Rivers are key." },
+  "cleopatra-ptolemaic":  { strong: ["freshwater", "land"], weak: [], note: "Alliance science + Iteru river production. Rivers and allies are key." },
+  "victoria-steam":       { strong: ["land", "mixed"], weak: [], note: "Industrial production works everywhere. Powered buildings are universal." }
+};
+
+// Generate leader-specific map advice
+function getLeaderMapAdvice(leaderId, mapType) {
+  const affinity = LEADER_MAP_AFFINITY[leaderId];
+  const mapChars = MAP_CHARACTERISTICS[mapType];
+  if (!affinity || !mapChars) return null;
+
+  const mapTags = mapChars.tags;
+  const strongMatches = affinity.strong.filter(t => mapTags.includes(t));
+  const weakMatches = affinity.weak.filter(t => mapTags.includes(t));
+
+  let rating, advice;
+  if (weakMatches.length > 0 && strongMatches.length === 0) {
+    rating = "poor";
+    advice = "This map type works against your strengths. " + affinity.note;
+  } else if (weakMatches.length > 0) {
+    rating = "mixed";
+    advice = "Mixed fit — some advantages but also challenges. " + affinity.note;
+  } else if (strongMatches.length >= 2) {
+    rating = "excellent";
+    advice = "Great map for this leader. " + affinity.note;
+  } else if (strongMatches.length === 1) {
+    rating = "good";
+    advice = "Solid map choice. " + affinity.note;
+  } else {
+    rating = "neutral";
+    advice = affinity.note;
+  }
+
+  return { rating, advice, strongMatches, weakMatches };
+}
