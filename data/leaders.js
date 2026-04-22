@@ -707,7 +707,7 @@ const LEADERS = [
     }
   },
   {
-    id: "harald", name: "Harald Hardrada (King of Norway)", civ: "Norway",
+    id: "harald", name: "Harald Hardrada (Konge)", civ: "Norway",
     victoryTypes: ["domination"],
     tier: { vanilla: "C", bbg: "C" },
     leaderAbility: { name: "Thunderbolt of the North", desc: "+50% Production toward naval melee units. Naval melee units can perform coastal raids." },
