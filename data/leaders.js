@@ -120,11 +120,11 @@ const LEADERS = [
     id: "gilgamesh", name: "Gilgamesh", civ: "Sumeria",
     victoryTypes: ["domination", "science"],
     tier: { vanilla: "A", bbg: "B" },
-    leaderAbility: { name: "Adventures with Enkidu", desc: "Can declare war on anyone at war with an ally without warmonger penalties. Shared combat XP with allied units within 5 tiles." },
-    civAbility: { name: "Epic Quest", desc: "Gain a Tribal Village reward when capturing a Barbarian Outpost." },
+    leaderAbility: { name: "Adventures with Enkidu", desc: "When at war with a common foe, allies share pillage rewards and combat XP within 5 tiles. Alliances gain additional Alliance Points for being at war with a common foe. Bonus influence points from max alliance level. Tribal Village reward from Barbarian Outposts. Half-cost city-state levies." },
+    civAbility: { name: "The Cradle of Civilization", desc: "Farms receive +1 Food adjacent to rivers, and +1 Production adjacent to a Ziggurat with Early Empire. Does not receive damage from Floods." },
     unique: [
-      { name: "War-Cart (UU)", desc: "No tech required. No penalty vs anti-cavalry. +5 vs barbarians." },
-      { name: "Ziggurat (UI)", desc: "+2 Science, +1 Culture if adjacent to river. Cannot be built on hills." }
+      { name: "War-Cart (UU)", desc: "Ancient era unit. 4 Movement on open terrain. Can escort civilians. No penalty vs anti-cavalry. +4 Combat Strength vs Barbarians." },
+      { name: "Ziggurat (UI)", desc: "+2 Science, +1 Housing. +1 Culture if adjacent to river. +1 Faith after Early Empire for each adjacent district or every 2 adjacent Farms. Cannot be built on hills." }
     ],
     bbgNotes: "BBG: Civ ability reworked — Farms get +1 Food adjacent to rivers, +1 Production adjacent to Ziggurat with Early Empire. No flood damage. Adventures of Enkidu adds tribal village rewards from barb camps, half-cost levies, and alliance bonuses. War-Cart gets 4 Movement on open terrain, escorts civilians.",
     strategy: {
