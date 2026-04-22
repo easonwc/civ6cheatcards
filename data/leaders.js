@@ -1378,10 +1378,10 @@ const LEADERS = [
     victoryTypes: ["culture", "science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Drake's Legacy", desc: "+100% Gold from Trade Routes to city-states. +2 Gold for each improved Luxury resource." },
-    civAbility: { name: "British Museum", desc: "Archaeological Museums have 6 slots and can hold 2 full artifact sets." },
+    civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
     unique: [
-      { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
-      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units." }
+      { name: "Sea Dog (UU)", desc: "Replaces Privateer. Chance to capture defeated enemy ships. Can only be seen by other Naval Raiders unless adjacent." },
+      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units built here. +2 Gold adjacency and +4 Loyalty per turn when built on a foreign continent." }
     ],
     bbgNotes: "BBG: Drake's Legacy — details not fully specified in BBG 7.4. Workshop of the World is civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Military Engineer Production, +2 charges. Sea Dog replaces Privateer.",
     strategy: {
