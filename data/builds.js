@@ -438,3 +438,60 @@ function analyzeMapFairness(players, selectedMap) {
     score: selected.scores[i]
   }))};
 }
+
+// Game mode strategy tips
+const GAME_MODE_TIPS = {
+  "barbarian-clans": {
+    name: "Barbarian Clans",
+    general: [
+      "Barbarian outposts can be bribed, hired from, or converted into city-states",
+      "Don't auto-clear every outpost — some are worth keeping for hire or conversion",
+      "Hiring barbarian units is cheap early game military",
+      "Converting an outpost to a city-state gives you a new suzerain target",
+      "Outposts near your cities can be bribed to stop raiding while you build up"
+    ],
+    leaderSynergies: {
+      domination: "Hire barbarian units for cheap early military. Clear outposts you don't need for gold.",
+      science: "Bribe nearby outposts to leave you alone while you focus on Campuses. Convert distant ones to city-states for suzerainty bonuses.",
+      culture: "Convert outposts to city-states — more city-states means more envoy targets and potential cultural bonuses.",
+      religion: "Convert outposts to city-states, then spread your religion to them for Taxis/religious bonuses.",
+      diplomacy: "Convert outposts to city-states for more suzerainty opportunities and Diplomatic Favor."
+    }
+  },
+  "secret-societies": {
+    name: "Secret Societies",
+    general: [
+      "Join a society ASAP — the earlier you join, the more governor promotions you get",
+      "You can only join ONE society per game — choose carefully based on your victory path",
+      "Hermetic Order: best for science (Ley Lines give adjacency to all districts)",
+      "Voidsingers: best for religion/faith (bonus faith from population, Cultists spread loyalty pressure)",
+      "Owls of Minerva: best for diplomacy/gold (extra economic policy slot, Gilded Vault, trade route bonuses)",
+      "Sanguine Pact: best for domination (Vampire unique unit that gets stronger from kills, can build Vampire Castles)"
+    ],
+    leaderSynergies: {
+      domination: "Sanguine Pact — Vampires are incredibly strong military units that heal and grow from kills. Vampire Castles provide yields.",
+      science: "Hermetic Order — Ley Lines provide adjacency to all districts including Campus. Alchemical Society building boosts Great People.",
+      culture: "Owls of Minerva or Hermetic Order — Owls give trade route bonuses and Gilded Vault. Hermetic Order Ley Lines boost Theater Squares.",
+      religion: "Voidsingers — Old God Obelisk gives faith from population. Cultists spread loyalty pressure. Massive faith generation.",
+      diplomacy: "Owls of Minerva — extra economic policy slot, Gilded Vault for gold, trade route bonuses for Diplomatic Favor generation."
+    }
+  },
+  "monopolies": {
+    name: "Monopolies & Corporations",
+    general: [
+      "Control all copies of a luxury resource to create a Monopoly (+5 Tourism per resource type)",
+      "Build Industries and Corporations on improved luxury resources for massive yields",
+      "Industries provide yields to the city; Corporations extend yields to nearby cities",
+      "Great Merchants can create Products that boost Corporation yields further",
+      "Monopolies give Tourism — this can be a culture victory shortcut",
+      "In multiplayer, trading away luxuries prevents you from getting monopolies — be strategic"
+    ],
+    leaderSynergies: {
+      domination: "Conquer cities to control all copies of luxury resources. Monopoly tourism is a backup win condition.",
+      science: "Corporation yields boost production for space projects. Not primary focus but helpful.",
+      culture: "Monopolies give +5 Tourism per type — this is HUGE for culture victory. Prioritize controlling all copies of luxuries.",
+      religion: "Faith from Corporation yields can fund religious units. Not primary synergy.",
+      diplomacy: "Corporation gold helps buy Diplomatic Favor. Monopoly tourism generates favor with Canada's ability."
+    }
+  }
+};

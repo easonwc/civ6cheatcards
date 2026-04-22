@@ -66,6 +66,12 @@ select, input, textarea { font-size: 16px; }
 .mode-btn:hover { color: #f0f0f0; }
 .mode-btn.active { background: #00c85020; color: #00c850; }
 
+.game-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 /* === Setup Screen === */
 .setup-screen { }
 .setup-screen.hidden { display: none; }

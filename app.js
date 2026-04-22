@@ -269,7 +269,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   let header = `
     <div class="strategy-section">
       <h3>${leader.name} (${leader.civ}) — ${capitalize(victory)} Victory</h3>
-      <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players</div>
+      <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players${getActiveGameModes().length > 0 ? ' · ' + getActiveGameModes().map(m => GAME_MODE_TIPS[m]?.name || m).join(', ') : ''}</div>
     </div>`;
 
   // Left column: overview
@@ -350,6 +350,11 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   right += collapsible(`General ${capitalize(victory)} Tips`, `<ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
 
   right += collapsible('Key Eurekas & Inspirations', renderBoostContent(leader, victory));
+
+  const gameModeTipsHtml = renderGameModeTips(victory);
+  if (gameModeTipsHtml) {
+    right += collapsible('Game Mode Tips', gameModeTipsHtml);
+  }
 
   return `
     ${header}
@@ -496,6 +501,31 @@ function renderBoostSection(leader, victory) {
 
 // === Helpers ===
 function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+
+function getActiveGameModes() {
+  const modes = [];
+  if ($('#mode-barbarian-clans')?.checked) modes.push('barbarian-clans');
+  if ($('#mode-secret-societies')?.checked) modes.push('secret-societies');
+  if ($('#mode-monopolies')?.checked) modes.push('monopolies');
+  return modes;
+}
+
+function renderGameModeTips(victory) {
+  const modes = getActiveGameModes();
+  if (modes.length === 0) return '';
+  let html = '';
+  modes.forEach(modeId => {
+    const mode = GAME_MODE_TIPS[modeId];
+    if (!mode) return;
+    const synergy = mode.leaderSynergies[victory] || '';
+    html += `<div style="margin-bottom:12px;">`;
+    html += `<div style="font-size:13px;font-weight:600;color:#00c850;margin-bottom:4px;">${mode.name}</div>`;
+    if (synergy) html += `<p style="font-size:12px;color:#ccc;margin-bottom:6px;">${synergy}</p>`;
+    html += `<ul>${mode.general.map(t => '<li>' + t + '</li>').join('')}</ul>`;
+    html += `</div>`;
+  });
+  return html;
+}
 
 
 // === Export All Team Cards ===
