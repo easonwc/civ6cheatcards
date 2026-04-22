@@ -616,10 +616,10 @@ const LEADERS = [
     victoryTypes: ["culture"],
     tier: { vanilla: "C", bbg: "C" },
     leaderAbility: { name: "Court of Love", desc: "Great Works in Eleanor's cities cause -1 Loyalty per turn to foreign cities within 9 tiles. Cities that leave another civ due to Loyalty join Eleanor." },
-    civAbility: { name: "British Museum", desc: "Archaeological Museums have 6 slots and can hold 2 full artifact sets." },
+    civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
     unique: [
-      { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
-      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units. Gold when built on foreign continent." }
+      { name: "Sea Dog (UU)", desc: "Replaces Privateer. Chance to capture defeated enemy ships. Can only be seen by other Naval Raiders unless adjacent." },
+      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units built here. +2 Gold adjacency and +4 Loyalty per turn when built on a foreign continent." }
     ],
     bbgNotes: "BBG: Court of Love unchanged. Workshop of the World is now England's civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Production to Military Engineers, +2 charges. Sea Dog replaces Privateer (not Redcoat).",
     strategy: {
