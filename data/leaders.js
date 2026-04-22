@@ -158,11 +158,11 @@ const LEADERS = [
     id: "jadwiga", name: "Jadwiga", civ: "Poland",
     victoryTypes: ["religion", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Lithuanian Union", desc: "Taking territory from another civ with culture bomb converts it to Poland's religion. Holy Sites receive +2 adjacency from districts." },
-    civAbility: { name: "Golden Liberty", desc: "Culture bomb when building Encampments or Fort. One Military policy slot converted to Wildcard." },
+    leaderAbility: { name: "Lithuanian Union", desc: "Poland's majority religion becomes the dominant religion in cities that lose a tile to a Polish Culture Bomb. Holy Sites gain a Faith adjacency bonus from adjacent districts. All Relics provide bonus Faith (+2), Culture (+2), and Gold (+4)." },
+    civAbility: { name: "Golden Liberty", desc: "Culture bomb when building Encampments or Fort inside friendly territory. One Military policy slot converted to Wildcard." },
     unique: [
-      { name: "Winged Hussar (UU)", desc: "Replaces Cavalry. Pushes back defenders when dealing more damage." },
-      { name: "Sukiennice (UB)", desc: "Replaces Market. International trade routes provide +2 Production, domestic +4 Gold." }
+      { name: "Winged Hussar (UU)", desc: "Replaces Cuirassier. Pushes back defenders when dealing more damage. Defenders that cannot retreat suffer additional damage." },
+      { name: "Sukiennice (UB)", desc: "Replaces Market. International trade routes provide +2 Production, domestic +4 Gold. +1 Trade Route capacity if city has no Lighthouse." }
     ],
     bbgNotes: "BBG: Golden Liberty and Lithuanian Union unchanged from vanilla. Relics provide bonus Faith (+2), Culture (+2), Gold (+4). Winged Hussar replaces Cuirassier (not Cavalry), unlocked at Reformed Church civic.",
     strategy: {
