@@ -714,9 +714,10 @@ const LEADERS = [
     civAbility: { name: "Knarr", desc: "Units pay no movement cost to embark/disembark. Naval units can heal in neutral territory." },
     unique: [
       { name: "Berserker (UU)", desc: "Replaces Man-at-Arms. +7 attack, -7 defense. +2 Movement when in enemy territory." },
+      { name: "Viking Longship (UU)", desc: "Replaces Galley. Can coastal raid and capture civilians. 4 Movement in coastal waters." },
       { name: "Stave Church (UB)", desc: "Replaces Temple. +1 Faith for each adjacent Woods tile. Holy Site gets adjacency from Woods." }
     ],
-    bbgNotes: "BBG: Knarr reworked — adds +50% Production toward Holy Sites. Coast/Lake give standard adjacency to Holy Sites. Harbors get major adjacency from Holy Sites. Thunderbolt of the North — +3 CS and +25% Production to naval melee. Coastal raids give Science from Mines, Culture from Quarries/Pastures/Plantations/Camps.",
+    bbgNotes: "BBG: Knarr reworked — adds +50% Production toward Holy Sites. Coast/Lake give standard adjacency to Holy Sites. Harbors get major adjacency from Holy Sites. Thunderbolt of the North — +3 CS and +25% Production to naval melee. Coastal raids give Science from Mines, Culture from Quarries/Pastures/Plantations/Camps. Viking Longship has 4 Movement in coastal waters, can coastal raid and capture civilians.",
     strategy: {
       domination: { synergy: 70, tips: ["Coastal raids for pillaging", "Berserker blitz in enemy territory", "Naval dominance on water maps"] },
       science: { synergy: 30, tips: ["No science bonuses"] },
