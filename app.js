@@ -306,6 +306,30 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     left += collapsible(`Opponent Matchups (${opponents.length})`, renderMatchupContent(leader, opponents), true);
   }
 
+  // Map fairness for multiplayer
+  if (plannerMode === 'mp' && opponents.length > 0) {
+    const allForFairness = [{ leader }, ...opponents];
+    const fairness = analyzeMapFairness(allForFairness, mapType);
+    if (fairness.rating !== 'fair') {
+      let fairHtml = `<div class="fairness-box fairness-${fairness.rating}">`;
+      fairHtml += `<div style="font-size:12px;font-weight:600;margin-bottom:6px;">Map Fairness: ${capitalize(fairness.rating.replace('-', ' '))}</div>`;
+      fairHtml += `<div class="fairness-scores">`;
+      fairness.players.forEach(p => {
+        const barColor = p.score >= 65 ? '#00c850' : p.score <= 35 ? '#e84040' : '#f59e0b';
+        fairHtml += `<div class="fairness-player"><span class="fairness-name">${p.name}</span><div class="synergy-bar" style="flex:1;max-width:100px;"><div class="synergy-fill" style="width:${p.score}%;background:${barColor}"></div></div><span style="font-size:11px;color:#888;">${p.score}</span></div>`;
+      });
+      fairHtml += `</div>`;
+      if (fairness.bestAlternatives.length > 0) {
+        fairHtml += `<div style="font-size:11px;color:#888;margin-top:8px;">Fairer alternatives:</div>`;
+        fairHtml += fairness.bestAlternatives.map(a =>
+          `<div style="font-size:12px;color:#ccc;padding:2px 0;">→ ${capitalize(a.mapType.replace(/-/g, ' '))} <span style="color:#555;">(spread: ${a.spread} vs ${fairness.selected.spread})</span></div>`
+        ).join('');
+      }
+      fairHtml += `</div>`;
+      left += collapsible('⚖ Map Fairness', fairHtml, true);
+    }
+  }
+
   left += collapsible('Leader-Specific Tips', `<ul>${strat.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
 
   if (bbgMode) {

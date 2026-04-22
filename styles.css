@@ -406,6 +406,7 @@ select, input, textarea { font-size: 16px; }
 .collapsible-body .boost-subheading { padding: 0 14px; }
 .collapsible-body .boost-item { margin: 0 14px 4px; }
 .collapsible-body .bbg-note { margin: 0 14px; }
+.collapsible-body .fairness-box { margin: 0 14px; }
 
 .build-order { display: flex; flex-direction: column; gap: 4px; }
 
@@ -481,6 +482,37 @@ select, input, textarea { font-size: 16px; }
 
 /* === Density === */
 .density-box { background: #1c1c1c; border-radius: 4px; padding: 10px 12px; border-left: 3px solid #2a2a2a; }
+
+/* === Map Fairness === */
+.fairness-box {
+  background: #1c1c1c;
+  border-radius: 4px;
+  padding: 10px 12px;
+  border-left: 3px solid #2a2a2a;
+}
+
+.fairness-fair { border-left-color: #00c850; }
+.fairness-slight-edge { border-left-color: #f59e0b; }
+.fairness-uneven { border-left-color: #e84040; }
+.fairness-unfair { border-left-color: #e84040; }
+
+.fairness-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fairness-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fairness-name {
+  font-size: 12px;
+  color: #ccc;
+  min-width: 100px;
+}
 
 .map-affinity { background: #1c1c1c; border-radius: 4px; padding: 10px 12px; border-left: 3px solid #2a2a2a; }
 .map-affinity-excellent { border-left-color: #00c850; }

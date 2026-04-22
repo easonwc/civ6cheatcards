@@ -397,3 +397,44 @@ function getLeaderMapAdvice(leaderId, mapType) {
 
   return { rating, advice, strongMatches, weakMatches };
 }
+
+// Map fairness analysis for multiplayer
+function analyzeMapFairness(players, selectedMap) {
+  const maps = Object.keys(MAP_CHARACTERISTICS);
+  
+  function scorePlayerOnMap(leader, mapType) {
+    const affinity = LEADER_MAP_AFFINITY[leader.id];
+    const mapChars = MAP_CHARACTERISTICS[mapType];
+    if (!affinity || !mapChars) return 50; // neutral
+    const mapTags = mapChars.tags;
+    const strong = affinity.strong.filter(t => mapTags.includes(t)).length;
+    const weak = affinity.weak.filter(t => mapTags.includes(t)).length;
+    return 50 + (strong * 15) - (weak * 20);
+  }
+
+  function fairnessForMap(mapType) {
+    const scores = players.map(p => scorePlayerOnMap(p.leader, mapType));
+    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+    const spread = Math.max(...scores) - Math.min(...scores);
+    return { mapType, scores, avg, spread, label: MAP_CHARACTERISTICS[mapType]?.desc || mapType };
+  }
+
+  const selected = fairnessForMap(selectedMap);
+  const alternatives = maps
+    .filter(m => m !== selectedMap && m !== 'shuffle')
+    .map(fairnessForMap)
+    .sort((a, b) => a.spread - b.spread);
+
+  let rating;
+  if (selected.spread <= 15) rating = 'fair';
+  else if (selected.spread <= 30) rating = 'slight-edge';
+  else if (selected.spread <= 45) rating = 'uneven';
+  else rating = 'unfair';
+
+  const bestAlternatives = alternatives.filter(a => a.spread < selected.spread).slice(0, 3);
+
+  return { selected, rating, bestAlternatives, players: players.map((p, i) => ({
+    name: p.leader.name,
+    score: selected.scores[i]
+  }))};
+}
