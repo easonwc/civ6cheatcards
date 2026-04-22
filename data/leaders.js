@@ -118,7 +118,7 @@ const LEADERS = [
   },
   {
     id: "gilgamesh", name: "Gilgamesh", civ: "Sumeria",
-    victoryTypes: ["domination", "science"],
+    victoryTypes: ["science","domination"],
     tier: { vanilla: "A", bbg: "B" },
     leaderAbility: { name: "Adventures with Enkidu", desc: "When at war with a common foe, allies share pillage rewards and combat XP within 5 tiles. Alliances gain additional Alliance Points for being at war with a common foe. Bonus influence points from max alliance level. Tribal Village reward from Barbarian Outposts. Half-cost city-state levies." },
     civAbility: { name: "The Cradle of Civilization", desc: "Farms receive +1 Food adjacent to rivers, and +1 Production adjacent to a Ziggurat with Early Empire. Does not receive damage from Floods." },
@@ -128,11 +128,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Civ ability reworked — Farms get +1 Food adjacent to rivers, +1 Production adjacent to Ziggurat with Early Empire. No flood damage. Adventures of Enkidu adds tribal village rewards from barb camps, half-cost levies, and alliance bonuses. War-Cart gets 4 Movement on open terrain, escorts civilians.",
     strategy: {
-      domination: { synergy: 80, tips: ["War-Cart rush is devastating early", "Joint wars with allies for no penalties", "Barbarian outposts = free bonuses"] },
-      science: { synergy: 75, tips: ["Ziggurat is one of the best early science improvements", "Build Ziggurats along rivers", "War-Cart protects early expansion"] },
-      culture: { synergy: 45, tips: ["Ziggurat gives some culture", "Not focused on culture"] },
-      religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 50, tips: ["Alliance-friendly leader ability", "Joint wars without penalties"] }
+      domination: { synergy: 75, tips: ["War-Cart rush with 4 Movement on open terrain","Alliance XP sharing and pillage rewards","Half-cost city-state levies","Tribal Village rewards from barb camps"] },
+      science: { synergy: 70, tips: ["Ziggurat gives +2 Science and +1 Housing","Farms get +1 Food near rivers, +1 Production near Ziggurats","Alliance bonuses help science through cooperation"] },
+      culture: { synergy: 45, tips: ["Ziggurat gives culture near rivers","Not focused on culture"] },
+      religion: { synergy: 40, tips: ["Ziggurat gives +1 Faith from adjacent districts/farms after Early Empire"] },
+      diplomacy: { synergy: 55, tips: ["Alliance-focused abilities","Half-cost levies for city-state interaction","Bonus influence from max alliance level"] }
     }
   },
   {
@@ -356,10 +356,10 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Hwarang reworked — +1 Amenity in cities with Governor. +30% yield to Seowon buildings per Governor promotion. Cities without Governor get -10% yields after Feudalism. +1 Governor Title at Feudalism. Seowon reworked — +1 base Science, +1 per 2 adjacent mines, +2 per Geothermal. Culture bombs. Science specialists give +1 Food.",
     strategy: {
-      domination: { synergy: 30, tips: ["Hwacha is defensive", "Tech lead enables advanced units"] },
-      science: { synergy: 98, tips: ["Seowon is the best Campus replacement", "Place Seowon away from other districts", "Mines give science", "Promote Governors for bonus"] },
-      culture: { synergy: 40, tips: ["Hwarang gives some culture", "Not focused"] },
-      religion: { synergy: 25, tips: ["No religious bonuses", "Seowon placement conflicts with Holy Sites"] },
+      domination: { synergy: 30, tips: ["Hwacha is defensive","Tech lead enables advanced units"] },
+      science: { synergy: 92, tips: ["Seowon with +1 base Science, +1 per 2 adjacent mines, +2 per Geothermal","+30% yield to Seowon buildings per Governor promotion","Place Governors in Seowon cities for massive scaling","Cities without Governors get -10% after Feudalism — plan carefully"] },
+      culture: { synergy: 35, tips: ["Not focused on culture"] },
+      religion: { synergy: 25, tips: ["No religious bonuses"] },
       diplomacy: { synergy: 35, tips: ["Tech lead helps but not focused"] }
     }
   },
@@ -375,8 +375,8 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Ejército Patriota nerfed — +1 Movement only after Political Philosophy (not from start). Promoting cavalry/air/spies doesn't end turn. Campaña Admirable — may not recruit Great Generals. Llanero +2 CS per adjacent (not +4).",
     strategy: {
-      domination: { synergy: 98, tips: ["+1 movement is game-breaking for military", "Comandante Generals every era", "Llanero swarms are devastating", "Best domination civ in the game"] },
-      science: { synergy: 45, tips: ["Movement helps exploration", "Hacienda provides some yields"] },
+      domination: { synergy: 92, tips: ["+1 Movement after Political Philosophy — rush this civic","Comandante Generals every era (cannot recruit Great Generals)","Llanero +2 CS per adjacent Llanero","Promoting cavalry/air/spies doesn't end turn"] },
+      science: { synergy: 45, tips: ["Movement helps exploration","Hacienda provides some yields"] },
       culture: { synergy: 40, tips: ["Not focused on culture"] },
       religion: { synergy: 30, tips: ["No religious bonuses"] },
       diplomacy: { synergy: 25, tips: ["Aggressive playstyle conflicts with diplomacy"] }
@@ -384,7 +384,7 @@ const LEADERS = [
   },
   {
     id: "victoria", name: "Victoria", civ: "England",
-    victoryTypes: ["domination", "science"],
+    victoryTypes: ["domination","science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Pax Britannica", desc: "Free melee unit when settling on a foreign continent. +1 Trade Route per foreign continent city." },
     civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
@@ -394,16 +394,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Pax Britannica reworked — cities 10+ tiles from capital get free melee unit. Royal Navy Dockyard grants strongest naval unit you can build. Naval melee escorts civilians. Redcoat +5 CS on foreign continent (not +10). Workshop of the World is now the civ ability — Iron/Coal mines +2 resources, Harbor buildings +10 stockpile, +100% Production to Military Engineers.",
     strategy: {
-      domination: { synergy: 65, tips: ["Redcoat is strong on foreign continents", "Free units when settling abroad", "Naval dominance with Dockyard"] },
-      science: { synergy: 55, tips: ["Trade routes from foreign continents fund science", "Not directly focused"] },
-      culture: { synergy: 70, tips: ["British Museum is incredible for culture", "6-slot Archaeological Museums", "Artifact tourism is powerful"] },
-      religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 45, tips: ["Trade route bonuses help", "Not specifically focused"] }
+      domination: { synergy: 60, tips: ["Free melee unit when settling 10+ tiles from capital","Royal Navy Dockyard grants strongest naval unit","Naval melee escorts civilians","Sea Dog captures enemy ships"] },
+      science: { synergy: 60, tips: ["Workshop of the World production bonuses","Wide empire with strategic resources","Harbor stockpile bonuses"] },
+      culture: { synergy: 45, tips: ["Not primary focus"] },
+      religion: { synergy: 25, tips: ["No religious bonuses"] },
+      diplomacy: { synergy: 40, tips: ["Wide empire generates some favor"] }
     }
   },
   {
     id: "wilhelmina", name: "Wilhelmina", civ: "Netherlands",
-    victoryTypes: ["science", "culture"],
+    victoryTypes: ["science","culture"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Radio Oranje", desc: "Domestic trade routes provide +1 Loyalty. Trade routes to/from foreign civs provide +1 Culture." },
     civAbility: { name: "Grote Rivieren", desc: "+2 adjacency for Campus, Theater Square, and Industrial Zone if adjacent to a river. Building a Harbor triggers a Culture Bomb." },
@@ -413,11 +413,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Grote Rivieren adds +50% Production toward Dam and Flood Barrier. Radio Oranje reworked — domestic trade gives +2 Loyalty, international trade gives +2 Culture to you. +3 CS for naval units defending on Polder. Dutch Campuses give +1 Great Admiral point.",
     strategy: {
-      domination: { synergy: 35, tips: ["De Zeven Provinciën is a strong naval unit", "Not focused on domination"] },
-      science: { synergy: 75, tips: ["River Campus adjacency is excellent", "Settle along rivers", "Industrial Zone adjacency helps production"] },
-      culture: { synergy: 75, tips: ["River Theater Square adjacency", "Trade route culture", "Harbor culture bombs"] },
+      domination: { synergy: 35, tips: ["De Zeven Provinciën is strong naval","+3 CS for naval on Polder","Not focused"] },
+      science: { synergy: 75, tips: ["River Campus major adjacency","Dutch Campuses give +1 Great Admiral point","Settle along rivers"] },
+      culture: { synergy: 70, tips: ["River Theater Square major adjacency","International trade gives +2 Culture to you","Harbor Culture Bombs"] },
       religion: { synergy: 35, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 50, tips: ["Trade route bonuses", "Loyalty from domestic trade"] }
+      diplomacy: { synergy: 50, tips: ["Domestic trade gives +2 Loyalty","International trade culture bonuses"] }
     }
   },
   {
@@ -441,7 +441,7 @@ const LEADERS = [
   },
   {
     id: "gorgo", name: "Gorgo", civ: "Greece",
-    victoryTypes: ["domination", "culture"],
+    victoryTypes: ["domination","culture"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Thermopylae", desc: "Gain Culture equal to 50% of the combat strength of defeated units." },
     civAbility: { name: "Plato's Republic", desc: "One extra Wildcard policy slot." },
@@ -451,16 +451,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Plato's Republic — Wildcard slot requires Early Empire civic. Thermopylae adds +1 CS per Military policy slot. Culture from kills at 50% of defeated unit CS. Hoplite +7 CS (not +10) when adjacent to another Hoplite.",
     strategy: {
-      domination: { synergy: 75, tips: ["Culture from kills accelerates civics", "Hoplite formation is strong early", "Wildcard slot for military policies"] },
-      science: { synergy: 45, tips: ["Wildcard slot can hold science policies", "Not directly focused"] },
-      culture: { synergy: 85, tips: ["Acropolis is excellent", "Culture from combat", "Wildcard slot flexibility", "Kill barbarians for culture"] },
+      domination: { synergy: 80, tips: ["Culture from kills (50% of defeated CS) accelerates civics","+1 CS per Military policy slot","Hoplite +7 CS when adjacent to another Hoplite","Wildcard slot after Early Empire"] },
+      science: { synergy: 45, tips: ["Wildcard slot can hold science policies","Not directly focused"] },
+      culture: { synergy: 85, tips: ["Acropolis is excellent Theater Square replacement","Culture from combat kills","Wildcard slot flexibility","Kill barbarians for early culture"] },
       religion: { synergy: 35, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 40, tips: ["Wildcard slot helps", "Combat focus conflicts with diplomacy"] }
+      diplomacy: { synergy: 40, tips: ["Wildcard slot helps","Combat focus conflicts with diplomacy"] }
     }
   },
   {
     id: "pericles", name: "Pericles", civ: "Greece",
-    victoryTypes: ["culture", "diplomacy"],
+    victoryTypes: ["culture","diplomacy"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Surrounded by Glory", desc: "+5% Culture per city-state where you are Suzerain." },
     civAbility: { name: "Plato's Republic", desc: "One extra Wildcard policy slot." },
@@ -470,11 +470,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Surrounded by Glory buffed — +5% Culture AND +5% Tourism per suzerain city-state. +1 Envoy when Amphitheater completed. Acropolis gets Production adjacency from wonders/districts. Wildcard slot requires Early Empire.",
     strategy: {
-      domination: { synergy: 30, tips: ["Hoplite is decent early", "Not focused on domination"] },
-      science: { synergy: 40, tips: ["Wildcard slot flexibility", "Not focused"] },
-      culture: { synergy: 90, tips: ["Suzerainty culture bonus stacks", "Acropolis adjacency", "Wildcard slot", "Invest in envoys"] },
+      domination: { synergy: 30, tips: ["Hoplite is decent early","Not focused on domination"] },
+      science: { synergy: 40, tips: ["Wildcard slot flexibility","Not focused"] },
+      culture: { synergy: 90, tips: ["+5% Culture AND +5% Tourism per suzerain city-state","+1 Envoy when Amphitheater completed","Acropolis gets Production adjacency from wonders/districts","Invest heavily in envoys"] },
       religion: { synergy: 35, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 75, tips: ["City-state focus aligns with diplomacy", "Suzerainty provides diplomatic favor", "Wildcard slot flexibility"] }
+      diplomacy: { synergy: 80, tips: ["City-state suzerainty focus aligns perfectly with diplomacy","+5% Tourism per suzerain helps favor generation","Wildcard slot flexibility"] }
     }
   },
   // === BATCH 1: Missing leaders ===
@@ -575,7 +575,7 @@ const LEADERS = [
   },
   {
     id: "chandragupta", name: "Chandragupta", civ: "India",
-    victoryTypes: ["domination"],
+    victoryTypes: ["domination","religion"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Arthashastra", desc: "Shrines grant +1 Movement and Temples grant +1 Sight for newly trained military units. Units receive +1 Combat Strength per Holy Site building in the production city." },
     civAbility: { name: "Dharma", desc: "Gains follower beliefs of all religions present in their cities." },
@@ -585,11 +585,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Arthashastra completely reworked — Shrines grant +1 Movement, Temples grant +1 Sight to newly trained military units. Units get +1 CS per Holy Site building in production city. Dharma gives +1 Amenity per religion, Missionaries +2 spreads, +100% religious pressure from trade.",
     strategy: {
-      domination: { synergy: 75, tips: ["Territorial Expansion timing attack", "Varu debuff weakens defenders", "Movement bonus for blitz"] },
-      science: { synergy: 40, tips: ["Stepwell housing helps growth", "Not focused"] },
-      culture: { synergy: 40, tips: ["Dharma can grab culture beliefs", "Not focused"] },
-      religion: { synergy: 60, tips: ["Dharma collects follower beliefs", "Stepwell faith near Holy Sites"] },
-      diplomacy: { synergy: 30, tips: ["War-focused leader conflicts with diplomacy"] }
+      domination: { synergy: 70, tips: ["Shrines give +1 Movement to new military units","Temples give +1 Sight to new units","+1 CS per Holy Site building in production city","Build Holy Sites in military production cities"] },
+      science: { synergy: 40, tips: ["Not focused on science"] },
+      culture: { synergy: 35, tips: ["Dharma can grab culture beliefs","Not focused"] },
+      religion: { synergy: 75, tips: ["Dharma collects all follower beliefs","+1 Amenity per religion following yours","Missionaries get +2 spreads","+100% religious pressure from trade routes","Holy Site buildings buff military units"] },
+      diplomacy: { synergy: 30, tips: ["Military focus conflicts with diplomacy"] }
     }
   },
   {
@@ -670,7 +670,7 @@ const LEADERS = [
   },
   {
     id: "gitarja", name: "Gitarja", civ: "Indonesia",
-    victoryTypes: ["religion", "culture"],
+    victoryTypes: ["religion","culture"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Exalted Goddess of the Three Worlds", desc: "Naval units and Harbor buildings purchasable with Faith. Religious units pay no movement to embark/disembark. After Sailing, City Centers near coast give +2 Faith, other districts near coast give +1 Faith (+2 with Shipbuilding)." },
     civAbility: { name: "Great Nusantara", desc: "Coast and Lake tiles provide +0.5 Faith, +0.5 Production, +0.5 Gold with Shipbuilding. Entertainment Complexes built adjacent to coast/lake provide +1 Amenity." },
@@ -680,16 +680,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Exalted Goddess reworked — after Sailing, City Centers near coast give +2 Faith, other districts near coast give +1 Faith (+2 with Shipbuilding). Naval units and Harbor buildings purchasable with Faith. Religious units free embark/disembark. Great Nusantara — coast/lake give minor adjacency to Campus/Theater/Holy Site/Industrial Zone.",
     strategy: {
-      domination: { synergy: 55, tips: ["Jong is a strong naval unit", "Faith-buy navy is flexible", "Strong on water maps"] },
-      science: { synergy: 45, tips: ["Kampung production helps", "Not focused"] },
-      culture: { synergy: 65, tips: ["Kampung provides yields for growth", "Coastal cities can be cultural"] },
-      religion: { synergy: 85, tips: ["Coastal faith generation is massive", "Faith-buy naval units", "Religious units move freely on water"] },
-      diplomacy: { synergy: 45, tips: ["Not specifically focused"] }
+      domination: { synergy: 55, tips: ["Jong is strong naval","Faith-buy navy is flexible","Strong on water maps"] },
+      science: { synergy: 45, tips: ["Coast/Lake give minor adjacency to Campus","Not focused"] },
+      culture: { synergy: 60, tips: ["Coast/Lake adjacency for Theater Squares","Kampung yields for growth"] },
+      religion: { synergy: 90, tips: ["City Centers near coast give +2 Faith after Sailing","Other districts near coast give +1 Faith (+2 with Shipbuilding)","Faith-buy naval units","Religious units free embark/disembark","Coast/Lake adjacency for Holy Sites"] },
+      diplomacy: { synergy: 40, tips: ["Not specifically focused"] }
     }
   },
   {
     id: "hammurabi", name: "Hammurabi", civ: "Babylon",
-    victoryTypes: ["science", "domination"],
+    victoryTypes: ["science","domination"],
     tier: { vanilla: "S", bbg: "A" },
     leaderAbility: { name: "Ninu Ilu Sirum", desc: "When each specialty district type (except Government Plaza) is constructed for the first time, receive the lowest Production cost building for that district." },
     civAbility: { name: "Enuma Anu Enlil", desc: "Receive a free Eureka after constructing each Library." },
@@ -699,10 +699,10 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Enuma Anu Enlil completely reworked — receive a free Eureka after constructing each Library (not full tech completion from all Eurekas). Ninu Ilu Sirum — first specialty district of each type gives lowest-cost building. Palgum reworked — +2 Production, +1 Food to improved freshwater tiles, +1 Production to all farms.",
     strategy: {
-      domination: { synergy: 75, tips: ["Sabum Kibittum is strong early", "Eureka-rush advanced military techs", "Can access units eras ahead"] },
-      science: { synergy: 90, tips: ["Eureka completion IS your science", "Plan city builds around Eurekas", "Free buildings from first districts", "-50% science means Eurekas are essential"] },
-      culture: { synergy: 40, tips: ["Free buildings help", "Not focused"] },
-      religion: { synergy: 40, tips: ["Palgum provides faith", "Not focused"] },
+      domination: { synergy: 65, tips: ["Sabum Kibittum is strong early","Free buildings from first districts help military infrastructure","Library Eurekas can unlock key military techs"] },
+      science: { synergy: 75, tips: ["Library Eurekas are your science engine — build Libraries everywhere","Free district buildings save massive production","Plan city builds around triggering Eurekas from Libraries"] },
+      culture: { synergy: 40, tips: ["Free buildings help but not focused on culture"] },
+      religion: { synergy: 40, tips: ["Palgum provides faith and food","Not primary focus"] },
       diplomacy: { synergy: 35, tips: ["Not focused on diplomacy"] }
     }
   },
@@ -766,7 +766,7 @@ const LEADERS = [
   },
   {
     id: "joao", name: "João III", civ: "Portugal",
-    victoryTypes: ["science", "diplomacy"],
+    victoryTypes: ["science","diplomacy"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Porta Do Cerco", desc: "All units receive +1 sight. +1 Trade Route capacity when entering a new era (Ancient included). Open Borders with all city-states." },
     civAbility: { name: "Casa Da Índia", desc: "International Trade Routes must originate from coastal cities and can only travel over water or canal tiles. +50% Gold with Cartography, +50% Science with Education, +50% Culture with Medieval Faires. Traders have +50% range over water." },
@@ -776,11 +776,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Casa da Índia reworked — international trade must originate from coastal city, can only travel over water/canal tiles. +50% Gold with Cartography, +50% Science with Education, +50% Culture with Medieval Faires. Porta do Cerco — +1 Trade Route per new era (not per civ met). Open Borders with city-states.",
     strategy: {
-      domination: { synergy: 35, tips: ["Naval units from Navigation School", "Gold funds military"] },
-      science: { synergy: 80, tips: ["Navigation School science from coast tiles", "Trade route gold funds research", "+50% trade yields are huge"] },
-      culture: { synergy: 45, tips: ["Trade route yields help", "Not focused"] },
-      religion: { synergy: 35, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 75, tips: ["Trade route bonuses", "City-state open borders", "Gold generation for diplomatic favor"] }
+      domination: { synergy: 30, tips: ["Naval units from Navigation School","Not focused"] },
+      science: { synergy: 80, tips: ["Navigation School science from coast tiles","+50% Science from trade with Education","Trade routes must go over water — settle coastal","+1 Trade Route per new era"] },
+      culture: { synergy: 55, tips: ["+50% Culture from trade with Medieval Faires","Not primary focus"] },
+      religion: { synergy: 30, tips: ["No religious bonuses"] },
+      diplomacy: { synergy: 70, tips: ["+50% Gold from trade with Cartography","Open Borders with city-states","+1 Trade Route per era for gold generation"] }
     }
   },
   {
@@ -795,11 +795,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Veni Vidi Vici completely reworked — melee/siege/ranged/heavy cavalry get +50% XP (+100% in Medieval). +1 CS per promotion. Free melee unit when founding non-capital cities. Extra Wildcard slot from capturing a major civ's city. Onager unique siege unit replaces Catapult.",
     strategy: {
-      domination: { synergy: 85, tips: ["Conquest gold fuels expansion", "Legion can build forts for defense", "+5 attack is always active", "Roads from conquest help logistics"] },
-      science: { synergy: 45, tips: ["Bath housing helps growth", "Not focused"] },
-      culture: { synergy: 35, tips: ["Not focused on culture"] },
-      religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 25, tips: ["Aggressive playstyle conflicts"] }
+      domination: { synergy: 85, tips: ["Melee/Siege/Ranged/Heavy Cavalry get +50% XP (+100% Medieval)","+1 CS per promotion — veterans are deadly","Free melee unit when founding cities","Extra Wildcard slot from capturing a major civ's city","Onager unique siege unit at Engineering"] },
+      science: { synergy: 45, tips: ["Bath housing helps growth","Not focused"] },
+      culture: { synergy: 35, tips: ["Bath culture from adjacent districts","Not focused"] },
+      religion: { synergy: 25, tips: ["No religious bonuses"] },
+      diplomacy: { synergy: 30, tips: ["Aggressive playstyle conflicts"] }
     }
   },
   {
@@ -861,7 +861,7 @@ const LEADERS = [
   },
   {
     id: "lautaro", name: "Lautaro", civ: "Mapuche",
-    victoryTypes: ["domination"],
+    victoryTypes: ["domination","culture"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Swift Hawk", desc: "+10 Combat Strength vs Free Cities or civs in a Golden/Heroic Age. Defeating an enemy unit in enemy city borders causes -20 Loyalty (-40 vs Golden Age civs)." },
     civAbility: { name: "Toqui", desc: "Cities with an established Governor provide +5% Culture, +5% Production, and +10% XP for units. Tripled in non-founded cities. +4 Loyalty per turn within 9 tiles of Governor city." },
@@ -871,9 +871,9 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Toqui reworked — cities with Governor give +5% Culture, +5% Production, +10% XP. Tripled in non-founded cities. +4 Loyalty per turn within 9 tiles of Governor city. Swift Hawk — +10 CS vs Free Cities or civs in Golden/Heroic Age. Kills cause -20 Loyalty (-40 vs Golden Age civs). Chemamull requires Breathtaking appeal, gives Culture equal to 75% of appeal.",
     strategy: {
-      domination: { synergy: 75, tips: ["Target civs in Golden Ages", "Loyalty pressure from kills", "Governor combat bonus in all cities", "Malón Raider for pillaging"] },
+      domination: { synergy: 70, tips: ["Governor cities give +5% Production and +10% XP","Tripled bonuses in conquered cities with Governors","+10 CS vs Golden Age civs","Kills cause loyalty pressure in enemy cities"] },
       science: { synergy: 35, tips: ["Not focused on science"] },
-      culture: { synergy: 50, tips: ["Chemamull provides culture and tourism", "Appeal-based scaling"] },
+      culture: { synergy: 55, tips: ["Governor cities give +5% Culture","Chemamull provides culture and tourism from appeal","+4 Loyalty per turn near Governor cities"] },
       religion: { synergy: 30, tips: ["No religious bonuses"] },
       diplomacy: { synergy: 25, tips: ["Aggressive playstyle conflicts"] }
     }
@@ -937,7 +937,7 @@ const LEADERS = [
   },
   {
     id: "nzinga-mbande", name: "Nzinga Mbande", civ: "Kongo",
-    victoryTypes: ["culture"],
+    victoryTypes: ["culture","diplomacy"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Queen of Ndongo and Matamba", desc: "+15% Gold and Culture in cities with a Mbanza. Mbanza provides +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists 50% cheaper. Civilians ignore forest/jungle movement penalty. +50% Great Merchant points." },
     civAbility: { name: "Nkisi", desc: "+2 Food, +2 Production, +4 Gold from each Relic, Artifact, and Sculpture. +1 Great Artist, Great Musician, and Great Merchant point per turn." },
@@ -947,16 +947,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Queen of Ndongo and Matamba reworked — +15% Gold and Culture in cities with Mbanza. Mbanza gives +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists 50% cheaper. Civilians ignore forest/jungle movement penalty. +50% Great Merchant points.",
     strategy: {
-      domination: { synergy: 40, tips: ["Governor combat XP bonus", "Ngao Mbeba is decent"] },
-      science: { synergy: 50, tips: ["Governor food helps growth", "Not focused"] },
-      culture: { synergy: 85, tips: ["Great Work yields are massive", "Governor food/faith per district", "Great People generation"] },
+      domination: { synergy: 30, tips: ["Ngao Mbeba is decent early","Not focused"] },
+      science: { synergy: 45, tips: ["Mbanza housing helps growth","Not focused"] },
+      culture: { synergy: 80, tips: ["+15% Culture in cities with Mbanza","Mbanza gives +2 adjacency to Theater Squares","Archaeologists 50% cheaper","Great Merchant points help Great People generation"] },
       religion: { synergy: 0, tips: ["Cannot found a religion"] },
-      diplomacy: { synergy: 40, tips: ["Not specifically focused"] }
+      diplomacy: { synergy: 55, tips: ["+15% Gold in Mbanza cities","+50% Great Merchant points","Gold generation helps diplomatic favor"] }
     }
   },
   {
     id: "philip", name: "Philip II", civ: "Spain",
-    victoryTypes: ["religion", "domination"],
+    victoryTypes: ["religion","domination"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "El Escorial", desc: "Inquisitors can Remove Heresy one extra time and eliminate 100% of other religions. +3 Combat Strength vs players following other religions for combat and religious units. Missionaries 25% cheaper." },
     civAbility: { name: "Treasure Fleet", desc: "Trade routes between cities on different continents gain +1 Food, +1 Production, +3 Gold. +25% Production toward districts on different continent from Capital." },
@@ -966,11 +966,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: El Escorial reworked — Inquisitors get extra Remove Heresy charge, eliminate 100% of other religions. +3 CS (not +5) vs other religions for combat and religious units. Missionaries 25% cheaper. Conquistador +5 CS (not +10) near religious units.",
     strategy: {
-      domination: { synergy: 70, tips: ["Conquistador + religious unit combo", "Religious combat strength bonus", "Convert cities on capture"] },
-      science: { synergy: 45, tips: ["Mission science on foreign continent", "Not primary focus"] },
+      domination: { synergy: 65, tips: ["Conquistador +5 CS near religious units","+3 CS vs other religions","Convert cities on capture"] },
+      science: { synergy: 40, tips: ["Mission science on foreign continent","Not primary focus"] },
       culture: { synergy: 35, tips: ["Not focused on culture"] },
-      religion: { synergy: 80, tips: ["Religious combat bonus", "Inquisitor extra charges", "Conquistador converts on capture", "Mission faith generation"] },
-      diplomacy: { synergy: 35, tips: ["Not focused on diplomacy"] }
+      religion: { synergy: 80, tips: ["Inquisitors eliminate 100% of other religions","Extra Remove Heresy charge","+3 CS for religious units vs other religions","Missionaries 25% cheaper","Conquistador converts on capture"] },
+      diplomacy: { synergy: 30, tips: ["Not focused on diplomacy"] }
     }
   },
   {
@@ -994,7 +994,7 @@ const LEADERS = [
   },
   {
     id: "qin-shi-huang-unifier", name: "Qin Shi Huang (Unifier)", civ: "China",
-    victoryTypes: ["domination", "culture"],
+    victoryTypes: ["domination","culture"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Thirty-Six Stratagems", desc: "Melee units can Convert Barbarians (consumes the unit). +50% Encampment building Production. +1 Great Writer from Encampments. Barracks/Stable get 2 Great Work of Writing slots. Great Works of Writing give +1 Food. Great General/Writer recruitment gives random Eureka and Inspiration." },
     civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
@@ -1004,16 +1004,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Thirty-Six Stratagems completely reworked — melee units can Convert Barbarians (consumes the unit). +50% Encampment building Production. +1 Great Writer from Encampments. Barracks/Stable get 2 Great Work of Writing slots. Great Works of Writing give +1 Food. Great General/Writer recruitment gives random Eureka and Inspiration. Dynastic Cycle at 45%.",
     strategy: {
-      domination: { synergy: 60, tips: ["Alliance combat bonus stacks", "Form alliances before attacking others"] },
-      science: { synergy: 55, tips: ["60% Eurekas", "Alliance Inspirations help"] },
-      culture: { synergy: 65, tips: ["Great Wall culture", "60% Inspirations", "Alliance Inspirations"] },
+      domination: { synergy: 65, tips: ["Convert Barbarians with melee units","+50% Encampment building production","Great General/Writer recruitment gives Eurekas and Inspirations"] },
+      science: { synergy: 50, tips: ["45% Eurekas from Dynastic Cycle","Eureka/Inspiration from Great People recruitment"] },
+      culture: { synergy: 60, tips: ["Great Writer points from Encampments","Barracks/Stable hold Great Works of Writing","Great Works of Writing give +1 Food","45% Inspirations"] },
       religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 50, tips: ["Alliance-focused abilities"] }
+      diplomacy: { synergy: 35, tips: ["Not focused on diplomacy"] }
     }
   },
   {
     id: "ramses", name: "Ramses II", civ: "Egypt",
-    victoryTypes: ["culture"],
+    victoryTypes: ["culture","religion"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Abu Simbel", desc: "Gain Culture equal to 10% of building cost (doubled in wonder cities, 25% for wonders). Holy Sites get +1 Production adjacent to river. +15% Production for Holy Sites and Industrial Zones on rivers." },
     civAbility: { name: "Iteru", desc: "+15% production toward districts and wonders built next to rivers." },
@@ -1024,15 +1024,15 @@ const LEADERS = [
     bbgNotes: "BBG: Abu Simbel reworked — gain Culture equal to 10% of building cost (doubled in wonder cities, 25% for wonders). Holy Sites get +1 Production adjacent to river. +15% Production for Holy Sites and Industrial Zones on rivers. Iteru unchanged.",
     strategy: {
       domination: { synergy: 25, tips: ["Not focused on domination"] },
-      science: { synergy: 40, tips: ["River production helps", "Not focused"] },
-      culture: { synergy: 90, tips: ["Wonder culture and gold stacking", "Builder wonder rushing", "Iteru river production", "Sphinx adjacent to wonders"] },
-      religion: { synergy: 50, tips: ["Sphinx faith", "River production for Holy Sites"] },
-      diplomacy: { synergy: 50, tips: ["Wonder building can score diplomatic points"] }
+      science: { synergy: 40, tips: ["River production helps","Not focused"] },
+      culture: { synergy: 80, tips: ["Culture equal to 10% of building cost (doubled in wonder cities)","25% Culture from completing wonders","Iteru river production for wonders","Sphinx adjacent to wonders"] },
+      religion: { synergy: 65, tips: ["Holy Sites get +1 Production adjacent to river","+15% Production for Holy Sites on rivers","Sphinx faith generation"] },
+      diplomacy: { synergy: 45, tips: ["Wonder building can score diplomatic points"] }
     }
   },
   {
     id: "robert-bruce", name: "Robert the Bruce", civ: "Scotland",
-    victoryTypes: ["science", "domination"],
+    victoryTypes: ["science","culture"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Bannockburn", desc: "Recon units receive +50% combat experience." },
     civAbility: { name: "Scottish Enlightenment", desc: "Happy cities receive +5% Science and +5% Production. Ecstatic cities double these bonuses." },
@@ -1042,11 +1042,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Bannockburn reworked — Recon units get +50% combat XP (no longer War of Liberation). Scottish Enlightenment buffed — happy cities get +5% Science/Production plus Great Scientist/Engineer points. Ecstatic doubles, Euphoric (+8 amenity) triples.",
     strategy: {
-      domination: { synergy: 55, tips: ["War of Liberation production bonus", "Highlander in terrain", "Liberation wars are justified"] },
-      science: { synergy: 75, tips: ["Happy/Ecstatic science bonus", "Golf Course amenities help happiness", "Production bonus for districts"] },
-      culture: { synergy: 50, tips: ["Golf Course culture", "Happy cities help"] },
+      domination: { synergy: 40, tips: ["Highlander is decent in hills/forest","Recon units get +50% XP but not a military powerhouse"] },
+      science: { synergy: 75, tips: ["Happy/Ecstatic science bonus from Scottish Enlightenment","Golf Course amenities trigger happiness bonuses","Great Scientist points from happy Campus cities"] },
+      culture: { synergy: 55, tips: ["Golf Course culture and amenities","Happy cities help all yields"] },
       religion: { synergy: 35, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 55, tips: ["Liberation wars are diplomatic", "Happy cities are productive"] }
+      diplomacy: { synergy: 50, tips: ["Peaceful playstyle works","Happy cities are productive"] }
     }
   },
   {
@@ -1080,9 +1080,9 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Hangul reworked — completing first tech from a new era gives double Science per turn as Culture. Seowon gets -1 Science per adjacent district. Seowon and Theater Squares get major adjacency from each other. Cities with both get +1 Culture and +2 Tourism per district. +30% Builder Production in cities without Governors after Feudalism.",
     strategy: {
-      domination: { synergy: 30, tips: ["Hwacha is defensive", "Tech lead for advanced units"] },
-      science: { synergy: 95, tips: ["Governor science per district is incredible", "Seowon + Mines for science", "Promote Governors for bonus", "Build many districts per city"] },
-      culture: { synergy: 40, tips: ["Governor culture bonus", "Not focused"] },
+      domination: { synergy: 30, tips: ["Hwacha is defensive","Tech lead for advanced units"] },
+      science: { synergy: 90, tips: ["Seowon is still the best Campus replacement","Completing first tech in a new era gives double Science as Culture","Seowon and Theater Squares get major adjacency from each other","+1 Culture and +2 Tourism per district in cities with both","+30% Builder Production without Governors after Feudalism"] },
+      culture: { synergy: 55, tips: ["Era tech completion gives Culture burst","Seowon + Theater Square adjacency combo","+2 Tourism per district in dual-district cities"] },
       religion: { synergy: 25, tips: ["No religious bonuses"] },
       diplomacy: { synergy: 35, tips: ["Not focused"] }
     }
@@ -1184,7 +1184,7 @@ const LEADERS = [
   },
   {
     id: "teddy-bull-moose", name: "Teddy Roosevelt (Bull Moose)", civ: "America",
-    victoryTypes: ["culture", "science"],
+    victoryTypes: ["culture","diplomacy"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Antiquities and Parks", desc: "After Code of Laws, breathtaking tiles get +1 Science near Natural Wonders/Mountains (doubled with Astronomy), +1 Culture near Wonders/Woods (doubled with Enlightenment). Woods plantable with Medieval Faires." },
     civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
@@ -1194,16 +1194,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Founding Fathers reworked — all Diplomatic policy slots converted to Wildcard. +1 Diplomatic Favor per Wildcard slot. Antiquities and Parks reworked — breathtaking tiles get +1 Science near Natural Wonders/Mountains (doubled with Astronomy), +1 Culture near Wonders/Woods (doubled with Enlightenment). Woods plantable with Medieval Faires. Film Studio nerfed to +30% Tourism (not +100%).",
     strategy: {
-      domination: { synergy: 30, tips: ["P-51 Mustang is strong but late", "Not focused"] },
-      science: { synergy: 65, tips: ["National Park science bonus", "Government legacy bonuses help"] },
-      culture: { synergy: 85, tips: ["National Parks are core strategy", "Film Studio doubles tourism pressure", "Appeal management is key", "Government legacy bonuses"] },
+      domination: { synergy: 30, tips: ["P-51 Mustang is strong but late","Not focused"] },
+      science: { synergy: 60, tips: ["Breathtaking tiles near mountains give +1 Science (doubled with Astronomy)","Wildcard slots help science policies"] },
+      culture: { synergy: 85, tips: ["Breathtaking tiles give +1 Culture near Wonders/Woods (doubled with Enlightenment)","Film Studio +30% Tourism in Modern era","Woods plantable with Medieval Faires for appeal","National Parks still strong"] },
       religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 50, tips: ["Government legacy bonuses", "Not specifically focused"] }
+      diplomacy: { synergy: 65, tips: ["All Diplomatic slots become Wildcard","+1 Diplomatic Favor per Wildcard slot","Peaceful playstyle suits diplomacy"] }
     }
   },
   {
     id: "teddy-rough-rider", name: "Teddy Roosevelt (Rough Rider)", civ: "America",
-    victoryTypes: ["domination", "diplomacy"],
+    victoryTypes: ["domination","diplomacy"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Roosevelt Corollary", desc: "Units get +1 Combat Strength per era reached (capped at +5 in Industrial). Envoys to city-states with trade routes count as two. Gain Rough Rider at Ballistics." },
     civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
@@ -1213,16 +1213,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Roosevelt Corollary reworked — units get +1 CS per era reached (capped at +5 in Industrial). Envoys to city-states with trade routes count as two. Rough Rider unlocked at Ballistics, replaces Cuirassier. +5 CS on Hills (not +10). Culture from kills at 25% of CS. Founding Fathers same as Bull Moose. Film Studio +30%.",
     strategy: {
-      domination: { synergy: 65, tips: ["Home continent combat bonus", "Rough Rider on hills", "Envoys from kills"] },
-      science: { synergy: 40, tips: ["Government legacy bonuses", "Not focused"] },
-      culture: { synergy: 55, tips: ["Film Studio tourism", "Rough Rider culture from kills"] },
+      domination: { synergy: 60, tips: ["+1 CS per era reached (capped +5 in Industrial)","Rough Rider at Ballistics — +5 CS on Hills","Culture from kills on home continent"] },
+      science: { synergy: 40, tips: ["Wildcard slots help","Not focused"] },
+      culture: { synergy: 50, tips: ["Film Studio +30% Tourism","Rough Rider culture from kills"] },
       religion: { synergy: 25, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 65, tips: ["Envoys from kills", "Government legacy bonuses", "City-state influence"] }
+      diplomacy: { synergy: 70, tips: ["Envoys to city-states with trade routes count as two","Wildcard slots from Founding Fathers","+1 Diplomatic Favor per Wildcard slot"] }
     }
   },
   {
     id: "tokugawa", name: "Tokugawa", civ: "Japan",
-    victoryTypes: ["domination", "culture"],
+    victoryTypes: ["culture","science"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Bakuhan", desc: "International trade gets -25% yields and Tourism. Domestic trade gives +0.5 Culture (+1 with Humanism) and +0.5 Science (+1 with Education) per specialty district at destination. Cities within 6 tiles of capital get 100% Loyalty. After Flight, +1 Tourism per district." },
     civAbility: { name: "Meiji Restoration", desc: "Districts receive +1 adjacency bonus for each adjacent district." },
@@ -1232,16 +1232,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Bakuhan reworked — international trade gets -25% yields and Tourism. Domestic trade gives +0.5 Culture (+1 with Humanism) and +0.5 Science (+1 with Education) per specialty district at destination. Cities within 6 tiles of capital get 100% Loyalty. After Flight, +1 Tourism per district. Meiji Restoration same as Hojo (minus Commercial Hub/Harbor adjacency).",
     strategy: {
-      domination: { synergy: 65, tips: ["Samurai doesn't weaken when damaged", "Domestic trade for self-sufficiency", "Meiji adjacency for production"] },
-      science: { synergy: 60, tips: ["Domestic trade science", "Meiji adjacency for Campus"] },
-      culture: { synergy: 75, tips: ["Domestic trade culture", "Electronics Factory culture", "Meiji adjacency for Theater Squares"] },
-      religion: { synergy: 55, tips: ["Meiji adjacency for Holy Sites", "Domestic trade helps"] },
-      diplomacy: { synergy: 35, tips: ["International trade penalty hurts diplomacy"] }
+      domination: { synergy: 50, tips: ["Samurai doesn't weaken when damaged","100% Loyalty near capital helps defense"] },
+      science: { synergy: 65, tips: ["Domestic trade gives +0.5 Science per district (+1 with Education)","Meiji adjacency for Campus","Tall play near capital"] },
+      culture: { synergy: 75, tips: ["Domestic trade gives +0.5 Culture per district (+1 with Humanism)","Electronics Factory culture","After Flight, +1 Tourism per district near capital","International trade penalty means focus domestic"] },
+      religion: { synergy: 45, tips: ["Meiji adjacency for Holy Sites","Domestic trade helps"] },
+      diplomacy: { synergy: 30, tips: ["International trade -25% yields hurts diplomacy"] }
     }
   },
   {
     id: "tomyris", name: "Tomyris", civ: "Scythia",
-    victoryTypes: ["domination"],
+    victoryTypes: ["domination","religion"],
     tier: { vanilla: "A", bbg: "B" },
     leaderAbility: { name: "Killer of Cyrus", desc: "All units receive +3 Combat Strength vs wounded units (+5 after Medieval era). When eliminating a unit, heal up to 30 HP." },
     civAbility: { name: "People of the Steppe", desc: "May purchase Light, Heavy, and Ranged Cavalry units with Faith." },
@@ -1251,10 +1251,10 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: People of the Steppe reworked — may purchase light, heavy, and ranged cavalry with Faith (no longer double production). Killer of Cyrus — +3 CS vs wounded (+5 after Medieval era). Heal 30 HP on kill. Saka Horse Archer has Range 2 and 4 Movement.",
     strategy: {
-      domination: { synergy: 85, tips: ["Double cavalry production is incredible", "Saka Horse Archer rush", "Heal on kill sustains attacks", "+5 vs wounded units for finishing"] },
+      domination: { synergy: 75, tips: ["Faith-purchase cavalry for flexible military","Heal on kill sustains attacks","+3/+5 CS vs wounded for finishing blows","Kurgan faith funds cavalry purchases"] },
       science: { synergy: 30, tips: ["Must conquer for science"] },
       culture: { synergy: 25, tips: ["Not focused on culture"] },
-      religion: { synergy: 40, tips: ["Kurgan faith generation", "Not primary focus"] },
+      religion: { synergy: 55, tips: ["Faith generation from Kurgans","Faith-purchase cavalry doubles as military + religious pressure","Saka Horse Archer protects missionaries"] },
       diplomacy: { synergy: 20, tips: ["Aggressive playstyle conflicts"] }
     }
   },
@@ -1336,7 +1336,7 @@ const LEADERS = [
   },
   {
     id: "theodora", name: "Theodora", civ: "Byzantium",
-    victoryTypes: ["religion", "domination"],
+    victoryTypes: ["religion","culture"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Metanoia", desc: "After Political Philosophy, Holy Sites provide +1 Culture per adjacent district. Farms provide Faith adjacency to Hippodromes and Holy Sites." },
     civAbility: { name: "Taxis", desc: "+3 combat strength or +3 religious strength for each Holy City converted to Byzantium's religion." },
@@ -1347,10 +1347,10 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Metanoia reworked — after Political Philosophy, Holy Sites give +1 Culture per adjacent district. Farms give Faith adjacency to Hippodromes and Holy Sites. Taxis same as Basil (+2 CS/RS per converted Holy City). Hippodrome and Dromon same as Basil.",
     strategy: {
-      domination: { synergy: 75, tips: ["Taxis combat strength from conversions", "Hippodrome free units", "Tagma support bonus"] },
+      domination: { synergy: 55, tips: ["Taxis combat strength from conversions","Hippodrome free cavalry units","Tagma support bonus"] },
       science: { synergy: 30, tips: ["Not focused on science"] },
-      culture: { synergy: 30, tips: ["Not focused on culture"] },
-      religion: { synergy: 95, tips: ["Choose ANY belief — pick the best combo", "Taxis religious strength", "Holy City loyalty", "Most flexible religion civ"] },
+      culture: { synergy: 50, tips: ["Holy Sites give Culture per adjacent district after Political Philosophy","Not primary focus"] },
+      religion: { synergy: 85, tips: ["Holy Sites give Culture per adjacent district","Farms give Faith adjacency to Holy Sites and Hippodromes","Taxis +2 CS/RS per converted Holy City","Combine religion spread with farm-heavy cities"] },
       diplomacy: { synergy: 30, tips: ["Aggressive playstyle conflicts"] }
     }
   },
@@ -1394,7 +1394,7 @@ const LEADERS = [
   },
   {
     id: "abraham-lincoln", name: "Abraham Lincoln", civ: "America",
-    victoryTypes: ["diplomacy", "domination"],
+    victoryTypes: ["science","domination"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Emancipation Proclamation", desc: "+100% Production to Industrial Zone and Aqueduct districts. Industrial Zones give +2 Amenities and +3 Loyalty. Plantations give -2 Loyalty. Free Melee unit from Industrial Zone and buildings (+5 CS, no resource cost)." },
     civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
@@ -1404,11 +1404,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Emancipation Proclamation reworked — +100% Production to Industrial Zone and Aqueduct. Industrial Zones give +2 Amenities and +3 Loyalty. Plantations give -2 Loyalty. Free melee unit from Industrial Zone and buildings (+5 CS, no resource cost). Founding Fathers — Diplomatic slots become Wildcard, +1 Favor per Wildcard. Film Studio +30%.",
     strategy: {
-      domination: { synergy: 65, tips: ["+5 melee/anti-cav combat strength", "Free units from Industrial Zones", "Government legacy bonuses"] },
-      science: { synergy: 45, tips: ["Government legacy bonuses", "Not focused"] },
-      culture: { synergy: 55, tips: ["Film Studio tourism", "Government legacy bonuses"] },
-      religion: { synergy: 25, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 60, tips: ["Government legacy bonuses", "Defensive playstyle works"] }
+      domination: { synergy: 60, tips: ["Free melee units from Industrial Zone buildings","+5 CS on free units","Industrial Zone amenities help war weariness"] },
+      science: { synergy: 70, tips: ["+100% Industrial Zone and Aqueduct production","Industrial Zones give amenities for growth","Wildcard slots from Founding Fathers for science policies"] },
+      culture: { synergy: 50, tips: ["Film Studio +30% Tourism in Modern era","Wildcard slots help"] },
+      religion: { synergy: 25, tips: ["No religious bonuses","Plantations give -2 Loyalty — avoid plantation-heavy religion cities"] },
+      diplomacy: { synergy: 65, tips: ["Wildcard slots from Founding Fathers","+1 Diplomatic Favor per Wildcard slot","Defensive playstyle works"] }
     }
   },
   {
@@ -1432,7 +1432,7 @@ const LEADERS = [
   },
   {
     id: "cleopatra-ptolemaic", name: "Cleopatra (Ptolemaic)", civ: "Egypt",
-    victoryTypes: ["science", "culture"],
+    victoryTypes: ["science","domination"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Arrival of Hapi", desc: "Military units cross rivers without movement or combat penalty from Classical era. +15% Production for Campus and Encampment on rivers. Campus and Encampment get major Science adjacency from rivers." },
     civAbility: { name: "Iteru", desc: "+15% production toward districts and wonders built next to rivers. Floodplains don't block district/wonder placement." },
@@ -1442,16 +1442,16 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Arrival of Hapi reworked — military units cross rivers without penalty from Classical era. +15% Production for Campus and Encampment on rivers. Campus and Encampment get major Science adjacency from rivers. Iteru unchanged.",
     strategy: {
-      domination: { synergy: 25, tips: ["Not focused on domination", "Maryannu Chariot Archer is decent early"] },
-      science: { synergy: 80, tips: ["Great Scientist points from alliances", "+15% project production with Campus", "Form alliances early and trade"] },
-      culture: { synergy: 70, tips: ["Sphinx culture and faith", "Iteru wonder production", "Alliance points for diplomacy"] },
-      religion: { synergy: 50, tips: ["Sphinx faith generation", "River production for Holy Sites"] },
-      diplomacy: { synergy: 65, tips: ["Alliance-focused abilities", "Trade route alliance points", "Natural diplomatic playstyle"] }
+      domination: { synergy: 50, tips: ["Military units cross rivers without penalty from Classical era","+15% Encampment production on rivers","River-based military advantage"] },
+      science: { synergy: 80, tips: ["Campus gets major Science adjacency from rivers","+15% Campus production on rivers","Settle along rivers for maximum science","Iteru +15% district production near rivers stacks"] },
+      culture: { synergy: 55, tips: ["Sphinx culture and faith","Iteru wonder production"] },
+      religion: { synergy: 45, tips: ["Sphinx faith generation","River production for Holy Sites"] },
+      diplomacy: { synergy: 40, tips: ["Not specifically focused"] }
     }
   },
   {
     id: "victoria-steam", name: "Victoria (Age of Steam)", civ: "England",
-    victoryTypes: ["science", "domination"],
+    victoryTypes: ["science","domination"],
     tier: { vanilla: "A", bbg: "A" },
     leaderAbility: { name: "Age of Steam", desc: "+5% Production per Factory and Power Plant in city. Powered buildings get +4 of their yield. Industrial Zones get standard adjacency from Royal Navy Dockyards. +20% Production toward Industrial Zone buildings. Lighthouse gives +1 Great Engineer point." },
     civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
@@ -1461,11 +1461,11 @@ const LEADERS = [
     ],
     bbgNotes: "BBG: Age of Steam reworked — +5% Production per Factory and Power Plant in city. Powered buildings get +4 of their yield. Industrial Zones get standard adjacency from Royal Navy Dockyards. +20% Production toward Industrial Zone buildings. Lighthouse gives +1 Great Engineer point. Workshop of the World civ ability.",
     strategy: {
-      domination: { synergy: 60, tips: ["Free Iron and Coal for units", "Military Engineer production bonus", "Redcoat on foreign continents"] },
-      science: { synergy: 75, tips: ["Powered buildings +4 yields is huge", "Production for space projects", "Industrial focus accelerates late game"] },
-      culture: { synergy: 55, tips: ["British Museum artifacts", "Powered building yields"] },
-      religion: { synergy: 30, tips: ["No religious bonuses"] },
-      diplomacy: { synergy: 45, tips: ["Production helps but not focused"] }
+      domination: { synergy: 55, tips: ["Strategic resource stockpiles from Workshop of the World","Military Engineer production bonus","Sea Dog for naval control"] },
+      science: { synergy: 80, tips: ["+5% Production per Factory and Power Plant","Powered buildings get +4 of their yield","Industrial Zone adjacency from Royal Navy Dockyards","+20% Industrial Zone building production","Great Engineer points from Lighthouses"] },
+      culture: { synergy: 45, tips: ["Production helps wonder building","Not primary focus"] },
+      religion: { synergy: 25, tips: ["No religious bonuses"] },
+      diplomacy: { synergy: 40, tips: ["Production helps but not focused"] }
     }
   },
 
