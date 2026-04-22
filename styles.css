@@ -69,7 +69,8 @@ select, input, textarea { font-size: 16px; }
 .game-modes {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  padding: 8px 0 4px;
 }
 
 /* === Setup Screen === */
@@ -172,17 +173,17 @@ select, input, textarea { font-size: 16px; }
 .check-toggle {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
   white-space: nowrap;
 }
 
 .check-toggle input[type="checkbox"] {
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: #141414;
   border: 1px solid #2a2a2a;
   border-radius: 3px;
