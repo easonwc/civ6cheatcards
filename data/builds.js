@@ -495,3 +495,90 @@ const GAME_MODE_TIPS = {
     }
   }
 };
+
+// Game speed strategy adjustments
+const GAME_SPEED_DATA = {
+  online:   { label: "Online",   prodMod: 0.5,  turnScale: 0.5 },
+  quick:    { label: "Quick",    prodMod: 0.67, turnScale: 0.67 },
+  standard: { label: "Standard", prodMod: 1.0,  turnScale: 1.0 },
+  epic:     { label: "Epic",     prodMod: 1.5,  turnScale: 1.5 },
+  marathon: { label: "Marathon", prodMod: 3.0,  turnScale: 3.0 }
+};
+
+const GAME_SPEED_TIPS = {
+  online: {
+    general: [
+      "Everything is faster — timing attacks hit before opponents can react",
+      "Units are cheap relative to their combat strength, making military very efficient",
+      "BBG competitive play is balanced around Online speed",
+      "Wonders are risky — someone else may finish first due to fast production"
+    ],
+    domination: "Domination is strongest on Online speed. Units are cheap, wars are fast, and timing attacks are devastating.",
+    science: "Science victory is harder to reach — games often end before the space race. Build military as insurance.",
+    culture: "Culture victory is fast but so is everyone else. Rock Bands and Great Works matter more than long-term tourism.",
+    religion: "Religious spread is fast. Rush your religion and spread aggressively before others can counter.",
+    diplomacy: "Games may end before enough World Congress sessions. Focus on emergencies and competitions."
+  },
+  quick: {
+    general: [
+      "Slightly faster than Standard — timing attacks are a bit stronger",
+      "Good balance between military and builder strategies",
+      "Wonders are still competitive but more achievable"
+    ],
+    domination: "Military is efficient. Classical and Medieval timing attacks are strong.",
+    science: "Science victory is viable but keep a military deterrent.",
+    culture: "Culture plays normally, slightly faster pace.",
+    religion: "Religion spreads at a good pace. Standard approach works.",
+    diplomacy: "Standard diplomatic approach works well."
+  },
+  standard: {
+    general: [
+      "The baseline speed — all strategies are balanced",
+      "Most guides and tier lists assume Standard speed"
+    ],
+    domination: "Standard domination approach — all timing windows work as expected.",
+    science: "Science victory is well-paced. Campus adjacency and Research Labs are key.",
+    culture: "Culture victory has time to develop tourism engines.",
+    religion: "Religion has a natural pace for spreading and defending.",
+    diplomacy: "Full diplomatic game with multiple World Congress sessions."
+  },
+  epic: {
+    general: [
+      "Units are expensive — losing an army is devastating",
+      "Walls and defensive structures are much more valuable",
+      "Builder strategies (science, culture) have more time to develop",
+      "Timing attacks are weaker because replacement units take longer to build",
+      "Great People are more impactful since there are more turns to use them"
+    ],
+    domination: "Domination is harder — units are expensive and wars drag out. Pillaging is more important for sustaining attacks.",
+    science: "Science victory is strong. You have more turns to build infrastructure and the space race is less rushed.",
+    culture: "Culture victory benefits from the longer game. National Parks and Seaside Resorts have more time to generate tourism.",
+    religion: "Religion has more time to spread but also more time for opponents to counter. Inquisitor defense is critical.",
+    diplomacy: "More World Congress sessions means more chances for Diplomatic Victory Points. Favor management is key."
+  },
+  marathon: {
+    general: [
+      "Units are extremely expensive — every unit matters",
+      "Wars can last dozens of turns. Attrition and pillaging are everything",
+      "Peaceful victory types are strongly favored",
+      "Walls are essential — they're relatively cheap compared to units",
+      "Improvements and districts take many turns — plan ahead carefully",
+      "Healing and unit maintenance become major strategic factors"
+    ],
+    domination: "Domination is very difficult. Units cost 3x and wars are grueling. Only attempt with strong military civs.",
+    science: "Science victory is very strong. Tons of time to build Campuses and research. The space race is a long but steady path.",
+    culture: "Culture victory thrives on Marathon. Tourism engines have maximum time to compound.",
+    religion: "Religion is a marathon (literally). Slow spread but also slow counters. Patience wins.",
+    diplomacy: "Many World Congress sessions. Diplomatic Favor accumulation over time is powerful."
+  }
+};
+
+function getGameSpeedTips(speed, victory) {
+  const data = GAME_SPEED_TIPS[speed];
+  if (!data || speed === 'standard') return null;
+  return {
+    label: GAME_SPEED_DATA[speed]?.label || speed,
+    general: data.general,
+    victoryTip: data[victory] || ''
+  };
+}

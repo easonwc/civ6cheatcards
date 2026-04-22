@@ -269,7 +269,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   let header = `
     <div class="strategy-section">
       <h3>${leader.name} (${leader.civ}) — ${capitalize(victory)} Victory</h3>
-      <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players${getActiveGameModes().length > 0 ? ' · ' + getActiveGameModes().map(m => GAME_MODE_TIPS[m]?.name || m).join(', ') : ''}</div>
+      <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players · ${GAME_SPEED_DATA[$('#planner-speed')?.value]?.label || 'Standard'} speed${getActiveGameModes().length > 0 ? ' · ' + getActiveGameModes().map(m => GAME_MODE_TIPS[m]?.name || m).join(', ') : ''}</div>
     </div>`;
 
   // Left column: overview
@@ -354,6 +354,13 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   const gameModeTipsHtml = renderGameModeTips(victory);
   if (gameModeTipsHtml) {
     right += collapsible('Game Mode Tips', gameModeTipsHtml);
+  }
+
+  const speedTips = getGameSpeedTips($('#planner-speed')?.value || 'standard', victory);
+  if (speedTips) {
+    let speedHtml = `<p style="font-size:12px;color:#ccc;margin-bottom:8px;">${speedTips.victoryTip}</p>`;
+    speedHtml += `<ul>${speedTips.general.map(t => '<li>' + t + '</li>').join('')}</ul>`;
+    right += collapsible(`${speedTips.label} Speed Tips`, speedHtml);
   }
 
   return `
