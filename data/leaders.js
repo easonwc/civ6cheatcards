@@ -101,7 +101,7 @@ const LEADERS = [
     id: "gandhi", name: "Gandhi", civ: "India",
     victoryTypes: ["religion", "diplomacy"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Satyagraha", desc: "+5 Faith for each civ met that has founded a religion and is at peace. Opponents receive double war weariness for fighting Gandhi." },
+    leaderAbility: { name: "Satyagraha", desc: "Grants an extra belief when founding a Religion. +5 Faith for each civ (including India) met that has founded a Religion and is not at war. Settlers and Builders from Holy Site cities get +1 Movement. Opponents receive +50% war weariness." },
     civAbility: { name: "Dharma", desc: "Gains follower beliefs of all religions present in their cities." },
     unique: [
       { name: "Varu (UU)", desc: "Replaces Horseman. -5 combat strength to adjacent enemy units." },
@@ -196,8 +196,8 @@ const LEADERS = [
     id: "kupe", name: "Kupe", civ: "Maori",
     victoryTypes: ["culture", "religion"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Kupe's Voyage", desc: "Starts in Ocean. +2 Science and +2 Culture per turn before settling. First city receives a free Builder and extra population." },
-    civAbility: { name: "Mana", desc: "Unimproved Woods and Rainforest provide +1 Production and +1 Faith. Fishing Boats provide +1 Food. Cannot harvest resources or earn Great Writers." },
+    leaderAbility: { name: "Kupe's Voyage", desc: "Settlers can embark after researching Sailing. The Palace grants +3 Housing." },
+    civAbility: { name: "Mana", desc: "Embarked units gain +2 Movement with Shipbuilding. Fishing Boats Culture Bomb and provide +1 Food with Celestial Navigation. Resources cannot be harvested. Great Writers cannot be earned. Unimproved Woods and Rainforest gain Production scaling through eras." },
     unique: [
       { name: "Toa (UU)", desc: "Replaces Swordsman. Can construct Pa improvement. Adjacent enemies get -5 combat strength." },
       { name: "Marae (UB)", desc: "Replaces Amphitheater. +1 Culture and +1 Faith for each passable feature tile in the city." }
@@ -234,7 +234,7 @@ const LEADERS = [
     id: "mansa-musa", name: "Mansa Musa", civ: "Mali",
     victoryTypes: ["religion", "diplomacy"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Sahel Merchants", desc: "International trade routes gain +1 Gold per flat desert tile in the origin city." },
+    leaderAbility: { name: "Sahel Merchants", desc: "+1 Trade Route capacity after Banking. Holy Sites grant major adjacency to Suguba. +15% Production toward Holy Sites and their buildings." },
     civAbility: { name: "Songs of the Jeli", desc: "City Centers gain +1 Faith and +1 Food for each adjacent Desert and Desert Hills. Mines receive -1 Production. May purchase Commercial Hub buildings with Faith." },
     unique: [
       { name: "Mandekalu Cavalry (UU)", desc: "Replaces Knight. Prevents traders within 4 tiles from being plundered. Gains Gold from kills." },
@@ -348,8 +348,8 @@ const LEADERS = [
     id: "seondeok", name: "Seondeok", civ: "Korea",
     victoryTypes: ["science"],
     tier: { vanilla: "S", bbg: "A" },
-    leaderAbility: { name: "Hwarang", desc: "+3% Culture and Science for each promoted Governor." },
-    civAbility: { name: "Three Kingdoms", desc: "Mines receive +1 Science. Farms receive +1 Food if adjacent to a Seowon." },
+    leaderAbility: { name: "Hwarang", desc: "+1 Amenity for cities with a Governor. +30% yield to Seowon buildings per Governor promotion. Cities without Governor get -10% yields after Feudalism. +1 Governor Title at Feudalism." },
+    civAbility: { name: "Three Kingdoms", desc: "Mines receive +1 Science for every adjacent Seowon. Farms receive +1 Food for every adjacent Seowon." },
     unique: [
       { name: "Hwacha (UU)", desc: "Replaces Field Cannon. Stronger ranged attack but cannot move and attack in the same turn." },
       { name: "Seowon (UD)", desc: "Replaces Campus. +4 base Science but loses Science for each adjacent district." }
@@ -387,7 +387,7 @@ const LEADERS = [
     victoryTypes: ["domination", "science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Pax Britannica", desc: "Free melee unit when settling on a foreign continent. +1 Trade Route per foreign continent city." },
-    civAbility: { name: "British Museum", desc: "Archaeological Museums have 6 slots and can hold 2 full artifact sets." },
+    civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
     unique: [
       { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent. Can disembark without movement cost." },
       { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units. Gold and Loyalty when built on foreign continent." }
@@ -446,7 +446,7 @@ const LEADERS = [
     leaderAbility: { name: "Thermopylae", desc: "Gain Culture equal to 50% of the combat strength of defeated units." },
     civAbility: { name: "Plato's Republic", desc: "One extra Wildcard policy slot." },
     unique: [
-      { name: "Hoplite (UU)", desc: "Replaces Spearman. +10 combat when adjacent to another Hoplite." },
+      { name: "Hoplite (UU)", desc: "Replaces Spearman. +7 Combat Strength if at least one adjacent Hoplite." },
       { name: "Acropolis (UD)", desc: "Replaces Theater Square. +1 adjacency from districts. Must be built on hills." }
     ],
     bbgNotes: "BBG: Plato's Republic — Wildcard slot requires Early Empire civic. Thermopylae adds +1 CS per Military policy slot. Culture from kills at 50% of defeated unit CS. Hoplite +7 CS (not +10) when adjacent to another Hoplite.",
@@ -465,7 +465,7 @@ const LEADERS = [
     leaderAbility: { name: "Surrounded by Glory", desc: "+5% Culture per city-state where you are Suzerain." },
     civAbility: { name: "Plato's Republic", desc: "One extra Wildcard policy slot." },
     unique: [
-      { name: "Hoplite (UU)", desc: "Replaces Spearman. +10 combat when adjacent to another Hoplite." },
+      { name: "Hoplite (UU)", desc: "Replaces Spearman. +7 Combat Strength if at least one adjacent Hoplite." },
       { name: "Acropolis (UD)", desc: "Replaces Theater Square. +1 adjacency from districts. Must be built on hills." }
     ],
     bbgNotes: "BBG: Surrounded by Glory buffed — +5% Culture AND +5% Tourism per suzerain city-state. +1 Envoy when Amphitheater completed. Acropolis gets Production adjacency from wonders/districts. Wildcard slot requires Early Empire.",
@@ -482,8 +482,8 @@ const LEADERS = [
     id: "ambiorix", name: "Ambiorix", civ: "Gaul",
     victoryTypes: ["domination", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "King of the Eburones", desc: "Units receive +2 combat strength for each adjacent combat unit." },
-    civAbility: { name: "Hallstatt Culture", desc: "Mines provide a minor adjacency bonus for all specialty districts. Specialty districts cannot be built adjacent to the City Center. +1 Culture for each non-adjacent specialty district." },
+    leaderAbility: { name: "King of the Eburones", desc: "Mines trigger a Culture Bomb. Melee and anti-cavalry units receive +1 Combat Strength per adjacent military unit. Gain Culture equal to 25% of military unit production cost after Bronze Working." },
+    civAbility: { name: "Hallstatt Culture", desc: "Quarries grant standard adjacency for all districts (doubled for Oppidum). Mines grant minor adjacency for all districts. Specialty districts cannot be adjacent to City Center." },
     unique: [
       { name: "Gaesatae (UU)", desc: "Replaces Warrior. +10 combat vs stronger units and district defenses. +5 combat from adjacent units." },
       { name: "Oppidum (UD)", desc: "Replaces Industrial Zone. Unlocked at Iron Working. Lower cost. Can perform a ranged attack. Major adjacency from Quarries and strategic resources." }
@@ -520,7 +520,7 @@ const LEADERS = [
     id: "ba-trieu", name: "Bà Triệu", civ: "Vietnam",
     victoryTypes: ["culture", "domination"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Drive Out the Aggressors", desc: "+5 combat strength when fighting in Rainforest, Marsh, or Woods. +1 Movement in those features." },
+    leaderAbility: { name: "Drive Out the Aggressors", desc: "+2 Movement for all units in Rainforest, Woods, or Marsh within your empire. +2 Combat Strength in features, +4 in your own territory features." },
     civAbility: { name: "Nine Dragon River Delta", desc: "Land specialty districts can only be built on Rainforest, Marsh, or Woods. Buildings in those features provide bonus yields." },
     unique: [
       { name: "Voi Chiến (UU)", desc: "Replaces Crossbowman. +5 combat strength when in features. Can move after attacking." },
@@ -577,7 +577,7 @@ const LEADERS = [
     id: "chandragupta", name: "Chandragupta", civ: "India",
     victoryTypes: ["domination"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Arthashastra", desc: "Can declare a War of Territorial Expansion. +2 Movement and +5 combat strength for 10 turns after declaring a War of Territorial Expansion." },
+    leaderAbility: { name: "Arthashastra", desc: "Shrines grant +1 Movement and Temples grant +1 Sight for newly trained military units. Units receive +1 Combat Strength per Holy Site building in the production city." },
     civAbility: { name: "Dharma", desc: "Gains follower beliefs of all religions present in their cities." },
     unique: [
       { name: "Varu (UU)", desc: "Replaces Horseman. -5 combat strength to adjacent enemy units." },
@@ -672,7 +672,7 @@ const LEADERS = [
     id: "gitarja", name: "Gitarja", civ: "Indonesia",
     victoryTypes: ["religion", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Exalted Goddess of the Three Worlds", desc: "May purchase naval units with Faith. Religious units pay no movement to embark/disembark. +2 Faith for city centers adjacent to coast." },
+    leaderAbility: { name: "Exalted Goddess of the Three Worlds", desc: "Naval units and Harbor buildings purchasable with Faith. Religious units pay no movement to embark/disembark. After Sailing, City Centers near coast give +2 Faith, other districts near coast give +1 Faith (+2 with Shipbuilding)." },
     civAbility: { name: "Great Nusantara", desc: "Coast and Lake tiles provide +0.5 Faith, +0.5 Production, +0.5 Gold with Shipbuilding. Entertainment Complexes built adjacent to coast/lake provide +1 Amenity." },
     unique: [
       { name: "Jong (UU)", desc: "Replaces Frigate. Stronger. Gains escort formation movement bonus. +5 combat in formation." },
@@ -691,8 +691,8 @@ const LEADERS = [
     id: "hammurabi", name: "Hammurabi", civ: "Babylon",
     victoryTypes: ["science", "domination"],
     tier: { vanilla: "S", bbg: "A" },
-    leaderAbility: { name: "Ninu Ilu Sirum", desc: "Eurekas provide full tech completion instead of 50%. -50% Science per turn in all cities." },
-    civAbility: { name: "Enuma Anu Enlil", desc: "Gain a free building each time you build a specialty district for the first time. Eurekas are even more important." },
+    leaderAbility: { name: "Ninu Ilu Sirum", desc: "When each specialty district type (except Government Plaza) is constructed for the first time, receive the lowest Production cost building for that district." },
+    civAbility: { name: "Enuma Anu Enlil", desc: "Receive a free Eureka after constructing each Library." },
     unique: [
       { name: "Sabum Kibittum (UU)", desc: "Ancient era melee unit. +17 combat vs anti-cavalry. 3 movement." },
       { name: "Palgum (UB)", desc: "Replaces Water Mill. +2 Food, +1 Faith. +1 Food for each freshwater Farm." }
@@ -749,7 +749,7 @@ const LEADERS = [
     id: "jayavarman", name: "Jayavarman VII", civ: "Khmer",
     victoryTypes: ["religion", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Monasteries of the King", desc: "Holy Sites provide +2 Food and +1 Housing. Culture Bomb adjacent tiles when completing a Holy Site." },
+    leaderAbility: { name: "Monasteries of the King", desc: "Holy Sites get major adjacency from rivers, trigger a Culture Bomb, provide Food equal to adjacency bonus, and +2 Housing if on a river." },
     civAbility: { name: "Grand Barays", desc: "Aqueducts provide +3 Faith and +1 Amenity. Farms adjacent to Aqueducts gain +2 Food." },
     unique: [
       { name: "Domrey (UU)", desc: "Replaces Trebuchet. Can move and shoot in the same turn. +10 combat vs districts." },
@@ -768,8 +768,8 @@ const LEADERS = [
     id: "joao", name: "João III", civ: "Portugal",
     victoryTypes: ["science", "diplomacy"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Porta Do Cerco", desc: "All units receive +1 sight. +1 Trade Route capacity when meeting a new civ. Open Borders with all city-states." },
-    civAbility: { name: "Casa Da Índia", desc: "International Trade Routes can only reach cities on the coast or with a Harbor. +50% yields from Trade Routes to foreign cities." },
+    leaderAbility: { name: "Porta Do Cerco", desc: "All units receive +1 sight. +1 Trade Route capacity when entering a new era (Ancient included). Open Borders with all city-states." },
+    civAbility: { name: "Casa Da Índia", desc: "International Trade Routes must originate from coastal cities and can only travel over water or canal tiles. +50% Gold with Cartography, +50% Science with Education, +50% Culture with Medieval Faires. Traders have +50% range over water." },
     unique: [
       { name: "Nau (UU)", desc: "Replaces Caravel. Cheaper maintenance. Can build Feitorias." },
       { name: "Navigation School (UB)", desc: "Replaces University. +25% Production toward naval units. +1 Science for every 2 coast/lake tiles in the city." }
@@ -787,7 +787,7 @@ const LEADERS = [
     id: "julius-caesar", name: "Julius Caesar", civ: "Rome",
     victoryTypes: ["domination"],
     tier: { vanilla: "A", bbg: "B" },
-    leaderAbility: { name: "Veni, Vidi, Vici", desc: "Gain Gold when conquering cities and clearing Barbarian Outposts. +5 combat strength when attacking." },
+    leaderAbility: { name: "Veni, Vidi, Vici", desc: "Melee, Siege, Ranged and Heavy Cavalry units receive +50% Combat XP (+100% in Medieval). +1 Combat Strength per promotion. Free melee unit when founding non-capital cities. Extra Wildcard slot from capturing a major civ's city. Gain Onager unique unit at Engineering." },
     civAbility: { name: "All Roads Lead to Rome", desc: "Founded or conquered cities start with a Trading Post and road to the Capital. Trade Routes earn +1 Gold per Trading Post." },
     unique: [
       { name: "Legion (UU)", desc: "Replaces Swordsman. Can build roads and forts. Stronger." },
@@ -807,7 +807,7 @@ const LEADERS = [
     victoryTypes: ["culture", "science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Gerege", desc: "+1 Economic policy slot. +6 Gold, +3 Culture, +2 Science per turn for each active Trading Post in a foreign city." },
-    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 60% instead of 50%." },
+    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
     unique: [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement. Short range but high power." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments. Must be built on border." }
@@ -863,8 +863,8 @@ const LEADERS = [
     id: "lautaro", name: "Lautaro", civ: "Mapuche",
     victoryTypes: ["domination"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Swift Hawk", desc: "Defeating an enemy unit within the borders of an enemy city causes that city to lose 20 Loyalty." },
-    civAbility: { name: "Toqui", desc: "+10 combat strength when fighting civs in a Golden Age. +5 combat strength for all units trained in a city with a Governor." },
+    leaderAbility: { name: "Swift Hawk", desc: "+10 Combat Strength vs Free Cities or civs in a Golden/Heroic Age. Defeating an enemy unit in enemy city borders causes -20 Loyalty (-40 vs Golden Age civs)." },
+    civAbility: { name: "Toqui", desc: "Cities with an established Governor provide +5% Culture, +5% Production, and +10% XP for units. Tripled in non-founded cities. +4 Loyalty per turn within 9 tiles of Governor city." },
     unique: [
       { name: "Malón Raider (UU)", desc: "Replaces Cavalry. +5 combat within 4 tiles of friendly territory. Pillaging costs 1 movement." },
       { name: "Chemamull (UI)", desc: "+1 Production. +1 Culture for every 2 Appeal. Tourism after Flight." }
@@ -939,7 +939,7 @@ const LEADERS = [
     id: "nzinga-mbande", name: "Nzinga Mbande", civ: "Kongo",
     victoryTypes: ["culture"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Fierce Grace", desc: "+2 Food and +2 Faith for each specialty district in a city with a Governor. Cities with Governors gain +20% combat experience for units." },
+    leaderAbility: { name: "Queen of Ndongo and Matamba", desc: "+15% Gold and Culture in cities with a Mbanza. Mbanza provides +2 adjacency to Theater Squares and Commercial Hubs. Archaeologists 50% cheaper. Civilians ignore forest/jungle movement penalty. +50% Great Merchant points." },
     civAbility: { name: "Nkisi", desc: "+2 Food, +2 Production, +4 Gold from each Relic, Artifact, and Sculpture. +1 Great Artist, Great Musician, and Great Merchant point per turn." },
     unique: [
       { name: "Ngao Mbeba (UU)", desc: "Replaces Swordsman. No iron required. +10 defense vs ranged attacks." },
@@ -958,7 +958,7 @@ const LEADERS = [
     id: "philip", name: "Philip II", civ: "Spain",
     victoryTypes: ["religion", "domination"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "El Escorial", desc: "+4 combat strength when fighting civilizations following a different religion. Inquisitors have +1 extra removal charge." },
+    leaderAbility: { name: "El Escorial", desc: "Inquisitors can Remove Heresy one extra time and eliminate 100% of other religions. +3 Combat Strength vs players following other religions for combat and religious units. Missionaries 25% cheaper." },
     civAbility: { name: "Treasure Fleet", desc: "Trade routes between cities on different continents gain +1 Food, +1 Production, +3 Gold. +25% Production toward districts on different continent from Capital." },
     unique: [
       { name: "Conquistador (UU)", desc: "Replaces Musketman. +10 combat when adjacent to a Missionary, Apostle, or Inquisitor. Converts city to Spain's religion on capture." },
@@ -978,7 +978,7 @@ const LEADERS = [
     victoryTypes: ["culture", "science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "The First Emperor", desc: "Builders receive +1 charge. Can spend Builder charges to complete 15% of Ancient and Classical wonders." },
-    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 60% instead of 50%." },
+    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
     unique: [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement. Short range but high power." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
@@ -996,8 +996,8 @@ const LEADERS = [
     id: "qin-shi-huang-unifier", name: "Qin Shi Huang (Unifier)", civ: "China",
     victoryTypes: ["domination", "culture"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Unifier", desc: "+10% combat strength for each active alliance. Gain a random Inspiration when you form an alliance." },
-    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 60% instead of 50%." },
+    leaderAbility: { name: "Thirty-Six Stratagems", desc: "Melee units can Convert Barbarians (consumes the unit). +50% Encampment building Production. +1 Great Writer from Encampments. Barracks/Stable get 2 Great Work of Writing slots. Great Works of Writing give +1 Food. Great General/Writer recruitment gives random Eureka and Inspiration." },
+    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
     unique: [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
@@ -1015,7 +1015,7 @@ const LEADERS = [
     id: "ramses", name: "Ramses II", civ: "Egypt",
     victoryTypes: ["culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Abu Simbel", desc: "+2 Culture and +2 Gold for each Wonder. Builders can spend charges to complete 15% of a Wonder." },
+    leaderAbility: { name: "Abu Simbel", desc: "Gain Culture equal to 10% of building cost (doubled in wonder cities, 25% for wonders). Holy Sites get +1 Production adjacent to river. +15% Production for Holy Sites and Industrial Zones on rivers." },
     civAbility: { name: "Iteru", desc: "+15% production toward districts and wonders built next to rivers." },
     unique: [
       { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement on open terrain. Ranged attack." },
@@ -1034,7 +1034,7 @@ const LEADERS = [
     id: "robert-bruce", name: "Robert the Bruce", civ: "Scotland",
     victoryTypes: ["science", "domination"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Bannockburn", desc: "Can declare a War of Liberation. +100% Production and +2 Movement for 10 turns after declaring a War of Liberation." },
+    leaderAbility: { name: "Bannockburn", desc: "Recon units receive +50% combat experience." },
     civAbility: { name: "Scottish Enlightenment", desc: "Happy cities receive +5% Science and +5% Production. Ecstatic cities double these bonuses." },
     unique: [
       { name: "Highlander (UU)", desc: "Replaces Ranger. +5 combat in Hills and Woods." },
@@ -1072,7 +1072,7 @@ const LEADERS = [
     id: "sejong", name: "Sejong", civ: "Korea",
     victoryTypes: ["science"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Hangul", desc: "+2 Science for each specialty district in a city with a Governor. Governors provide +3% Culture and +3% Science." },
+    leaderAbility: { name: "Hangul", desc: "Completing first Technology from a new Era gives double Science per turn as Culture. Seowon and Theater Squares get major adjacency from each other. Cities with both get +1 Culture and +2 Tourism per district. +30% Builder Production in cities without Governors after Feudalism." },
     civAbility: { name: "Three Kingdoms", desc: "Mines receive +1 Science. Farms receive +1 Food if adjacent to a Seowon." },
     unique: [
       { name: "Hwacha (UU)", desc: "Replaces Field Cannon. Stronger ranged attack but cannot move and attack." },
@@ -1186,8 +1186,8 @@ const LEADERS = [
     id: "teddy-bull-moose", name: "Teddy Roosevelt (Bull Moose)", civ: "America",
     victoryTypes: ["culture", "science"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Antiquities and Parks", desc: "+2 Science and +2 Culture in cities with a National Park. +1 Appeal to all tiles in a city with a National Park." },
-    civAbility: { name: "Founding Fathers", desc: "Earn all government legacy bonuses in half the usual time." },
+    leaderAbility: { name: "Antiquities and Parks", desc: "After Code of Laws, breathtaking tiles get +1 Science near Natural Wonders/Mountains (doubled with Astronomy), +1 Culture near Wonders/Woods (doubled with Enlightenment). Woods plantable with Medieval Faires." },
+    civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
     unique: [
       { name: "P-51 Mustang (UU)", desc: "Replaces Fighter. +5 combat vs fighters. +2 flight range. +50% XP." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure to civs in a Modern era or later." }
@@ -1205,8 +1205,8 @@ const LEADERS = [
     id: "teddy-rough-rider", name: "Teddy Roosevelt (Rough Rider)", civ: "America",
     victoryTypes: ["domination", "diplomacy"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Roosevelt Corollary", desc: "+5 combat strength on home continent. Gain Envoys when you defeat units on your continent. Rough Rider unique unit." },
-    civAbility: { name: "Founding Fathers", desc: "Earn all government legacy bonuses in half the usual time." },
+    leaderAbility: { name: "Roosevelt Corollary", desc: "Units get +1 Combat Strength per era reached (capped at +5 in Industrial). Envoys to city-states with trade routes count as two. Gain Rough Rider at Ballistics." },
+    civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
     unique: [
       { name: "Rough Rider (UU)", desc: "Unique cavalry. +10 combat on Hills. Earns Culture from kills on home continent. Low maintenance." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure." }
@@ -1224,7 +1224,7 @@ const LEADERS = [
     id: "tokugawa", name: "Tokugawa", civ: "Japan",
     victoryTypes: ["domination", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Bakuhan System", desc: "Domestic trade routes provide +1 Culture, +1 Science, and +1 Gold. International trade routes provide -2 Culture, -2 Science, -2 Gold." },
+    leaderAbility: { name: "Bakuhan", desc: "International trade gets -25% yields and Tourism. Domestic trade gives +0.5 Culture (+1 with Humanism) and +0.5 Science (+1 with Education) per specialty district at destination. Cities within 6 tiles of capital get 100% Loyalty. After Flight, +1 Tourism per district." },
     civAbility: { name: "Meiji Restoration", desc: "Districts receive +1 adjacency bonus for each adjacent district." },
     unique: [
       { name: "Samurai (UU)", desc: "Replaces Man-at-Arms. Does not suffer combat penalties when damaged." },
@@ -1243,8 +1243,8 @@ const LEADERS = [
     id: "tomyris", name: "Tomyris", civ: "Scythia",
     victoryTypes: ["domination"],
     tier: { vanilla: "A", bbg: "B" },
-    leaderAbility: { name: "Killer of Cyrus", desc: "All units receive +5 combat strength when attacking wounded units. When a unit defeats an enemy, it heals 30 HP." },
-    civAbility: { name: "People of the Steppe", desc: "Receive a second light cavalry or Saka Horse Archer each time you train one." },
+    leaderAbility: { name: "Killer of Cyrus", desc: "All units receive +3 Combat Strength vs wounded units (+5 after Medieval era). When eliminating a unit, heal up to 30 HP." },
+    civAbility: { name: "People of the Steppe", desc: "May purchase Light, Heavy, and Ranged Cavalry units with Faith." },
     unique: [
       { name: "Saka Horse Archer (UU)", desc: "Unique ranged cavalry. 4 movement. Does not require horses." },
       { name: "Kurgan (UI)", desc: "+1 Faith, +1 Gold. +1 Faith for each adjacent Pasture." }
@@ -1301,7 +1301,7 @@ const LEADERS = [
     victoryTypes: ["culture", "science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Empress Wu", desc: "Gain a free Spy when building a Tier 1 Government Plaza building. +1 Spy capacity. Spies operate at +2 levels." },
-    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 60% instead of 50%." },
+    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
     unique: [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
@@ -1320,7 +1320,7 @@ const LEADERS = [
     victoryTypes: ["science", "culture"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Lijia", desc: "Projects in the City Center provide +4 Gold, +3 Science, and +2 Culture per turn while active. +1 Trade Route capacity." },
-    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 60% instead of 50%." },
+    civAbility: { name: "Dynastic Cycle", desc: "Eurekas and Inspirations provide 45% of civics and technologies instead of 40%." },
     unique: [
       { name: "Crouching Tiger (UU)", desc: "Replaces Crossbowman. No resource requirement." },
       { name: "Great Wall (UI)", desc: "+2 Gold, +2 Culture when adjacent to other Great Wall segments." }
@@ -1338,7 +1338,7 @@ const LEADERS = [
     id: "theodora", name: "Theodora", civ: "Byzantium",
     victoryTypes: ["religion", "domination"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Metanoia", desc: "Can choose any belief when founding a religion, regardless of availability. Holy Cities exert +2 Loyalty to nearby cities." },
+    leaderAbility: { name: "Metanoia", desc: "After Political Philosophy, Holy Sites provide +1 Culture per adjacent district. Farms provide Faith adjacency to Hippodromes and Holy Sites." },
     civAbility: { name: "Taxis", desc: "+3 combat strength or +3 religious strength for each Holy City converted to Byzantium's religion." },
     unique: [
       { name: "Dromon (UU)", desc: "Replaces Quadrireme. +10 ranged strength." },
@@ -1396,8 +1396,8 @@ const LEADERS = [
     id: "abraham-lincoln", name: "Abraham Lincoln", civ: "America",
     victoryTypes: ["diplomacy", "domination"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Emancipation", desc: "Melee and anti-cavalry class units gain +5 combat strength. Gain a free Melee unit when building an Industrial Zone for the first time in a city." },
-    civAbility: { name: "Founding Fathers", desc: "Earn all government legacy bonuses in half the usual time." },
+    leaderAbility: { name: "Emancipation Proclamation", desc: "+100% Production to Industrial Zone and Aqueduct districts. Industrial Zones give +2 Amenities and +3 Loyalty. Plantations give -2 Loyalty. Free Melee unit from Industrial Zone and buildings (+5 CS, no resource cost)." },
+    civAbility: { name: "Founding Fathers", desc: "All Diplomatic policy slots converted to Wildcard slots. +1 Diplomatic Favor per turn for every Wildcard slot." },
     unique: [
       { name: "P-51 Mustang (UU)", desc: "Replaces Fighter. +5 combat vs fighters. +2 flight range." },
       { name: "Film Studio (UB)", desc: "Replaces Broadcast Center. +100% Tourism pressure." }
@@ -1434,7 +1434,7 @@ const LEADERS = [
     id: "cleopatra-ptolemaic", name: "Cleopatra (Ptolemaic)", civ: "Egypt",
     victoryTypes: ["science", "culture"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Ptolemaic Dynasty", desc: "+100% Alliance points from trade routes. +15% Production toward projects in cities with a Campus. Gain +1 Great Scientist point per turn for each Alliance." },
+    leaderAbility: { name: "Arrival of Hapi", desc: "Military units cross rivers without movement or combat penalty from Classical era. +15% Production for Campus and Encampment on rivers. Campus and Encampment get major Science adjacency from rivers." },
     civAbility: { name: "Iteru", desc: "+15% production toward districts and wonders built next to rivers. Floodplains don't block district/wonder placement." },
     unique: [
       { name: "Maryannu Chariot Archer (UU)", desc: "Replaces Heavy Chariot. 2 movement when starting on open terrain. Ranged attack." },
@@ -1453,11 +1453,11 @@ const LEADERS = [
     id: "victoria-steam", name: "Victoria (Age of Steam)", civ: "England",
     victoryTypes: ["science", "domination"],
     tier: { vanilla: "A", bbg: "A" },
-    leaderAbility: { name: "Workshop of the World", desc: "+20% Production in cities with a Military Engineer. +2 Iron and +2 Coal per turn. Powered buildings provide +4 yields." },
-    civAbility: { name: "British Museum", desc: "Archaeological Museums have 6 slots and can hold 2 full artifact sets." },
+    leaderAbility: { name: "Age of Steam", desc: "+5% Production per Factory and Power Plant in city. Powered buildings get +4 of their yield. Industrial Zones get standard adjacency from Royal Navy Dockyards. +20% Production toward Industrial Zone buildings. Lighthouse gives +1 Great Engineer point." },
+    civAbility: { name: "Workshop of the World", desc: "Iron and Coal Mines accumulate 2 more resources per turn. Harbor buildings increase Strategic Resource Stockpiles by +10. +100% Production toward Military Engineers. Military Engineers receive +2 charges." },
     unique: [
-      { name: "Redcoat (UU)", desc: "Replaces Infantry. +10 combat on foreign continent." },
-      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units." }
+      { name: "Sea Dog (UU)", desc: "Replaces Privateer. Chance to capture defeated enemy ships. Can only be seen by other Naval Raiders unless adjacent." },
+      { name: "Royal Navy Dockyard (UD)", desc: "Replaces Harbor. +1 Movement for naval units built here. +2 Gold adjacency and +4 Loyalty per turn when built on a foreign continent." }
     ],
     bbgNotes: "BBG: Age of Steam reworked — +5% Production per Factory and Power Plant in city. Powered buildings get +4 of their yield. Industrial Zones get standard adjacency from Royal Navy Dockyards. +20% Production toward Industrial Zone buildings. Lighthouse gives +1 Great Engineer point. Workshop of the World civ ability.",
     strategy: {
