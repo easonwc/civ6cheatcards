@@ -558,8 +558,8 @@ const LEADERS = [
     id: "catherine-magnificence", name: "Catherine de Medici (Magnificence)", civ: "France",
     victoryTypes: ["culture"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Catherine's Magnificences", desc: "Improved Luxury resources adjacent to Theater Squares or their buildings receive +2 Culture. Gain extra Diplomatic Visibility with any civ you have a Luxury resource from." },
-    civAbility: { name: "Grand Tour", desc: "+20% Production toward Medieval, Renaissance, and Industrial era wonders. Tourism from wonders of any era is doubled." },
+    leaderAbility: { name: "Catherine's Magnificences", desc: "Improved resources receive +1 Culture at Craftsmanship. Improved resources adjacent to a Theater Square receive +1 Culture. Château adjacent to a luxury gives +1 Amenity. Happy cities gain scaling Culture bonus. Theater Square cities gain Great People points based on happiness. May initiate the Court Festival project." },
+    civAbility: { name: "Grand Tour", desc: "+20% Production toward Medieval, Renaissance, and Industrial era wonders. +50% Tourism from wonders of any era. Free Spy with Castles, all spies start with a free promotion." },
     unique: [
       { name: "Garde Impériale (UU)", desc: "Replaces Line Infantry. +10 combat on home continent. Generates Great General points on kill." },
       { name: "Château (UI)", desc: "+1 Culture, +2 Gold. +1 Culture per adjacent Wonder. Must be adjacent to river." }
