@@ -558,7 +558,7 @@ const LEADERS = [
     id: "catherine-magnificence", name: "Catherine de Medici (Magnificence)", civ: "France",
     victoryTypes: ["culture"],
     tier: { vanilla: "B", bbg: "B" },
-    leaderAbility: { name: "Magnificence of the Court", desc: "Improved Luxury resources adjacent to Theater Squares or their buildings receive +2 Culture. Gain extra Diplomatic Visibility with any civ you have a Luxury resource from." },
+    leaderAbility: { name: "Catherine's Magnificences", desc: "Improved Luxury resources adjacent to Theater Squares or their buildings receive +2 Culture. Gain extra Diplomatic Visibility with any civ you have a Luxury resource from." },
     civAbility: { name: "Grand Tour", desc: "+20% Production toward Medieval, Renaissance, and Industrial era wonders. Tourism from wonders of any era is doubled." },
     unique: [
       { name: "Garde Impériale (UU)", desc: "Replaces Line Infantry. +10 combat on home continent. Generates Great General points on kill." },
