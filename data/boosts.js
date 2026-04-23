@@ -19,7 +19,7 @@ const BOOST_GUIDES = {
       { name: "Apprenticeship", type: "eureka", trigger: "Build 3 Mines", why: "Unlocks Industrial Zone. Settle near hills for mines." },
       { name: "Industrialization", type: "eureka", trigger: "Build 3 Workshops", why: "Unlocks Coal Power Plant and Factory" },
       { name: "Chemistry", type: "eureka", trigger: "Complete a Research Alliance", why: "Unlocks Research Lab — critical for late science" },
-      { name: "Rocketry", type: "eureka", trigger: "Boost a Great Scientist to space", why: "Unlocks Spaceport — your victory building" },
+      { name: "Rocketry", type: "eureka", trigger: "Boost through Great Scientist or Spy", why: "Unlocks Spaceport — your victory building" },
       { name: "Recorded History", type: "inspiration", trigger: "Build 2 Campus districts", why: "Unlocks Natural Philosophy policy (+100% Campus adjacency)" }
     ],
     settling: "Settle near Mountains for Campus adjacency, and near Hills for mine boosts. Fresh water for housing helps cities grow to work Campus slots."
@@ -31,7 +31,7 @@ const BOOST_GUIDES = {
       { name: "Humanism", type: "eureka", trigger: "Earn a Great Artist", why: "Unlocks Art Museum — fill with Great Works" },
       { name: "Conservation", type: "eureka", trigger: "Have a Neighborhood at Breathtaking appeal", why: "Unlocks National Parks. Settle near natural wonders and forests." },
       { name: "Flight", type: "eureka", trigger: "Build an Industrial era or later wonder", why: "Unlocks Tourism from improvements (Seaside Resorts, etc.)" },
-      { name: "Cultural Heritage", type: "inspiration", trigger: "Have a themed building", why: "Unlocks Heritage Tourism policy" },
+      { name: "Cultural Heritage", type: "inspiration", trigger: "Have a Themed Museum", why: "Unlocks Heritage Tourism policy" },
       { name: "The Enlightenment", type: "inspiration", trigger: "Earn 3 Great People", why: "Unlocks key Renaissance civic policies" }
     ],
     settling: "Settle near high-appeal tiles: coasts, natural wonders, forests, mountains. Avoid industrial tiles. Appeal drives National Parks and Seaside Resorts."
@@ -41,7 +41,7 @@ const BOOST_GUIDES = {
       { name: "Astrology", type: "eureka", trigger: "Find a Natural Wonder", why: "Unlocks Holy Site — scout aggressively early" },
       { name: "Masonry", type: "eureka", trigger: "Build a Quarry", why: "Unlocks Walls. Settle near Stone/Marble. Walls protect your religious investment." },
       { name: "Mysticism", type: "inspiration", trigger: "Found a Pantheon", why: "Unlocks early religious policies and Governor titles" },
-      { name: "Theology", type: "inspiration", trigger: "Earn a Great Prophet", why: "Unlocks Temple and Missionary purchases" },
+      { name: "Theology", type: "inspiration", trigger: "Found a Religion", why: "Unlocks Temple and Missionary purchases" },
       { name: "Education", type: "eureka", trigger: "Earn a Great Scientist", why: "Even religion civs need some science to stay relevant" },
       { name: "Reformed Church", type: "inspiration", trigger: "Have 6 cities following your religion", why: "Unlocks key religious policies" },
       { name: "Theocracy", type: "inspiration", trigger: "Research 2 Renaissance civics", why: "Unlocks Theocracy government — essential for religious victory" }
@@ -50,11 +50,11 @@ const BOOST_GUIDES = {
   },
   diplomacy: {
     critical: [
-      { name: "Early Empire", type: "inspiration", trigger: "Grow a city to 6 population", why: "Unlocks Colonization policy and Governor titles" },
+      { name: "Early Empire", type: "inspiration", trigger: "Grow your civilization to at least 6 Population", why: "Unlocks Colonization policy and Governor titles" },
       { name: "Political Philosophy", type: "inspiration", trigger: "Meet 3 city-states", why: "Unlocks first government — huge for policy cards" },
-      { name: "Diplomatic Service", type: "inspiration", trigger: "Earn a level 2 Alliance", why: "Unlocks Diplomatic Quarter and Resident Embassies" },
+      { name: "Diplomatic Service", type: "inspiration", trigger: "Have an alliance with another civilization", why: "Unlocks Diplomatic Quarter and Resident Embassies" },
       { name: "Masonry", type: "eureka", trigger: "Build a Quarry", why: "Unlocks Walls for defense while you play peacefully" },
-      { name: "Guilds", type: "inspiration", trigger: "Build a Market and a Bank", why: "Unlocks key Medieval economic policies" },
+      { name: "Guilds", type: "inspiration", trigger: "Build 2 Markets", why: "Unlocks key Medieval economic policies" },
       { name: "Conservation", type: "eureka", trigger: "Have a Neighborhood at Breathtaking appeal", why: "Unlocks Carbon Recapture project for Diplomatic Victory Points" },
       { name: "Globalization", type: "inspiration", trigger: "Build 3 Airports", why: "Unlocks Online Communities policy for tourism" }
     ],
