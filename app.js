@@ -343,7 +343,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
     <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join(''), true);
 
-  right += collapsible('Key Policies', `<ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul>`);
+  right += collapsible('Key Policies', buildOrder.policies.map(function(p) { if (typeof p === 'object') return '<div style="padding:4px 0;border-bottom:1px solid #1c1c1c;"><span style="font-size:13px;font-weight:600;color:#ccc;">' + p.name + '</span><div style="font-size:12px;color:#888;margin-top:2px;">' + p.why + '</div></div>'; return '<li>' + p + '</li>'; }).join(''));
 
   right += collapsible('Recommended Wonders', buildOrder.wonders.map(function(w) { if (typeof w === 'object') return '<div style="padding:4px 0;border-bottom:1px solid #1c1c1c;"><span style="font-size:13px;font-weight:600;color:#ccc;">' + w.name + '</span><div style="font-size:12px;color:#888;margin-top:2px;">' + w.why + '</div></div>'; return '<li>' + w + '</li>'; }).join(''));
 

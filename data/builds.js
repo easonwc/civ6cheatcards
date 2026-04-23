@@ -11,7 +11,7 @@ const BUILD_ORDERS = {
       atomic:      { focus: "Air superiority", priorities: ["Bombers", "Fighter escorts", "Nuclear weapons if available", "Helicopter gunships"] },
       information: { focus: "Close it out", priorities: ["Modern Armor", "Jet Bombers", "Giant Death Robot", "Capture remaining capitals"] }
     },
-    policies: ["Agoge/Maneuver", "Conscription", "Professional Army", "Lightning Warfare"],
+    policies: [{ name: "Agoge/Maneuver", why: "+50% Production toward melee/ranged (Agoge) or cavalry (Maneuver). Slot early for unit spam." }, { name: "Conscription", why: "-1 Gold maintenance per unit. Essential for large armies." }, { name: "Professional Army", why: "50% discount on unit upgrades. Save gold then mass-upgrade." }, { name: "Lightning Warfare", why: "+3 Movement for Great Generals, +1 for cavalry. Late-game blitz." }],
     wonders: [{ name: "Terracotta Army", why: "All current land units receive a promotion. Massive power spike for timing attacks." }, { name: "Alhambra", why: "Extra Military policy slot. All newly trained units get +1 promotion level." }, { name: "Venetian Arsenal", why: "Doubles naval unit production. Essential for naval domination maps." }],
     tips: ["Timing attacks are key — hit when you have a unit advantage", "Always bring siege units when attacking cities", "Pillage improvements for healing and yields", "In BBG, early aggression is riskier due to balance changes"]
   },
@@ -26,7 +26,7 @@ const BUILD_ORDERS = {
       atomic:      { focus: "Space projects", priorities: ["Launch Mars Colony modules", "Exoplanet Expedition", "Protect Spaceport with spies"] },
       information: { focus: "Final push", priorities: ["Complete remaining space projects", "Laser Station", "Counter-spy Spaceport"] }
     },
-    policies: ["Natural Philosophy", "Rationalism", "International Space Agency"],
+    policies: [{ name: "Natural Philosophy", why: "+100% Campus adjacency bonus. Double your science from well-placed Campuses." }, { name: "Rationalism", why: "+100% science from Campus buildings. Massive mid-late boost." }, { name: "International Space Agency", why: "+5% Science per city-state suzerain." }],
     wonders: [{ name: "Great Library", why: "Boosts all Ancient/Classical techs. Huge early science acceleration." }, { name: "Oxford University", why: "+20% Science in this city. 2 free techs. Build in your best Campus city." }, { name: "Kilwa Kisiwani", why: "+15% yields in all cities for each type of city-state you are suzerain of." }],
     tips: ["Campus adjacency is critical — plan city placement around mountains", "Trade routes should feed your science cities", "Rush Spaceport and start projects ASAP", "In BBG, science victory is slightly slower — plan accordingly"]
   },
@@ -41,7 +41,7 @@ const BUILD_ORDERS = {
       atomic:      { focus: "Tourism pressure", priorities: ["Rock Bands", "Open borders for +25% tourism", "Heritage Tourism policy"] },
       information: { focus: "Close it out", priorities: ["Online Communities policy", "More Rock Bands", "Target highest domestic tourism civ"] }
     },
-    policies: ["Inspiration", "Heritage Tourism", "Online Communities"],
+    policies: [{ name: "Inspiration", why: "+2 Great Person points from all districts. Accelerates Great People generation." }, { name: "Heritage Tourism", why: "+100% Tourism from Great Works of Art and Artifacts." }, { name: "Online Communities", why: "+50% Tourism from Trade Routes." }],
     wonders: [{ name: "Oracle", why: "Patronage of Great People costs 25% less Faith. +2 Great Person points from districts." }, { name: "Bolshoi Theatre", why: "2 free civics. 2 Great Work of Writing slots. Accelerates civic tree." }, { name: "Cristo Redentor", why: "Seaside Resorts provide Tourism from their full appeal instead of half. Religious Tourism is not reduced." }, { name: "Eiffel Tower", why: "+2 Appeal to all tiles in your empire. Enables more National Parks and Seaside Resorts." }],
     tips: ["Great Works are essential — fill every slot", "Tourism from National Parks and Seaside Resorts wins late game", "Open borders with everyone for +25% tourism", "In BBG, culture victory requires more active tourism generation"]
   },
@@ -56,7 +56,7 @@ const BUILD_ORDERS = {
       atomic:      { focus: "Defend your religion", priorities: ["Inquisitors in every city", "Prevent enemy religious flips"] },
       information: { focus: "Maintain majority", priorities: ["Keep majority in all civs", "Counter any late religious pushes"] }
     },
-    policies: ["God King", "Scripture", "Simultaneum", "Theocracy"],
+    policies: [{ name: "God King", why: "+1 Faith and +1 Gold from Palace. Slot immediately for early Pantheon." }, { name: "Scripture", why: "+100% Holy Site adjacency bonus. Double your faith." }, { name: "Simultaneum", why: "+2 Faith from all Holy Site buildings. Stacks across cities." }, { name: "Theocracy", why: "Government: faith-purchase land units, +5 Religious Strength in theological combat." }],
     wonders: [{ name: "Stonehenge", why: "Grants a free Great Prophet. Found your religion without competing for Prophet points." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Jumpstarts your religious spread." }, { name: "Hagia Sophia", why: "Missionaries and Apostles get +1 spread charge. Huge efficiency boost." }, { name: "Mont St. Michel", why: "All Apostles gain the Martyr ability. Dying Apostles create Relics for tourism." }],
     tips: ["Found your religion ASAP — beliefs get taken", "Apostle promotions matter — Debater for theological combat", "Defend your religion with Inquisitors", "In BBG, religious combat is more balanced — plan apostle fights carefully"]
   },
@@ -71,7 +71,7 @@ const BUILD_ORDERS = {
       atomic:      { focus: "Final votes", priorities: ["Spend favor on key World Congress votes", "Block opponents from VP", "Win remaining emergencies"] },
       information: { focus: "Secure victory", priorities: ["Final Diplomatic VP push", "Spend all remaining favor strategically"] }
     },
-    policies: ["Charismatic Leader", "Containment", "Arsenal of Democracy"],
+    policies: [{ name: "Charismatic Leader", why: "+2 Influence points per turn toward envoys. Faster suzerainty." }, { name: "Containment", why: "+3 Envoys when sending to a city-state where another civ is suzerain." }, { name: "Arsenal of Democracy", why: "+4 Diplomatic Favor per turn. Major favor generation." }],
     wonders: [{ name: "Potala Palace", why: "+1 Diplomatic policy slot. Extra Diplomatic Favor generation." }, { name: "Statue of Liberty", why: "+4 Diplomatic Victory Points. The single biggest diplomacy wonder." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Religion helps with city-state suzerainty and favor." }, { name: "Kilwa Kisiwani", why: "+15% yields per suzerain city-state type. Amplifies your city-state strategy." }],
     tips: ["Accumulate Diplomatic Favor through alliances and city-state suzerainty", "Vote correctly in World Congress for Diplomatic Victory Points", "Aid requests and emergencies are free points", "In BBG, diplomacy victory is viable but requires careful favor management"]
   }
@@ -127,7 +127,7 @@ const MP_BUILD_ORDERS = {
       atomic:      { focus: "Air dominance", priorities: ["Bombers + Fighters", "Nuclear weapons", "Capture remaining capitals"] },
       information: { focus: "End the game", priorities: ["Modern Armor", "Jet Bombers", "Giant Death Robot", "Don't let science civs finish space race"] }
     },
-    policies: ["Agoge/Maneuver", "Limes (walls)", "Conscription", "Professional Army"],
+    policies: [{ name: "Agoge/Maneuver", why: "+50% Production toward melee/ranged or cavalry. Rush units for timing attacks." }, { name: "Limes", why: "+100% Production toward walls. Essential in MP — wall up early." }, { name: "Conscription", why: "-1 Gold maintenance per unit. Sustain large armies." }, { name: "Professional Army", why: "50% upgrade discount. Mass-upgrade for timing pushes." }],
     wonders: [{ name: "Terracotta Army", why: "Free promotion for all land units. Time this before a major push." }, { name: "Alhambra", why: "Extra Military policy slot + free promotion on new units." }, { name: "Forbidden City", why: "Extra Wildcard policy slot. Flexibility for any situation." }],
     tips: ["Scout your neighbors — know who's next to you by turn 20", "Never leave your cities undefended, even when attacking", "Timing attacks around unit upgrades (Swords→Knights, Crossbows→Field Cannon)", "Pillage before capturing — the yields are worth more than a fast cap", "In BBG, early rushes are weaker — plan for Classical or Medieval timing instead", "Watch for joint wars — human players coordinate against the strongest player"]
   },
@@ -142,7 +142,7 @@ const MP_BUILD_ORDERS = {
       atomic:      { focus: "Space race sprint", priorities: ["Mars Colony modules", "Defend against invasion", "Spy sabotage on rival Spaceports"] },
       information: { focus: "Finish before they stop you", priorities: ["Complete space projects", "Maximum Spaceport defense", "Laser Station"] }
     },
-    policies: ["Natural Philosophy", "Limes", "Rationalism", "International Space Agency"],
+    policies: [{ name: "Natural Philosophy", why: "+100% Campus adjacency. Primary science multiplier." }, { name: "Limes", why: "+100% wall Production. Humans punish undefended cities." }, { name: "Rationalism", why: "+100% science from Campus buildings." }, { name: "International Space Agency", why: "+5% Science per suzerain city-state." }],
     wonders: [{ name: "Kilwa Kisiwani", why: "+15% yields from suzerain city-state types. Science and production boost." }, { name: "Oxford University", why: "+20% Science in this city + 2 free techs. Build in your best Campus city." }, { name: "Ruhr Valley", why: "+20% Production in this city + Production from each Mine and Quarry. Accelerates space projects." }],
     tips: ["You WILL be targeted if you're visibly ahead in science — always have a military", "Walls in every city, no exceptions. Humans will punish greed.", "Spies on your Spaceport — opponents will sabotage your projects", "Counter-spy your Spaceport district starting in the Renaissance", "Trade routes to city-states are safer than to human players", "In BBG, science victory takes longer — budget extra turns for defense"]
   },
@@ -157,7 +157,7 @@ const MP_BUILD_ORDERS = {
       atomic:      { focus: "Rock Band assault", priorities: ["Rock Bands targeting highest tourism civ", "Heritage Tourism policy", "Defend your Great Works"] },
       information: { focus: "Close it out", priorities: ["Online Communities policy", "More Rock Bands", "Prevent opponents from declaring war"] }
     },
-    policies: ["Inspiration", "Limes", "Heritage Tourism", "Online Communities"],
+    policies: [{ name: "Inspiration", why: "+2 Great Person points from districts." }, { name: "Limes", why: "+100% wall Production. Culture civs are prime targets." }, { name: "Heritage Tourism", why: "+100% Tourism from Art and Artifacts." }, { name: "Online Communities", why: "+50% Tourism from Trade Routes." }],
     wonders: [{ name: "Oracle", why: "Cheaper Great People patronage + Great Person points from districts." }, { name: "Bolshoi Theatre", why: "2 free civics + Great Work slots. Civic tree acceleration." }, { name: "Eiffel Tower", why: "+2 Appeal empire-wide. Enables National Parks and Seaside Resorts everywhere." }, { name: "Cristo Redentor", why: "Full appeal tourism from Seaside Resorts. Religious Tourism not reduced." }],
     tips: ["DO NOT open borders with opponents — they'll deny you the same", "Culture victory is slow and visible — expect military pressure", "Rock Bands are your late-game closer, target the civ with highest domestic tourism", "Theming bonuses matter — plan Great Work placement carefully", "Keep a defensive military at all times, culture civs are prime targets", "In BBG, tourism modifiers are adjusted — you need more active tourism sources"]
   },
@@ -172,7 +172,7 @@ const MP_BUILD_ORDERS = {
       atomic:      { focus: "Prevent flips", priorities: ["Inquisitor defense", "Counter enemy Apostles"] },
       information: { focus: "Hold majority", priorities: ["Maintain religious majority in all civs", "Counter late pushes"] }
     },
-    policies: ["God King", "Scripture", "Theocracy", "Simultaneum"],
+    policies: [{ name: "God King", why: "+1 Faith from Palace. Slot turn 1 for fastest Pantheon." }, { name: "Scripture", why: "+100% Holy Site adjacency. Double faith output." }, { name: "Theocracy", why: "Faith-purchase land units. +5 Religious Strength." }, { name: "Simultaneum", why: "+2 Faith from all Holy Site buildings." }],
     wonders: [{ name: "Stonehenge", why: "Free Great Prophet — but very risky in MP as opponents may rush it or attack you while building." }, { name: "Hagia Sophia", why: "+1 spread charge on Missionaries and Apostles. Huge efficiency in theological combat." }, { name: "Mont St. Michel", why: "Apostles gain Martyr — dying creates Relics for tourism backup." }, { name: "Mahabodhi Temple", why: "2 free Apostles to jumpstart spreading." }],
     tips: ["Founding a religion is harder in MP — other players contest Great Prophets", "Debater Apostles are mandatory — you will fight theological combat constantly", "Escort missionaries with military units, humans will declare war to kill them", "Inquisitors are cheaper than Apostles — use them to defend, Apostles to attack", "Don't spread to a domination player's cities — they'll use it as a war excuse", "In BBG, religious combat is rebalanced — Debater is less dominant, plan mixed promotions"]
   },
@@ -187,7 +187,7 @@ const MP_BUILD_ORDERS = {
       atomic:      { focus: "Strategic voting", priorities: ["Spend favor on key votes", "Block opponents from VP", "Humans will vote against you — save favor"] },
       information: { focus: "Final push", priorities: ["All-in on final World Congress vote", "Spend remaining favor", "Win last competition"] }
     },
-    policies: ["Charismatic Leader", "Limes", "Containment", "Arsenal of Democracy"],
+    policies: [{ name: "Charismatic Leader", why: "+2 Influence points per turn for envoys." }, { name: "Limes", why: "+100% wall Production. Stay alive while playing peacefully." }, { name: "Containment", why: "+3 Envoys to city-states where another civ is suzerain." }, { name: "Arsenal of Democracy", why: "+4 Diplomatic Favor per turn." }],
     wonders: [{ name: "Potala Palace", why: "+1 Diplomatic policy slot for extra favor generation." }, { name: "Statue of Liberty", why: "+4 Diplomatic Victory Points. The most important diplomacy wonder." }, { name: "Kilwa Kisiwani", why: "+15% yields per suzerain type. Amplifies city-state strategy." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Religion helps suzerainty and favor." }],
     tips: ["Diplomatic victory is about not being a threat — stay friendly with everyone", "Hoard Diplomatic Favor for key World Congress votes", "Vote WITH the majority on proposals that don't matter to deny others points", "Win every emergency and scored competition you can", "Humans will vote against you once you're close to winning — save favor for the final push", "In BBG, diplomatic favor costs are adjusted — don't overspend early"]
   }
