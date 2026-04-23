@@ -277,7 +277,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
 
   left += collapsible('Recommended Victory Path', `
     <div class="victory-rec-list">
-      ${ranked.filter(r => r.synergy >= 30).map((r, i) => `
+      ${ranked.filter(r => r.synergy >= 30).slice(0, 3).map((r, i) => `
         <div class="victory-rec-item ${i===0?'victory-rec-best':''}">
           <div class="victory-rec-rank">${i===0?'★':i+1}</div>
           <div class="victory-rec-info"><span class="victory-rec-name">${capitalize(r.type)}</span><span class="victory-rec-score">${r.synergy}% synergy${r.score!==r.synergy?' · '+r.score+'% adjusted':''}</span></div>
