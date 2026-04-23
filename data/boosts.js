@@ -5,7 +5,7 @@ const BOOST_GUIDES = {
       { name: "Bronze Working", type: "eureka", trigger: "Kill 3 Barbarians", why: "Unlocks Spearman and reveals Iron — essential for early military" },
       { name: "Iron Working", type: "eureka", trigger: "Build an Iron Mine", why: "Unlocks Swordsman. Settle near Iron if possible." },
       { name: "Masonry", type: "eureka", trigger: "Build a Quarry", why: "Unlocks Ancient Walls. Settle near Stone/Marble for the Quarry boost." },
-      { name: "Military Tradition", type: "inspiration", trigger: "Kill a unit with a Slinger", why: "Unlocks flanking and support bonuses" },
+      { name: "Military Tradition", type: "inspiration", trigger: "Clear a Barbarian Encampment", why: "Unlocks flanking and support bonuses" },
       { name: "Stirrups", type: "eureka", trigger: "Have the Feudalism civic", why: "Unlocks Knights — key timing attack unit" },
       { name: "Gunpowder", type: "eureka", trigger: "Build an Armory", why: "Unlocks Musketman. Build Encampment→Barracks→Armory early." },
       { name: "Military Engineering", type: "eureka", trigger: "Build an Aqueduct", why: "Unlocks Military Engineers and Niter reveal" }
@@ -97,10 +97,10 @@ const LEADER_BOOSTS = {
   "alexander": [
     { name: "Bronze Working", priority: "critical", reason: "Kill 3 Barbarians. Unlocks Spearman and reveals Iron for Hypaspist." },
     { name: "Iron Working", priority: "critical", reason: "Build an Iron Mine to unlock Hypaspist — your key unique unit." },
-    { name: "Military Tradition", priority: "high", reason: "Kill a unit with a Slinger for flanking bonuses on your rush." }
+    { name: "Military Tradition", priority: "high", reason: "Clear a Barbarian Encampment for flanking bonuses on your rush." }
   ],
   "simon-bolivar": [
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Flanking + your +1 movement = devastating." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Flanking + your +1 movement = devastating." },
     { name: "Stirrups", priority: "high", reason: "Unlocks Knights. With +1 movement, your cavalry is untouchable." },
     { name: "Mercenaries", priority: "high", reason: "Unlocks professional army upgrade discount. Upgrade timing attacks." }
   ],
@@ -115,7 +115,7 @@ const LEADER_BOOSTS = {
     { name: "Theology", priority: "high", reason: "Earn a Great Prophet. Dharma collects all follower beliefs — more religions in your cities = better." }
   ],
   "gorgo": [
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Culture from kills + flanking bonuses = fast civic progression." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Culture from kills + flanking bonuses = fast civic progression." },
     { name: "Drama and Poetry", priority: "high", reason: "Build a Wonder to unlock Acropolis (Theater Square replacement)." },
     { name: "Bronze Working", priority: "high", reason: "Kill 3 Barbarians for culture AND the Eureka." }
   ],
@@ -146,7 +146,7 @@ const LEADER_BOOSTS = {
   ],
   "cyrus": [
     { name: "Iron Working", priority: "critical", reason: "Build an Iron Mine. Immortals replace Swordsmen — your key unique unit." },
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Surprise War + flanking = devastating early." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Surprise War + flanking = devastating early." },
     { name: "Foreign Trade", priority: "high", reason: "Earn a Trade Route. Domestic routes give +2 Gold and +1 Culture with Satrapies." }
   ],
   "frederick": [
@@ -276,7 +276,7 @@ const LEADER_BOOSTS = {
   ],
   "harald-varangian": [
     { name: "Sailing", priority: "critical", reason: "Unlocks Galley. Coastal raiding gives Science and Culture with Varangian Guard." },
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Pillaging for science/culture is your core loop." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Pillaging for science/culture is your core loop." },
     { name: "Astrology", priority: "high", reason: "Find a Natural Wonder. Stave Church Woods adjacency for faith." }
   ],
   "jayavarman": [
@@ -305,7 +305,7 @@ const LEADER_BOOSTS = {
     { name: "Stirrups", priority: "high", reason: "Unlocks Knights. Keshig replaces Cavalry — ranged + escort formation." }
   ],
   "lautaro": [
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Governor combat bonus + flanking = strong early military." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Governor combat bonus + flanking = strong early military." },
     { name: "Early Empire", priority: "critical", reason: "Grow to 6 pop. Governor titles give +5 combat strength in cities with Governors." },
     { name: "Stirrups", priority: "high", reason: "Unlocks Cavalry path. Malón Raider replaces Cavalry — cheap pillaging." }
   ],
@@ -357,7 +357,7 @@ const LEADER_BOOSTS = {
   "shaka": [
     { name: "Bronze Working", priority: "critical", reason: "Kill 3 Barbarians. Ikanda replaces Encampment — unique promotions for units." },
     { name: "Mercenaries", priority: "critical", reason: "Unlocks Corps formation. Amabutho lets you form Corps at Mercenaries instead of Nationalism." },
-    { name: "Military Tradition", priority: "high", reason: "Kill with a Slinger. Impi flanking bonus stacks — flanking matters." }
+    { name: "Military Tradition", priority: "high", reason: "Clear a Barbarian Encampment. Impi flanking bonus stacks — flanking matters." }
   ],
   "suleiman-kanuni": [
     { name: "Gunpowder", priority: "critical", reason: "Build an Armory. Janissary replaces Musketman — stronger, cheaper, free promotion." },
@@ -367,7 +367,7 @@ const LEADER_BOOSTS = {
   "suleiman-muhtesem": [
     { name: "Gunpowder", priority: "critical", reason: "Build an Armory. Janissary + conquest = free Janissaries. Snowball from here." },
     { name: "Masonry", priority: "critical", reason: "Build a Quarry. Siege units are your bread and butter — +50% production." },
-    { name: "Military Tradition", priority: "high", reason: "Kill with a Slinger. Golden Age combat bonus stacks with siege bonuses." }
+    { name: "Military Tradition", priority: "high", reason: "Clear a Barbarian Encampment. Golden Age combat bonus stacks with siege bonuses." }
   ],
   "sundiata": [
     { name: "Astrology", priority: "critical", reason: "Find a Natural Wonder. Desert faith from city centers + Holy Site." },
@@ -380,7 +380,7 @@ const LEADER_BOOSTS = {
     { name: "Flight", priority: "high", reason: "Build an Industrial+ wonder. Seaside Resorts and improvement tourism activate." }
   ],
   "teddy-rough-rider": [
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. Home continent combat bonus + envoys from kills." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. Home continent combat bonus + envoys from kills." },
     { name: "Stirrups", priority: "high", reason: "Unlocks Cavalry path. Rough Rider is unique cavalry — +10 on Hills." },
     { name: "Political Philosophy", priority: "high", reason: "Meet 3 city-states. Government legacy bonuses earned in half time." }
   ],
@@ -392,7 +392,7 @@ const LEADER_BOOSTS = {
   "tomyris": [
     { name: "Horseback Riding", priority: "critical", reason: "Build a Pasture. Saka Horse Archer doesn't need horses but cavalry doubling does." },
     { name: "Bronze Working", priority: "critical", reason: "Kill 3 Barbarians. Double cavalry production — build military early." },
-    { name: "Military Tradition", priority: "high", reason: "Kill with a Slinger. Heal on kill + flanking = sustained aggression." }
+    { name: "Military Tradition", priority: "high", reason: "Clear a Barbarian Encampment. Heal on kill + flanking = sustained aggression." }
   ],
   "trajan": [
     { name: "Iron Working", priority: "critical", reason: "Build an Iron Mine. Legion replaces Swordsman — can build roads and forts." },
@@ -421,7 +421,7 @@ const LEADER_BOOSTS = {
   ],
   "nader-shah": [
     { name: "Iron Working", priority: "critical", reason: "Build an Iron Mine. Immortals are your key unit — ranged attack with melee strength." },
-    { name: "Military Tradition", priority: "critical", reason: "Kill with a Slinger. +2 base combat strength always active — flanking amplifies." },
+    { name: "Military Tradition", priority: "critical", reason: "Clear a Barbarian Encampment. +2 base combat strength always active — flanking amplifies." },
     { name: "Foreign Trade", priority: "high", reason: "Earn a Trade Route. Domestic routes give +2 Gold and +1 Culture with Satrapies." }
   ],
   "elizabeth": [
