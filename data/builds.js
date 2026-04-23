@@ -462,18 +462,56 @@ const GAME_MODE_TIPS = {
     name: "Secret Societies",
     general: [
       "Join a society ASAP — the earlier you join, the more governor promotions you get",
-      "You can only join ONE society per game — choose carefully based on your victory path",
-      "Hermetic Order: best for science (Ley Lines give adjacency to all districts)",
-      "Voidsingers: best for religion/faith (bonus faith from population, Cultists spread loyalty pressure)",
-      "Owls of Minerva: best for diplomacy/gold (extra economic policy slot, Gilded Vault, trade route bonuses)",
-      "Sanguine Pact: best for domination (Vampire unique unit that gets stronger from kills, can build Vampire Castles)"
+      "You can only join ONE society per game — choose based on your victory path"
     ],
+    societies: {
+      "Sanguine Pact": {
+        bestFor: ["domination"],
+        tips: [
+          "Vampires are unique units that gain Combat Strength permanently from kills",
+          "Vampires heal fully when adjacent to a Vampire Castle",
+          "Vampire Castles provide yields based on adjacent tiles — place them well",
+          "You get 1 Vampire per era — protect them, they don't come back if killed",
+          "Vampires can teleport between Vampire Castles"
+        ]
+      },
+      "Hermetic Order": {
+        bestFor: ["science", "culture"],
+        tips: [
+          "Ley Lines provide adjacency bonus to ALL specialty districts",
+          "Settle cities where Ley Lines are near planned district clusters",
+          "Alchemical Society building (Industrial Zone) boosts Great People generation",
+          "Ley Lines are revealed when you join — scout for them before placing districts",
+          "Late game: Ley Lines provide Tourism after researching certain techs"
+        ]
+      },
+      "Voidsingers": {
+        bestFor: ["religion"],
+        tips: [
+          "Old God Obelisk (Monument replacement) gives Faith from population",
+          "Cultists can be purchased with Faith and spread loyalty pressure to enemy cities",
+          "Dark Summoning building gives Faith and Great Prophet points",
+          "Massive faith generation scales with city population — grow tall",
+          "Cultists don't consume charges — they can repeatedly pressure cities"
+        ]
+      },
+      "Owls of Minerva": {
+        bestFor: ["diplomacy", "culture"],
+        tips: [
+          "Gilded Vault (Bank replacement) gives extra Trade Route capacity",
+          "Extra Economic policy slot from the first Governor promotion",
+          "Trade routes to city-states grant an Envoy when completed",
+          "War Department building gives Gold and Production",
+          "Best for gold generation and city-state suzerainty"
+        ]
+      }
+    },
     leaderSynergies: {
-      domination: "Sanguine Pact — Vampires are incredibly strong military units that heal and grow from kills. Vampire Castles provide yields.",
-      science: "Hermetic Order — Ley Lines provide adjacency to all districts including Campus. Alchemical Society building boosts Great People.",
-      culture: "Owls of Minerva or Hermetic Order — Owls give trade route bonuses and Gilded Vault. Hermetic Order Ley Lines boost Theater Squares.",
-      religion: "Voidsingers — Old God Obelisk gives faith from population. Cultists spread loyalty pressure. Massive faith generation.",
-      diplomacy: "Owls of Minerva — extra economic policy slot, Gilded Vault for gold, trade route bonuses for Diplomatic Favor generation."
+      domination: "Sanguine Pact",
+      science: "Hermetic Order",
+      culture: "Hermetic Order",
+      religion: "Voidsingers",
+      diplomacy: "Owls of Minerva"
     }
   },
   "monopolies": {

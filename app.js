@@ -524,12 +524,22 @@ function renderGameModeTips(victory) {
   modes.forEach(modeId => {
     const mode = GAME_MODE_TIPS[modeId];
     if (!mode) return;
-    const synergy = mode.leaderSynergies[victory] || '';
-    html += `<div style="margin-bottom:12px;">`;
-    html += `<div style="font-size:13px;font-weight:600;color:#00c850;margin-bottom:4px;">${mode.name}</div>`;
-    if (synergy) html += `<p style="font-size:12px;color:#ccc;margin-bottom:6px;">${synergy}</p>`;
-    html += `<ul>${mode.general.map(t => '<li>' + t + '</li>').join('')}</ul>`;
-    html += `</div>`;
+    html += '<div style="margin-bottom:12px;">';
+    html += '<div style="font-size:13px;font-weight:600;color:#00c850;margin-bottom:4px;">' + mode.name + '</div>';
+    if (modeId === 'secret-societies' && mode.societies) {
+      var recName = mode.leaderSynergies[victory] || 'Hermetic Order';
+      var society = mode.societies[recName];
+      html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
+      html += '<div style="margin-top:8px;padding:8px 10px;background:#1c1c1c;border-left:3px solid #00c850;border-radius:0 4px 4px 0;">';
+      html += '<div style="font-size:12px;font-weight:600;color:#f0f0f0;margin-bottom:4px;">Recommended: ' + recName + '</div>';
+      if (society) html += '<ul>' + society.tips.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
+      html += '</div>';
+    } else {
+      var synergy = (typeof mode.leaderSynergies === 'object') ? (mode.leaderSynergies[victory] || '') : '';
+      if (synergy) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + synergy + '</p>';
+      html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
+    }
+    html += '</div>';
   });
   return html;
 }
