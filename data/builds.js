@@ -10,7 +10,6 @@ const BUILD_ORDERS = {
       modern: { focus: "Mechanized warfare", priorities: ["Tanks and Infantry — core modern army", "Form Armies — combine Corps for maximum strength", "Bombers — air support for ground forces", "Oil stockpile for modern units", "Anti-air in defensive cities", "Continue conquering capitals", "Spy sabotage on science leaders", "Maintain production in core cities", "Upgrade remaining old units", "Push for remaining capitals"] },
       atomic: { focus: "Air superiority", priorities: ["Bombers + Fighter escorts", "Nuclear weapons if available", "Helicopter gunships for mobility", "Capture remaining capitals", "Anti-air defense in your cities", "Spy operations on opponents", "Maintain army replacements", "Push through final defenses"] },
       information: { focus: "Close it out", priorities: ["Modern Armor — strongest land unit", "Jet Bombers — strongest air unit", "Giant Death Robot if available", "Capture remaining capitals to win", "Prevent science civs from finishing space race", "Maximum military pressure on all fronts"] }
-    }
     },
     policies: [{ name: "Agoge/Maneuver", why: "+50% Production toward melee/ranged (Agoge) or cavalry (Maneuver). Slot early for unit spam." }, { name: "Conscription", why: "-1 Gold maintenance per unit. Essential for large armies." }, { name: "Professional Army", why: "50% discount on unit upgrades. Save gold then mass-upgrade." }, { name: "Lightning Warfare", why: "+3 Movement for Great Generals, +1 for cavalry. Late-game blitz." }],
     wonders: [{ name: "Terracotta Army", why: "All current land units receive a promotion. Massive power spike for timing attacks." }, { name: "Alhambra", why: "Extra Military policy slot. All newly trained units get +1 promotion level." }, { name: "Venetian Arsenal", why: "Doubles naval unit production. Essential for naval domination maps." }],
@@ -26,7 +25,6 @@ const BUILD_ORDERS = {
       modern: { focus: "Space Race begins", priorities: ["Spaceport — your victory building", "Launch Earth Satellite — first space project", "Launch Moon Landing", "Rocketry tech — boosted by Great Scientist or Spy", "Counter-spy on Spaceport — opponents will sabotage", "Anti-air units near Spaceport city", "Continue Research Lab construction", "Trade routes to Spaceport city", "Maintain military deterrent", "Rush remaining space techs"] },
       atomic: { focus: "Space projects sprint", priorities: ["Launch Mars Colony modules", "Exoplanet Expedition project", "Protect Spaceport with spies and military", "Spy sabotage on rival Spaceports", "Maximum science output — all policies toward science", "Defend against invasion attempts", "Complete remaining space projects", "Rush any missing techs"] },
       information: { focus: "Final push", priorities: ["Complete remaining space projects", "Laser Station project", "Counter-spy Spaceport at all times", "Maximum production in Spaceport city", "Defend against last-ditch attacks"] }
-    }
     },
     policies: [{ name: "Natural Philosophy", why: "+100% Campus adjacency bonus. Double your science from well-placed Campuses." }, { name: "Rationalism", why: "+100% science from Campus buildings. Massive mid-late boost." }, { name: "International Space Agency", why: "+5% Science per city-state suzerain." }],
     wonders: [{ name: "Great Library", why: "Boosts all Ancient/Classical techs. Huge early science acceleration." }, { name: "Oxford University", why: "+20% Science in this city. 2 free techs. Build in your best Campus city." }, { name: "Kilwa Kisiwani", why: "+15% yields in all cities for each type of city-state you are suzerain of." }],
@@ -42,7 +40,6 @@ const BUILD_ORDERS = {
       modern: { focus: "Tourism pressure", priorities: ["More National Parks and Seaside Resorts", "Rock Bands — target civ with highest domestic tourism", "Film Studio if America — Tourism pressure bonus", "Online Communities policy — +50% Trade Route Tourism", "Open borders with all civs", "Continue Great People generation", "Defend against military pressure", "Trade routes to tourism targets"] },
       atomic: { focus: "Close it out", priorities: ["Rock Bands — your late-game closer", "Heritage Tourism policy — +100% Art/Artifact Tourism", "Target highest domestic tourism civ with Rock Bands", "Maintain open borders", "Defend Great Works from conquest", "Maximum tourism output"] },
       information: { focus: "Win", priorities: ["Online Communities — +50% Trade Route Tourism", "More Rock Bands", "Prevent opponents from declaring war on you", "Maximum tourism pressure on remaining holdouts"] }
-    }
     },
     policies: [{ name: "Inspiration", why: "+2 Great Person points from all districts. Accelerates Great People generation." }, { name: "Heritage Tourism", why: "+100% Tourism from Great Works of Art and Artifacts." }, { name: "Online Communities", why: "+50% Tourism from Trade Routes." }],
     wonders: [{ name: "Oracle", why: "Patronage of Great People costs 25% less Faith. +2 Great Person points from districts." }, { name: "Bolshoi Theatre", why: "2 free civics. 2 Great Work of Writing slots. Accelerates civic tree." }, { name: "Cristo Redentor", why: "Seaside Resorts provide Tourism from their full appeal instead of half. Religious Tourism is not reduced." }, { name: "Eiffel Tower", why: "+2 Appeal to all tiles in your empire. Enables more National Parks and Seaside Resorts." }],
@@ -58,7 +55,6 @@ const BUILD_ORDERS = {
       modern: { focus: "Mop up holdouts", priorities: ["Target remaining unconverted capitals", "Defend against enemy Inquisitors", "Military escort for missionaries", "Maintain Inquisitor defense network", "Continue faith generation"] },
       atomic: { focus: "Defend your religion", priorities: ["Inquisitors in every city", "Prevent enemy religious flips", "Counter any late Apostle pushes", "Maintain majority in all converted civs"] },
       information: { focus: "Maintain majority", priorities: ["Keep majority in all civs", "Counter any late religious pushes", "Inquisitor defense"] }
-    }
     },
     policies: [{ name: "God King", why: "+1 Faith and +1 Gold from Palace. Slot immediately for early Pantheon." }, { name: "Scripture", why: "+100% Holy Site adjacency bonus. Double your faith." }, { name: "Simultaneum", why: "+2 Faith from all Holy Site buildings. Stacks across cities." }, { name: "Theocracy", why: "Government: faith-purchase land units, +5 Religious Strength in theological combat." }],
     wonders: [{ name: "Stonehenge", why: "Grants a free Great Prophet. Found your religion without competing for Prophet points." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Jumpstarts your religious spread." }, { name: "Hagia Sophia", why: "Missionaries and Apostles get +1 spread charge. Huge efficiency boost." }, { name: "Mont St. Michel", why: "All Apostles gain the Martyr ability. Dying Apostles create Relics for tourism." }],
@@ -74,7 +70,6 @@ const BUILD_ORDERS = {
       modern: { focus: "Favor stockpile", priorities: ["Hoard Diplomatic Favor for key World Congress votes", "Carbon Recapture project — Diplomatic Victory Points", "Continue winning competitions", "Maintain all alliances and suzerainties", "Slot Arsenal of Democracy", "Stay friendly with everyone", "Vote with majority on unimportant proposals"] },
       atomic: { focus: "Strategic voting", priorities: ["Spend favor on key World Congress votes for VP", "Block opponents from getting VP", "Win remaining emergencies", "Save favor for final push — opponents will vote against you", "Maintain suzerainties and alliances"] },
       information: { focus: "Final push", priorities: ["All-in on final World Congress vote", "Spend all remaining favor strategically", "Win last competition if possible", "Secure final Diplomatic Victory Points"] }
-    }
     },
     policies: [{ name: "Charismatic Leader", why: "+2 Influence points per turn toward envoys. Faster suzerainty." }, { name: "Containment", why: "+3 Envoys when sending to a city-state where another civ is suzerain." }, { name: "Arsenal of Democracy", why: "+4 Diplomatic Favor per turn. Major favor generation." }],
     wonders: [{ name: "Potala Palace", why: "+1 Diplomatic policy slot. Extra Diplomatic Favor generation." }, { name: "Statue of Liberty", why: "+4 Diplomatic Victory Points. The single biggest diplomacy wonder." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Religion helps with city-state suzerainty and favor." }, { name: "Kilwa Kisiwani", why: "+15% yields per suzerain city-state type. Amplifies your city-state strategy." }],
@@ -131,7 +126,6 @@ const MP_BUILD_ORDERS = {
       modern: { focus: "Mechanized push", priorities: ["Tanks and Form Armies", "Bombers — air support", "Anti-air in defense", "Oil stockpile", "Don't let science civs finish space race", "Push for remaining capitals"] },
       atomic: { focus: "Air dominance", priorities: ["Bombers + Fighters", "Nuclear weapons if available", "Capture remaining capitals", "Spy sabotage on science leaders"] },
       information: { focus: "End the game", priorities: ["Modern Armor + Jet Bombers", "Giant Death Robot if available", "Prevent science victory — sabotage Spaceports", "Capture final capitals"] }
-    }
     },
     policies: [{ name: "Agoge/Maneuver", why: "+50% Production toward melee/ranged or cavalry. Rush units for timing attacks." }, { name: "Limes", why: "+100% Production toward walls. Essential in MP — wall up early." }, { name: "Conscription", why: "-1 Gold maintenance per unit. Sustain large armies." }, { name: "Professional Army", why: "50% upgrade discount. Mass-upgrade for timing pushes." }],
     wonders: [{ name: "Terracotta Army", why: "Free promotion for all land units. Time this before a major push." }, { name: "Alhambra", why: "Extra Military policy slot + free promotion on new units." }, { name: "Forbidden City", why: "Extra Wildcard policy slot. Flexibility for any situation." }],
@@ -147,7 +141,6 @@ const MP_BUILD_ORDERS = {
       modern: { focus: "Spaceport defense + launch", priorities: ["Spaceport — your victory building", "Counter-spy on Spaceport — opponents will sabotage", "Anti-air units — protect from bombers", "Launch Earth Satellite", "Spy sabotage on rival Spaceports", "Maintain military deterrent", "Trade routes to Spaceport city", "Rush space techs"] },
       atomic: { focus: "Space race sprint", priorities: ["Mars Colony modules", "Defend against invasion — you WILL be targeted", "Spy sabotage on rival Spaceports", "Maximum science output", "Complete space projects ASAP"] },
       information: { focus: "Finish before they stop you", priorities: ["Complete remaining space projects", "Maximum Spaceport defense", "Laser Station", "Counter-spy at all times"] }
-    }
     },
     policies: [{ name: "Natural Philosophy", why: "+100% Campus adjacency. Primary science multiplier." }, { name: "Limes", why: "+100% wall Production. Humans punish undefended cities." }, { name: "Rationalism", why: "+100% science from Campus buildings." }, { name: "International Space Agency", why: "+5% Science per suzerain city-state." }],
     wonders: [{ name: "Kilwa Kisiwani", why: "+15% yields from suzerain city-state types. Science and production boost." }, { name: "Oxford University", why: "+20% Science in this city + 2 free techs. Build in your best Campus city." }, { name: "Ruhr Valley", why: "+20% Production in this city + Production from each Mine and Quarry. Accelerates space projects." }],
@@ -163,7 +156,6 @@ const MP_BUILD_ORDERS = {
       modern: { focus: "Tourism push", priorities: ["Rock Bands — target civ with highest domestic tourism", "More National Parks and Seaside Resorts", "Online Communities policy", "Keep defensive military", "Open borders only if opponent also opens"] },
       atomic: { focus: "Rock Band assault", priorities: ["Rock Bands targeting highest tourism civ", "Heritage Tourism policy", "Defend your Great Works from conquest", "Maximum tourism pressure"] },
       information: { focus: "Close it out", priorities: ["Online Communities — +50% Trade Route Tourism", "More Rock Bands", "Prevent opponents from declaring war"] }
-    }
     },
     policies: [{ name: "Inspiration", why: "+2 Great Person points from districts." }, { name: "Limes", why: "+100% wall Production. Culture civs are prime targets." }, { name: "Heritage Tourism", why: "+100% Tourism from Art and Artifacts." }, { name: "Online Communities", why: "+50% Tourism from Trade Routes." }],
     wonders: [{ name: "Oracle", why: "Cheaper Great People patronage + Great Person points from districts." }, { name: "Bolshoi Theatre", why: "2 free civics + Great Work slots. Civic tree acceleration." }, { name: "Eiffel Tower", why: "+2 Appeal empire-wide. Enables National Parks and Seaside Resorts everywhere." }, { name: "Cristo Redentor", why: "Full appeal tourism from Seaside Resorts. Religious Tourism not reduced." }],
@@ -179,7 +171,6 @@ const MP_BUILD_ORDERS = {
       modern: { focus: "Maintain and defend", priorities: ["Inquisitors everywhere", "Military deterrent", "Convert remaining cities", "Defend against late aggression"] },
       atomic: { focus: "Prevent flips", priorities: ["Inquisitor defense", "Counter enemy Apostles", "Maintain majority"] },
       information: { focus: "Hold majority", priorities: ["Maintain religious majority in all civs", "Counter late pushes"] }
-    }
     },
     policies: [{ name: "God King", why: "+1 Faith from Palace. Slot turn 1 for fastest Pantheon." }, { name: "Scripture", why: "+100% Holy Site adjacency. Double faith output." }, { name: "Theocracy", why: "Faith-purchase land units. +5 Religious Strength." }, { name: "Simultaneum", why: "+2 Faith from all Holy Site buildings." }],
     wonders: [{ name: "Stonehenge", why: "Free Great Prophet — but very risky in MP as opponents may rush it or attack you while building." }, { name: "Hagia Sophia", why: "+1 spread charge on Missionaries and Apostles. Huge efficiency in theological combat." }, { name: "Mont St. Michel", why: "Apostles gain Martyr — dying creates Relics for tourism backup." }, { name: "Mahabodhi Temple", why: "2 free Apostles to jumpstart spreading." }],
@@ -195,7 +186,6 @@ const MP_BUILD_ORDERS = {
       modern: { focus: "Favor hoarding", priorities: ["Save Diplomatic Favor for key votes", "Carbon Recapture projects", "Win competitions", "Stay friendly with everyone", "Humans will vote against you — save favor"] },
       atomic: { focus: "Strategic voting", priorities: ["Spend favor on key votes", "Block opponents from VP", "Save favor for final push"] },
       information: { focus: "Final push", priorities: ["All-in on final World Congress vote", "Spend remaining favor", "Win last competition"] }
-    }
     },
     policies: [{ name: "Charismatic Leader", why: "+2 Influence points per turn for envoys." }, { name: "Limes", why: "+100% wall Production. Stay alive while playing peacefully." }, { name: "Containment", why: "+3 Envoys to city-states where another civ is suzerain." }, { name: "Arsenal of Democracy", why: "+4 Diplomatic Favor per turn." }],
     wonders: [{ name: "Potala Palace", why: "+1 Diplomatic policy slot for extra favor generation." }, { name: "Statue of Liberty", why: "+4 Diplomatic Victory Points. The most important diplomacy wonder." }, { name: "Kilwa Kisiwani", why: "+15% yields per suzerain type. Amplifies city-state strategy." }, { name: "Mahabodhi Temple", why: "2 free Apostles. Religion helps suzerainty and favor." }],
