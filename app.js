@@ -457,10 +457,6 @@ function renderMatchupContent(you, opponents) {
     </div>`;
   });
 
-  const highThreats = rated.filter(r => r.threatLevel === 'high');
-  if (highThreats.length > 0) {
-    html += `<div class="bbg-note" style="border-color:#e8404040;background:#e8404015;color:#e84040;margin-top:8px;">⚠ ${highThreats.length} high-threat opponent(s): ${highThreats.map(h=>h.opp.name).join(', ')}.</div>`;
-  }
   return html;
 }
 
