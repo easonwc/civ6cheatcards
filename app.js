@@ -345,7 +345,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
 
   right += collapsible('Key Policies', `<ul>${buildOrder.policies.map(p=>`<li>${p}</li>`).join('')}</ul>`);
 
-  right += collapsible('Recommended Wonders', `<ul>${buildOrder.wonders.map(w=>`<li>${w}</li>`).join('')}</ul>`);
+  right += collapsible('Recommended Wonders', buildOrder.wonders.map(function(w) { if (typeof w === 'object') return '<div style="padding:4px 0;border-bottom:1px solid #1c1c1c;"><span style="font-size:13px;font-weight:600;color:#ccc;">' + w.name + '</span><div style="font-size:12px;color:#888;margin-top:2px;">' + w.why + '</div></div>'; return '<li>' + w + '</li>'; }).join(''));
 
   right += collapsible(`General ${capitalize(victory)} Tips`, `<ul>${buildOrder.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`);
 
