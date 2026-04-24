@@ -339,9 +339,20 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   // Right column: game plan details
   let right = '';
 
-  right += collapsible('Era-by-Era Game Plan', Object.entries(buildOrder.eras).map(([era, data]) => `
-    <div class="era-block"><div class="era-header"><span class="era-name">${capitalize(era)} Era</span><span class="era-focus">${data.focus}</span></div>
-    <div class="build-order">${data.priorities.map((item,i)=>`<div class="build-step"><span class="build-step-num">${i+1}</span><span class="build-step-text">${item}</span></div>`).join('')}</div></div>`).join(''), true);
+  right += collapsible('Era-by-Era Game Plan', Object.entries(buildOrder.eras).map(function(entry, idx) {
+    var era = entry[0], data = entry[1];
+    var isAncient = era === 'ancient';
+    var content = '<div class="build-order">' + data.priorities.map(function(item, i) {
+      return '<div class="build-step"><span class="build-step-num">' + (i+1) + '</span><span class="build-step-text">' + item + '</span></div>';
+    }).join('') + '</div>';
+    return '<div class="collapsible ' + (isAncient ? 'open' : '') + '">' +
+      '<div class="collapsible-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
+        '<span class="collapsible-title">' + capitalize(era) + ' Era — ' + data.focus + '</span>' +
+        '<span class="collapsible-icon">›</span>' +
+      '</div>' +
+      '<div class="collapsible-body"><div style="padding:10px 14px;">' + content + '</div></div>' +
+    '</div>';
+  }).join(''), true);
 
 
 
