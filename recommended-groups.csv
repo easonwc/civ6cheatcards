@@ -1,0 +1,78 @@
+Group,Group Size,Recommended Map,Map Spread,Leader,Civilization,Primary Victory,Synergy,Map Score
+1,8,primordial,0,"Alexander",Macedon,domination,95,50
+1,8,primordial,0,"Mansa Musa",Mali,religion,90,50
+1,8,primordial,0,"Wilfrid Laurier",Canada,diplomacy,90,50
+1,8,primordial,0,"Menelik II",Ethiopia,religion,85,50
+1,8,primordial,0,"Pachacuti",Inca,science,80,50
+1,8,primordial,0,"Matthias Corvinus",Hungary,domination,80,50
+1,8,primordial,0,"Tokugawa",Japan,culture,75,50
+1,8,primordial,0,"Abraham Lincoln",America,science,70,50
+2,8,fractal,15,"Lady Six Sky",Maya,science,95,50
+2,8,fractal,15,"Montezuma",Aztec,domination,90,50
+2,8,fractal,15,"Nader Shah",Persia,domination,90,50
+2,8,fractal,15,"Mvemba a Nzinga",Kongo,culture,85,50
+2,8,fractal,15,"Gorgo",Greece,domination,80,50
+2,8,fractal,15,"Cleopatra (Ptolemaic)",Egypt,science,80,50
+2,8,fractal,15,"Tomyris",Scythia,domination,75,50
+2,8,fractal,15,"Qin Shi Huang (Unifier)",China,domination,65,65
+3,8,primordial,0,"Peter",Russia,religion,95,50
+3,8,primordial,0,"Saladin",Arabia,religion,90,50
+3,8,primordial,0,"Cyrus",Persia,domination,85,50
+3,8,primordial,0,"Suleiman (Muhteşem)",Ottoman,domination,85,50
+3,8,primordial,0,"Amanitore",Nubia,domination,80,50
+3,8,primordial,0,"Victoria (Age of Steam)",England,science,80,50
+3,8,primordial,0,"Gilgamesh",Sumeria,science,70,50
+3,8,primordial,0,"Wu Zetian",China,culture,65,50
+4,8,fractal,15,"Kristina",Sweden,culture,95,65
+4,8,fractal,15,"Pericles",Greece,culture,90,65
+4,8,fractal,15,"Frederick Barbarossa",Germany,science,85,50
+4,8,fractal,15,"Saladin (Vizier)",Arabia,religion,85,65
+4,8,fractal,15,"Bà Triệu",Vietnam,culture,80,50
+4,8,fractal,15,"Cleopatra",Egypt,culture,75,50
+4,8,fractal,15,"Elizabeth I",England,culture,75,65
+4,8,fractal,15,"Yongle",China,science,65,65
+5,8,primordial,0,"Shaka",Zulu,domination,95,50
+5,8,primordial,0,"Genghis Khan",Mongolia,domination,90,50
+5,8,primordial,0,"John Curtin",Australia,science,85,50
+5,8,primordial,0,"Sundiata Keita",Mali,religion,85,50
+5,8,primordial,0,"Catherine de Medici (Black Queen)",France,culture,80,50
+5,8,primordial,0,"Wilhelmina",Netherlands,science,75,50
+5,8,primordial,0,"Chandragupta",India,domination,70,50
+5,8,primordial,0,"Victoria",England,domination,60,50
+6,8,primordial,0,"Seondeok",Korea,science,92,50
+6,8,primordial,0,"Gitarja",Indonesia,religion,90,50
+6,8,primordial,0,"Kupe",Maori,culture,85,50
+6,8,primordial,0,"Teddy Roosevelt (Bull Moose)",America,culture,85,50
+6,8,primordial,0,"Eleanor of Aquitaine (France)",France,culture,80,50
+6,8,primordial,0,"Eleanor of Aquitaine (England)",England,culture,75,50
+6,8,primordial,0,"Harald Hardrada (Konge)",Norway,domination,70,50
+6,8,primordial,0,"Dido",Phoenicia,domination,60,50
+7,8,primordial,0,"Simón Bolívar",Gran Colombia,domination,92,50
+7,8,primordial,0,"Jayavarman VII",Khmer,religion,90,50
+7,8,primordial,0,"Ambiorix",Gaul,domination,85,50
+7,8,primordial,0,"Theodora",Byzantium,religion,85,50
+7,8,primordial,0,"João III",Portugal,science,80,50
+7,8,primordial,0,"Hammurabi",Babylon,science,75,50
+7,8,primordial,0,"Kublai Khan (China)",China,culture,70,50
+7,8,primordial,0,"Teddy Roosevelt (Rough Rider)",America,domination,60,50
+8,7,fractal,15,"Basil II",Byzantium,domination,90,65
+8,7,fractal,15,"Ludwig II",Germany,culture,90,65
+8,7,fractal,15,"Catherine de Medici (Magnificence)",France,culture,85,65
+8,7,fractal,15,"Hojo Tokimune",Japan,culture,80,65
+8,7,fractal,15,"Nzinga Mbande",Kongo,culture,80,50
+8,7,fractal,15,"Harald Hardrada (Varangian)",Norway,domination,75,65
+8,7,fractal,15,"Lautaro",Mapuche,domination,70,50
+9,7,fractal,15,"Gandhi",India,religion,90,65
+9,7,fractal,15,"Sejong",Korea,science,90,50
+9,7,fractal,15,"Julius Caesar",Rome,domination,85,50
+9,7,fractal,15,"Pedro II",Brazil,culture,80,50
+9,7,fractal,15,"Philip II",Spain,religion,80,50
+9,7,fractal,15,"Robert the Bruce",Scotland,science,75,65
+9,7,fractal,15,"Qin Shi Huang (Mandate of Heaven)",China,culture,70,65
+10,7,primordial,0,"Jadwiga",Poland,religion,90,50
+10,7,primordial,0,"Suleiman (Kanuni)",Ottoman,domination,90,50
+10,7,primordial,0,"Kublai Khan (Mongolia)",Mongolia,domination,85,50
+10,7,primordial,0,"Poundmaker",Cree,diplomacy,80,50
+10,7,primordial,0,"Ramses II",Egypt,culture,80,50
+10,7,primordial,0,"Tamar",Georgia,religion,75,50
+10,7,primordial,0,"Trajan",Rome,domination,70,50

@@ -345,12 +345,12 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     var content = '<div class="build-order">' + data.priorities.map(function(item, i) {
       return '<div class="build-step"><span class="build-step-num">' + (i+1) + '</span><span class="build-step-text">' + item + '</span></div>';
     }).join('') + '</div>';
-    return '<div class="collapsible ' + (isAncient ? 'open' : '') + '">' +
-      '<div class="collapsible-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
-        '<span class="collapsible-title">' + capitalize(era) + ' Era — ' + data.focus + '</span>' +
-        '<span class="collapsible-icon">›</span>' +
+    return '<div class="era-collapse ' + (isAncient ? 'open' : '') + '">' +
+      '<div class="era-collapse-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
+        '<span class="era-collapse-title">' + capitalize(era) + ' Era — ' + data.focus + '</span>' +
+        '<span class="era-collapse-icon">›</span>' +
       '</div>' +
-      '<div class="collapsible-body"><div style="padding:10px 14px;">' + content + '</div></div>' +
+      '<div class="era-collapse-body"><div style="padding:10px 14px;">' + content + '</div></div>' +
     '</div>';
   }).join(''), true);
 

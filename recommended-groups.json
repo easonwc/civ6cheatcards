@@ -1,0 +1,621 @@
+[
+  {
+    "group": 1,
+    "size": 8,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Alexander",
+        "civ": "Macedon",
+        "primaryVictory": "domination",
+        "synergy": 95,
+        "mapScore": 50
+      },
+      {
+        "name": "Mansa Musa",
+        "civ": "Mali",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Wilfrid Laurier",
+        "civ": "Canada",
+        "primaryVictory": "diplomacy",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Menelik II",
+        "civ": "Ethiopia",
+        "primaryVictory": "religion",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Pachacuti",
+        "civ": "Inca",
+        "primaryVictory": "science",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Matthias Corvinus",
+        "civ": "Hungary",
+        "primaryVictory": "domination",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Tokugawa",
+        "civ": "Japan",
+        "primaryVictory": "culture",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Abraham Lincoln",
+        "civ": "America",
+        "primaryVictory": "science",
+        "synergy": 70,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 2,
+    "size": 8,
+    "recommendedMap": "fractal",
+    "mapSpread": 15,
+    "players": [
+      {
+        "name": "Lady Six Sky",
+        "civ": "Maya",
+        "primaryVictory": "science",
+        "synergy": 95,
+        "mapScore": 50
+      },
+      {
+        "name": "Montezuma",
+        "civ": "Aztec",
+        "primaryVictory": "domination",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Nader Shah",
+        "civ": "Persia",
+        "primaryVictory": "domination",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Mvemba a Nzinga",
+        "civ": "Kongo",
+        "primaryVictory": "culture",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Gorgo",
+        "civ": "Greece",
+        "primaryVictory": "domination",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Cleopatra (Ptolemaic)",
+        "civ": "Egypt",
+        "primaryVictory": "science",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Tomyris",
+        "civ": "Scythia",
+        "primaryVictory": "domination",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Qin Shi Huang (Unifier)",
+        "civ": "China",
+        "primaryVictory": "domination",
+        "synergy": 65,
+        "mapScore": 65
+      }
+    ]
+  },
+  {
+    "group": 3,
+    "size": 8,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Peter",
+        "civ": "Russia",
+        "primaryVictory": "religion",
+        "synergy": 95,
+        "mapScore": 50
+      },
+      {
+        "name": "Saladin",
+        "civ": "Arabia",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Cyrus",
+        "civ": "Persia",
+        "primaryVictory": "domination",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Suleiman (Muhteşem)",
+        "civ": "Ottoman",
+        "primaryVictory": "domination",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Amanitore",
+        "civ": "Nubia",
+        "primaryVictory": "domination",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Victoria (Age of Steam)",
+        "civ": "England",
+        "primaryVictory": "science",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Gilgamesh",
+        "civ": "Sumeria",
+        "primaryVictory": "science",
+        "synergy": 70,
+        "mapScore": 50
+      },
+      {
+        "name": "Wu Zetian",
+        "civ": "China",
+        "primaryVictory": "culture",
+        "synergy": 65,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 4,
+    "size": 8,
+    "recommendedMap": "fractal",
+    "mapSpread": 15,
+    "players": [
+      {
+        "name": "Kristina",
+        "civ": "Sweden",
+        "primaryVictory": "culture",
+        "synergy": 95,
+        "mapScore": 65
+      },
+      {
+        "name": "Pericles",
+        "civ": "Greece",
+        "primaryVictory": "culture",
+        "synergy": 90,
+        "mapScore": 65
+      },
+      {
+        "name": "Frederick Barbarossa",
+        "civ": "Germany",
+        "primaryVictory": "science",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Saladin (Vizier)",
+        "civ": "Arabia",
+        "primaryVictory": "religion",
+        "synergy": 85,
+        "mapScore": 65
+      },
+      {
+        "name": "Bà Triệu",
+        "civ": "Vietnam",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Cleopatra",
+        "civ": "Egypt",
+        "primaryVictory": "culture",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Elizabeth I",
+        "civ": "England",
+        "primaryVictory": "culture",
+        "synergy": 75,
+        "mapScore": 65
+      },
+      {
+        "name": "Yongle",
+        "civ": "China",
+        "primaryVictory": "science",
+        "synergy": 65,
+        "mapScore": 65
+      }
+    ]
+  },
+  {
+    "group": 5,
+    "size": 8,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Shaka",
+        "civ": "Zulu",
+        "primaryVictory": "domination",
+        "synergy": 95,
+        "mapScore": 50
+      },
+      {
+        "name": "Genghis Khan",
+        "civ": "Mongolia",
+        "primaryVictory": "domination",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "John Curtin",
+        "civ": "Australia",
+        "primaryVictory": "science",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Sundiata Keita",
+        "civ": "Mali",
+        "primaryVictory": "religion",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Catherine de Medici (Black Queen)",
+        "civ": "France",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Wilhelmina",
+        "civ": "Netherlands",
+        "primaryVictory": "science",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Chandragupta",
+        "civ": "India",
+        "primaryVictory": "domination",
+        "synergy": 70,
+        "mapScore": 50
+      },
+      {
+        "name": "Victoria",
+        "civ": "England",
+        "primaryVictory": "domination",
+        "synergy": 60,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 6,
+    "size": 8,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Seondeok",
+        "civ": "Korea",
+        "primaryVictory": "science",
+        "synergy": 92,
+        "mapScore": 50
+      },
+      {
+        "name": "Gitarja",
+        "civ": "Indonesia",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Kupe",
+        "civ": "Maori",
+        "primaryVictory": "culture",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Teddy Roosevelt (Bull Moose)",
+        "civ": "America",
+        "primaryVictory": "culture",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Eleanor of Aquitaine (France)",
+        "civ": "France",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Eleanor of Aquitaine (England)",
+        "civ": "England",
+        "primaryVictory": "culture",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Harald Hardrada (Konge)",
+        "civ": "Norway",
+        "primaryVictory": "domination",
+        "synergy": 70,
+        "mapScore": 50
+      },
+      {
+        "name": "Dido",
+        "civ": "Phoenicia",
+        "primaryVictory": "domination",
+        "synergy": 60,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 7,
+    "size": 8,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Simón Bolívar",
+        "civ": "Gran Colombia",
+        "primaryVictory": "domination",
+        "synergy": 92,
+        "mapScore": 50
+      },
+      {
+        "name": "Jayavarman VII",
+        "civ": "Khmer",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Ambiorix",
+        "civ": "Gaul",
+        "primaryVictory": "domination",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Theodora",
+        "civ": "Byzantium",
+        "primaryVictory": "religion",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "João III",
+        "civ": "Portugal",
+        "primaryVictory": "science",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Hammurabi",
+        "civ": "Babylon",
+        "primaryVictory": "science",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Kublai Khan (China)",
+        "civ": "China",
+        "primaryVictory": "culture",
+        "synergy": 70,
+        "mapScore": 50
+      },
+      {
+        "name": "Teddy Roosevelt (Rough Rider)",
+        "civ": "America",
+        "primaryVictory": "domination",
+        "synergy": 60,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 8,
+    "size": 7,
+    "recommendedMap": "fractal",
+    "mapSpread": 15,
+    "players": [
+      {
+        "name": "Basil II",
+        "civ": "Byzantium",
+        "primaryVictory": "domination",
+        "synergy": 90,
+        "mapScore": 65
+      },
+      {
+        "name": "Ludwig II",
+        "civ": "Germany",
+        "primaryVictory": "culture",
+        "synergy": 90,
+        "mapScore": 65
+      },
+      {
+        "name": "Catherine de Medici (Magnificence)",
+        "civ": "France",
+        "primaryVictory": "culture",
+        "synergy": 85,
+        "mapScore": 65
+      },
+      {
+        "name": "Hojo Tokimune",
+        "civ": "Japan",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 65
+      },
+      {
+        "name": "Nzinga Mbande",
+        "civ": "Kongo",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Harald Hardrada (Varangian)",
+        "civ": "Norway",
+        "primaryVictory": "domination",
+        "synergy": 75,
+        "mapScore": 65
+      },
+      {
+        "name": "Lautaro",
+        "civ": "Mapuche",
+        "primaryVictory": "domination",
+        "synergy": 70,
+        "mapScore": 50
+      }
+    ]
+  },
+  {
+    "group": 9,
+    "size": 7,
+    "recommendedMap": "fractal",
+    "mapSpread": 15,
+    "players": [
+      {
+        "name": "Gandhi",
+        "civ": "India",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 65
+      },
+      {
+        "name": "Sejong",
+        "civ": "Korea",
+        "primaryVictory": "science",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Julius Caesar",
+        "civ": "Rome",
+        "primaryVictory": "domination",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Pedro II",
+        "civ": "Brazil",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Philip II",
+        "civ": "Spain",
+        "primaryVictory": "religion",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Robert the Bruce",
+        "civ": "Scotland",
+        "primaryVictory": "science",
+        "synergy": 75,
+        "mapScore": 65
+      },
+      {
+        "name": "Qin Shi Huang (Mandate of Heaven)",
+        "civ": "China",
+        "primaryVictory": "culture",
+        "synergy": 70,
+        "mapScore": 65
+      }
+    ]
+  },
+  {
+    "group": 10,
+    "size": 7,
+    "recommendedMap": "primordial",
+    "mapSpread": 0,
+    "players": [
+      {
+        "name": "Jadwiga",
+        "civ": "Poland",
+        "primaryVictory": "religion",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Suleiman (Kanuni)",
+        "civ": "Ottoman",
+        "primaryVictory": "domination",
+        "synergy": 90,
+        "mapScore": 50
+      },
+      {
+        "name": "Kublai Khan (Mongolia)",
+        "civ": "Mongolia",
+        "primaryVictory": "domination",
+        "synergy": 85,
+        "mapScore": 50
+      },
+      {
+        "name": "Poundmaker",
+        "civ": "Cree",
+        "primaryVictory": "diplomacy",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Ramses II",
+        "civ": "Egypt",
+        "primaryVictory": "culture",
+        "synergy": 80,
+        "mapScore": 50
+      },
+      {
+        "name": "Tamar",
+        "civ": "Georgia",
+        "primaryVictory": "religion",
+        "synergy": 75,
+        "mapScore": 50
+      },
+      {
+        "name": "Trajan",
+        "civ": "Rome",
+        "primaryVictory": "domination",
+        "synergy": 70,
+        "mapScore": 50
+      }
+    ]
+  }
+]
