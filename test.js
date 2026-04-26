@@ -218,6 +218,211 @@ test('HTML has all 15 map type options', () => {
   });
 });
 
+// === 7. Logic Tests ===
+console.log('\n=== Logic Tests ===');
+
+// Load functions from builds.js
+const buildsFns = new Function(buildsCode + `; return {
+  getMapDensity, getLeaderMapAdvice, analyzeMapFairness,
+  getGameSpeedTips, MAP_SIZES, MAP_CHARACTERISTICS, LEADER_MAP_AFFINITY,
+  GAME_SPEED_TIPS, GAME_SPEED_DATA, DENSITY_TIPS
+};`)();
+
+// --- getMapDensity ---
+test('getMapDensity: duel with 2 players is empty', () => {
+  const d = buildsFns.getMapDensity('duel', 2);
+  assert(d.level === 'empty', `Expected empty, got ${d.level}`);
+  assert(d.tilesPerPlayer === 1024, `Expected 1024 tpp, got ${d.tilesPerPlayer}`);
+});
+
+test('getMapDensity: tiny with 6 players is tight', () => {
+  const d = buildsFns.getMapDensity('tiny', 6);
+  assert(d.level === 'tight', `Expected tight, got ${d.level}`);
+});
+
+test('getMapDensity: huge with 4 players is empty', () => {
+  const d = buildsFns.getMapDensity('huge', 4);
+  assert(d.level === 'empty', `Expected empty, got ${d.level}`);
+});
+
+test('getMapDensity: standard with 8 players is normal', () => {
+  const d = buildsFns.getMapDensity('standard', 8);
+  assert(d.level === 'normal', `Expected normal, got ${d.level}`);
+});
+
+test('getMapDensity: standard with 10 players is normal', () => {
+  const d = buildsFns.getMapDensity('standard', 10);
+  assert(d.level === 'normal', `Expected normal, got ${d.level}`);
+});
+
+test('getMapDensity: invalid size returns normal', () => {
+  const d = buildsFns.getMapDensity('nonexistent', 4);
+  assert(d.level === 'normal', `Expected normal fallback, got ${d.level}`);
+});
+
+// --- getLeaderMapAdvice ---
+test('getLeaderMapAdvice: Kupe on archipelago is excellent', () => {
+  const a = buildsFns.getLeaderMapAdvice('kupe', 'archipelago');
+  assert(a.rating === 'excellent', `Expected excellent, got ${a.rating}`);
+});
+
+test('getLeaderMapAdvice: Kupe on pangaea is poor', () => {
+  const a = buildsFns.getLeaderMapAdvice('kupe', 'pangaea');
+  assert(a.rating === 'poor', `Expected poor, got ${a.rating}`);
+});
+
+test('getLeaderMapAdvice: Simon Bolivar on islands is poor', () => {
+  const a = buildsFns.getLeaderMapAdvice('simon-bolivar', 'islands');
+  assert(a.rating === 'poor', `Expected poor, got ${a.rating}`);
+});
+
+test('getLeaderMapAdvice: Peter on tilted-axis is mixed (tundra strong but desert weak)', () => {
+  const a = buildsFns.getLeaderMapAdvice('peter', 'tilted-axis');
+  assert(a.rating === 'mixed', `Expected mixed, got ${a.rating}`);
+});
+
+test('getLeaderMapAdvice: Hammurabi on fractal is neutral', () => {
+  const a = buildsFns.getLeaderMapAdvice('hammurabi', 'fractal');
+  assert(a.rating === 'neutral' || a.rating === 'good', `Expected neutral/good, got ${a.rating}`);
+});
+
+test('getLeaderMapAdvice: returns null for unknown leader', () => {
+  const a = buildsFns.getLeaderMapAdvice('nonexistent', 'pangaea');
+  assert(a === null, 'Expected null for unknown leader');
+});
+
+// --- analyzeMapFairness ---
+const kupe = LEADERS.find(l => l.id === 'kupe');
+const shaka = LEADERS.find(l => l.id === 'shaka');
+const hammurabi = LEADERS.find(l => l.id === 'hammurabi');
+const peter = LEADERS.find(l => l.id === 'peter');
+
+test('analyzeMapFairness: archipelago with Kupe vs Shaka is unfair', () => {
+  const f = buildsFns.analyzeMapFairness([{ leader: kupe }, { leader: shaka }], 'archipelago');
+  assert(f.rating === 'unfair' || f.rating === 'uneven', `Expected unfair/uneven, got ${f.rating}`);
+});
+
+test('analyzeMapFairness: primordial with mixed leaders is fair', () => {
+  const f = buildsFns.analyzeMapFairness([{ leader: hammurabi }, { leader: peter }], 'primordial');
+  assert(f.rating === 'fair', `Expected fair, got ${f.rating}`);
+});
+
+test('analyzeMapFairness: suggests alternatives when unfair', () => {
+  const f = buildsFns.analyzeMapFairness([{ leader: kupe }, { leader: shaka }], 'archipelago');
+  assert(f.bestAlternatives.length > 0, 'Expected alternative map suggestions');
+  assert(f.bestAlternatives[0].spread < f.selected.spread, 'Alternatives should have lower spread');
+});
+
+test('analyzeMapFairness: player scores are returned', () => {
+  const f = buildsFns.analyzeMapFairness([{ leader: kupe }, { leader: shaka }], 'pangaea');
+  assert(f.players.length === 2, `Expected 2 players, got ${f.players.length}`);
+  assert(typeof f.players[0].score === 'number', 'Player score should be a number');
+});
+
+// --- getGameSpeedTips ---
+test('getGameSpeedTips: standard returns null', () => {
+  const t = buildsFns.getGameSpeedTips('standard', 'science');
+  assert(t === null, 'Standard speed should return null (no extra tips)');
+});
+
+test('getGameSpeedTips: online returns tips', () => {
+  const t = buildsFns.getGameSpeedTips('online', 'domination');
+  assert(t !== null, 'Online should return tips');
+  assert(t.general.length > 0, 'Should have general tips');
+  assert(t.victoryTip.length > 0, 'Should have victory-specific tip');
+});
+
+test('getGameSpeedTips: marathon returns tips', () => {
+  const t = buildsFns.getGameSpeedTips('marathon', 'science');
+  assert(t !== null, 'Marathon should return tips');
+  assert(t.label === 'Marathon', `Expected Marathon label, got ${t.label}`);
+});
+
+test('getGameSpeedTips: epic has tips for all victory types', () => {
+  ['domination', 'science', 'culture', 'religion', 'diplomacy'].forEach(v => {
+    const t = buildsFns.getGameSpeedTips('epic', v);
+    assert(t !== null, `Epic should have tips for ${v}`);
+    assert(t.victoryTip.length > 0, `Epic should have victory tip for ${v}`);
+  });
+});
+
+// --- Victory Recommendation (extracted from app.js) ---
+// Recreate the function since it depends on THREAT_MATRIX
+const { THREAT_MATRIX } = stratData;
+
+function recommendVictory(leader, opponents) {
+  return ['domination','science','culture','religion','diplomacy'].map(v => {
+    let score = leader.strategy[v].synergy;
+    opponents.forEach(o => {
+      const opp = o.leader;
+      if (opp.victoryTypes[0] === v) score -= 15;
+      if (opp.victoryTypes.includes(v)) score -= 5;
+      if (THREAT_MATRIX[v] && THREAT_MATRIX[v].counters.includes(opp.victoryTypes[0])) score += 5;
+    });
+    return { type: v, synergy: leader.strategy[v].synergy, score: Math.max(0, score) };
+  }).sort((a, b) => b.score - a.score);
+}
+
+const alexander = LEADERS.find(l => l.id === 'alexander');
+const seondeok = LEADERS.find(l => l.id === 'seondeok');
+const kristina = LEADERS.find(l => l.id === 'kristina');
+const gandhi = LEADERS.find(l => l.id === 'gandhi');
+
+test('recommendVictory: Alexander recommends domination', () => {
+  const r = recommendVictory(alexander, []);
+  assert(r[0].type === 'domination', `Expected domination, got ${r[0].type}`);
+});
+
+test('recommendVictory: Seondeok recommends science', () => {
+  const r = recommendVictory(seondeok, []);
+  assert(r[0].type === 'science', `Expected science, got ${r[0].type}`);
+});
+
+test('recommendVictory: Kristina recommends culture', () => {
+  const r = recommendVictory(kristina, []);
+  assert(r[0].type === 'culture', `Expected culture, got ${r[0].type}`);
+});
+
+test('recommendVictory: Gandhi recommends religion', () => {
+  const r = recommendVictory(gandhi, []);
+  assert(r[0].type === 'religion', `Expected religion, got ${r[0].type}`);
+});
+
+test('recommendVictory: returns 5 victory types sorted by score', () => {
+  const r = recommendVictory(alexander, []);
+  assert(r.length === 5, `Expected 5 results, got ${r.length}`);
+  for (let i = 1; i < r.length; i++) {
+    assert(r[i].score <= r[i-1].score, 'Results should be sorted by score descending');
+  }
+});
+
+test('recommendVictory: opponent competition penalizes shared victory type', () => {
+  const alone = recommendVictory(seondeok, []);
+  const withRival = recommendVictory(seondeok, [{ leader: LEADERS.find(l => l.id === 'sejong') }]);
+  const sciAlone = alone.find(r => r.type === 'science').score;
+  const sciRival = withRival.find(r => r.type === 'science').score;
+  assert(sciRival < sciAlone, `Science score should drop with rival: ${sciAlone} vs ${sciRival}`);
+});
+
+test('recommendVictory: scores are never negative', () => {
+  // Put many domination opponents against a domination leader
+  const manyOpps = LEADERS.filter(l => l.victoryTypes[0] === 'domination').slice(0, 5).map(l => ({ leader: l }));
+  const r = recommendVictory(alexander, manyOpps);
+  r.forEach(v => {
+    assert(v.score >= 0, `Score for ${v.type} should be >= 0, got ${v.score}`);
+  });
+});
+
+test('recommendVictory: may recommend different victory with opponents', () => {
+  // Kristina normally goes culture, but with many culture opponents might shift
+  const cultureOpps = LEADERS.filter(l => l.victoryTypes[0] === 'culture').slice(0, 4).map(l => ({ leader: l }));
+  const r = recommendVictory(kristina, cultureOpps);
+  // Culture score should be penalized
+  const cultureScore = r.find(v => v.type === 'culture').score;
+  const topScore = r[0].score;
+  assert(cultureScore < kristina.strategy.culture.synergy, 'Culture should be penalized with rivals');
+});
+
 // === Summary ===
 console.log(`\n=== Results: ${passed} passed, ${failed} failed ===`);
 process.exit(failed > 0 ? 1 : 0);
