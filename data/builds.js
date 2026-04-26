@@ -445,11 +445,45 @@ const GAME_MODE_TIPS = {
     name: "Barbarian Clans",
     general: [
       "Barbarian outposts can be bribed, hired from, or converted into city-states",
-      "Don't auto-clear every outpost — some are worth keeping for hire or conversion",
-      "Hiring barbarian units is cheap early game military",
-      "Converting an outpost to a city-state gives you a new suzerain target",
-      "Outposts near your cities can be bribed to stop raiding while you build up"
+      "You can only join ONE society per game — choose based on your victory path"
     ],
+    victoryTips: {
+      domination: [
+        "Hire barbarian units for cheap early military — saves production for settlers and districts",
+        "Use hired units as disposable front-line troops to absorb damage",
+        "Clear outposts near your attack path for gold and to remove threats to your supply lines",
+        "Don't convert outposts near enemies — they'll raid your opponent for you",
+        "Bribe outposts near your cities to stop raids while you build your army"
+      ],
+      science: [
+        "Bribe nearby outposts immediately — you can't afford to lose builders or settlers to raids",
+        "Convert distant outposts to city-states — new suzerainty targets for Kilwa/science bonuses",
+        "Hire a couple of units for cheap defense while you focus on Campuses",
+        "Don't waste production building military to clear camps — bribe or hire instead",
+        "Converted city-states can provide science bonuses if you become suzerain"
+      ],
+      culture: [
+        "Convert outposts to city-states — more city-states means more envoy targets",
+        "Cultural city-state suzerainties give Theater Square bonuses",
+        "Hire units for cheap defense while you build Theater Squares and wonders",
+        "Bribe outposts near your wonder-building cities to prevent disruption",
+        "Converted city-states near your borders can provide Great People points"
+      ],
+      religion: [
+        "Convert outposts to city-states — then spread your religion to them",
+        "Religious city-state suzerainties boost faith generation",
+        "Bribe outposts to protect your missionaries and apostles from raids",
+        "Hire units to escort religious units through dangerous territory",
+        "Don't clear outposts near opponents — barbarians will raid their Holy Sites"
+      ],
+      diplomacy: [
+        "Convert every outpost you can — each new city-state is a suzerainty opportunity",
+        "More city-states means more Diplomatic Favor from suzerainties",
+        "Bribe outposts instead of fighting — stay peaceful for diplomatic standing",
+        "Converted city-states give you envoy targets for Charismatic Leader policy",
+        "Use Containment policy (+3 Envoys) on newly converted city-states where others are suzerain"
+      ]
+    },
     leaderSynergies: {
       domination: "Hire barbarian units for cheap early military. Clear outposts you don't need for gold.",
       science: "Bribe nearby outposts to leave you alone while you focus on Campuses. Convert distant ones to city-states for suzerainty bonuses.",

@@ -538,8 +538,15 @@ function renderGameModeTips(victory) {
       html += '<div style="font-size:12px;font-weight:600;color:#f0f0f0;margin-bottom:4px;">Recommended: ' + recName + '</div>';
       if (society) html += '<ul>' + society.tips.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
       html += '</div>';
+    } else if (mode.victoryTips && mode.victoryTips[victory]) {
+      var vSyn = (typeof mode.leaderSynergies === "object") ? (mode.leaderSynergies[victory] || "") : "";
+      if (vSyn) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + vSyn + '</p>';
+      html += '<ul>' + mode.victoryTips[victory].map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
     } else {
-      var synergy = (typeof mode.leaderSynergies === 'object') ? (mode.leaderSynergies[victory] || '') : '';
+      var syn2 = (typeof mode.leaderSynergies === "object") ? (mode.leaderSynergies[victory] || "") : "";
+      if (syn2) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + syn2 + '</p>';
+      html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
+    }
       if (synergy) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + synergy + '</p>';
       html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
     }
