@@ -547,9 +547,6 @@ function renderGameModeTips(victory) {
       if (syn2) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + syn2 + '</p>';
       html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
     }
-      if (synergy) html += '<p style="font-size:12px;color:#ccc;margin-bottom:6px;">' + synergy + '</p>';
-      html += '<ul>' + mode.general.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
-    }
     html += '</div>';
   });
   return html;
