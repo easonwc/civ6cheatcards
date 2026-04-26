@@ -98,7 +98,7 @@ const PANTHEONS = [
   },
   {
     id: "god-of-the-sea",
-    name: "God of the Sea",
+    name: "God of Tides",
     desc: "+1 Production from Fishing Boats.",
     synergy: { domination: 35, science: 40, culture: 30, religion: 25, diplomacy: 35 },
     tags: ["production", "naval", "coast"],
@@ -146,7 +146,7 @@ const PANTHEONS = [
   },
   {
     id: "goddess-of-fire",
-    name: "Goddess of Fire",
+    name: "Fire Goddess",
     desc: "+2 Faith from Geothermal Fissures and Volcanic Soil.",
     synergy: { domination: 15, science: 25, culture: 25, religion: 65, diplomacy: 25 },
     tags: ["faith", "volcanic", "religion"],
@@ -170,7 +170,7 @@ const PANTHEONS = [
   },
   {
     id: "god-of-war",
-    name: "God of War",
+    name: "God of War and Plunder",
     desc: "Bonus Faith equal to 50% of the strength of each enemy unit killed within 8 tiles of a Holy Site.",
     synergy: { domination: 70, science: 15, culture: 15, religion: 50, diplomacy: 15 },
     tags: ["faith", "military", "domination", "religion"],
@@ -178,11 +178,11 @@ const PANTHEONS = [
   },
   {
     id: "god-of-healing",
-    name: "God of Healing",
+    name: "God of Healing*",
     desc: "Increases units' healing by 30 in Holy Site districts, or any adjacent tiles.",
     synergy: { domination: 55, science: 20, culture: 15, religion: 45, diplomacy: 20 },
     tags: ["healing", "military", "holy-site"],
-    tip: "Turns your Holy Sites into field hospitals. Great for defensive wars or prolonged campaigns."
+    tip: "Turns your Holy Sites into field hospitals. Great for defensive wars or prolonged campaigns. (*May not be available with some mods.)"
   },
   {
     id: "goddess-of-festivals",
