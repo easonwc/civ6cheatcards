@@ -552,18 +552,52 @@ const GAME_MODE_TIPS = {
     name: "Monopolies & Corporations",
     general: [
       "Control all copies of a luxury resource to create a Monopoly (+5 Tourism per resource type)",
-      "Build Industries and Corporations on improved luxury resources for massive yields",
-      "Industries provide yields to the city; Corporations extend yields to nearby cities",
-      "Great Merchants can create Products that boost Corporation yields further",
-      "Monopolies give Tourism — this can be a culture victory shortcut",
-      "In multiplayer, trading away luxuries prevents you from getting monopolies — be strategic"
+      "Build Industries and Corporations on improved luxury resources for massive yields"
     ],
+    victoryTips: {
+      domination: [
+        "Conquer cities to control all copies of luxury resources — monopolies are a backup win condition",
+        "Prioritize conquering cities with luxuries you already have some copies of",
+        "Corporation yields in conquered cities boost your war economy",
+        "Don't trade away luxuries — every copy you lose delays your monopoly",
+        "Monopoly tourism can flip enemy cities through loyalty pressure"
+      ],
+      science: [
+        "Corporation yields boost production — use for Spaceport and space projects",
+        "Industries in your Spaceport city give extra production where it matters most",
+        "Great Merchants create Products that further boost Corporation yields",
+        "Don't trade away luxuries — monopoly production bonuses help late game",
+        "Corporation gold funds research agreements and spy operations"
+      ],
+      culture: [
+        "Monopolies give +5 Tourism per type — this is your primary tourism accelerator",
+        "Prioritize controlling ALL copies of each luxury — even one missing blocks the monopoly",
+        "In multiplayer, NEVER trade away luxuries — it kills your monopoly potential",
+        "Build Industries then Corporations on every luxury for massive yield stacking",
+        "Great Merchants create Products — recruit them aggressively for Corporation boosts",
+        "Monopoly tourism stacks with other tourism sources — can be a culture victory shortcut"
+      ],
+      religion: [
+        "Corporation yields can include faith — build on luxuries near Holy Sites",
+        "Corporation gold funds Apostle and Missionary purchases",
+        "Not your primary win condition but the extra yields help sustain religious spread",
+        "Don't trade away luxuries — keep monopoly potential as a backup",
+        "Industries near Holy Sites boost the city's overall output"
+      ],
+      diplomacy: [
+        "Corporation gold generation helps buy Diplomatic Favor",
+        "Monopoly tourism generates Diplomatic Favor (especially with Canada's ability)",
+        "Great Merchant recruitment gives gold and trade route bonuses",
+        "Don't trade away luxuries in multiplayer — opponents will block your monopolies",
+        "Corporation yields in city-state suzerain cities amplify your economic advantage"
+      ]
+    },
     leaderSynergies: {
       domination: "Conquer cities to control all copies of luxury resources. Monopoly tourism is a backup win condition.",
-      science: "Corporation yields boost production for space projects. Not primary focus but helpful.",
-      culture: "Monopolies give +5 Tourism per type — this is HUGE for culture victory. Prioritize controlling all copies of luxuries.",
-      religion: "Faith from Corporation yields can fund religious units. Not primary synergy.",
-      diplomacy: "Corporation gold helps buy Diplomatic Favor. Monopoly tourism generates favor with Canada's ability."
+      science: "Corporation yields boost production for space projects. Industries in Spaceport city are key.",
+      culture: "Monopolies give +5 Tourism per type — this is HUGE. Prioritize controlling all copies of luxuries.",
+      religion: "Corporation yields can fund religious units. Not primary synergy but helpful.",
+      diplomacy: "Corporation gold helps buy Diplomatic Favor. Monopoly tourism generates favor."
     }
   }
 };
