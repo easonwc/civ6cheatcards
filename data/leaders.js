@@ -383,7 +383,7 @@ const LEADERS = [
     }
   },
   {
-    id: "victoria", name: "Victoria", civ: "England",
+    id: "victoria", name: "Victoria (Age of Empire)", civ: "England",
     victoryTypes: ["domination","science"],
     tier: { vanilla: "B", bbg: "B" },
     leaderAbility: { name: "Pax Britannica", desc: "Free melee unit when settling on a foreign continent. +1 Trade Route per foreign continent city." },

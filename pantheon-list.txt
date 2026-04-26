@@ -1,0 +1,43 @@
+Base Game (25):
+1.  Divine Spark
+2.  Religious Settlements
+3.  God of the Forge
+4.  Goddess of the Harvest
+5.  Monument to the Gods
+6.  Fertility Rites
+7.  Earth Goddess
+8.  Dance of the Aurora
+9.  Desert Folklore
+10. Sacred Path
+11. River Goddess
+12. Lady of the Reeds and Marshes
+13. God of the Sea
+14. God of the Open Sky
+15. Goddess of the Hunt
+16. Stone Circles
+17. Oral Tradition
+18. Initiation Rites
+19. Goddess of Fire
+20. City Patron Goddess
+21. Religious Idols
+22. God of War
+23. God of Healing
+24. Goddess of Festivals
+25. God of Craftsmen
+
+Religion Expanded Mod (13):
+26. Chthonic Cult
+27. Tundra Spirits
+28. Desert Miracles
+29. Rainforest Rituals
+30. Hallowed Groves
+31. Primordial Waters
+32. Messenger of the Gods
+33. Sacred Emissaries
+34. Goddess of Calm Waters
+35. Animal Worship
+36. Votive Offerings
+37. God of Metallurgy
+38. Sun God
+
+Total: 38

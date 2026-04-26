@@ -531,6 +531,30 @@ select, input, textarea { font-size: 16px; }
 .victory-rec-info { display: flex; flex-direction: column; min-width: 140px; }
 .victory-rec-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
 .victory-rec-score { font-size: 11px; color: #888; }
+/* === Pantheon Recommendation === */
+.pantheon-rec-list { display: flex; flex-direction: column; gap: 6px; }
+.collapsible-body .pantheon-rec-list { padding: 0 14px; }
+
+.pantheon-rec-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 10px; background: #1c1c1c; border-radius: 4px;
+  border-left: 3px solid #2a2a2a;
+}
+
+.pantheon-rec-best { border-left-color: #00c850; background: #00c85008; }
+
+.pantheon-rec-rank {
+  font-size: 13px; font-weight: 600; min-width: 20px; text-align: center;
+  color: #555; padding-top: 1px;
+}
+
+.pantheon-rec-best .pantheon-rec-rank { color: #00c850; }
+
+.pantheon-rec-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.pantheon-rec-name { font-size: 13px; font-weight: 600; color: #f0f0f0; }
+.pantheon-rec-desc { font-size: 12px; color: #888; margin-top: 2px; }
+.pantheon-rec-tip { font-size: 11px; color: #00c850; margin-top: 4px; opacity: 0.8; }
+
 .matchup-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .matchup-card p { font-size: 13px; color: #888; }
 .threat-high { border-left: 3px solid #e84040; }
@@ -717,6 +741,8 @@ select, input, textarea { font-size: 16px; }
 
   .victory-rec-item { flex-wrap: wrap; }
   .victory-rec-info { min-width: 0; flex: 1; }
+  .pantheon-rec-item { flex-wrap: wrap; }
+  .pantheon-rec-info { min-width: 0; flex: 1; }
   .synergy-bar { max-width: none !important; }
 
   .opponent-num { font-size: 10px; min-width: 22px; }
@@ -772,6 +798,12 @@ select, input, textarea { font-size: 16px; }
   .victory-rec-best { border-left-color: #080; background: #f0fff0; }
   .victory-rec-name { color: #000; }
   .victory-rec-score { color: #555; }
+
+  .pantheon-rec-item { background: #f9f9f9; border-left-width: 3px; }
+  .pantheon-rec-best { border-left-color: #080; background: #f0fff0; }
+  .pantheon-rec-name { color: #000; }
+  .pantheon-rec-desc { color: #555; }
+  .pantheon-rec-tip { color: #333; }
 
   .synergy-bar { background: #ddd; }
   .synergy-fill { background: #333; }

@@ -5,6 +5,11 @@ let plannerMode = 'sp';
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
+// Format leader name with civ, avoiding duplication when civ is already in the name
+function leaderLabel(l) {
+  return l.name.includes(l.civ) ? l.name : l.name + ' (' + l.civ + ')';
+}
+
 // === BBG Toggle ===
 $('#bbg-toggle').addEventListener('change', (e) => {
   bbgMode = e.target.checked;
@@ -43,7 +48,7 @@ $('#save-all-cards')?.addEventListener('click', exportAllCards);
 function populatePlannerLeaders() {
   const select = $('#planner-leader');
   select.innerHTML = LEADERS.sort((a, b) => a.name.localeCompare(b.name)).map(l =>
-    `<option value="${l.id}">${l.name} (${l.civ})</option>`
+    `<option value="${l.id}">${leaderLabel(l)}</option>`
   ).join('');
   select.addEventListener('change', renderPlannerLeaderCard);
   renderPlannerLeaderCard();
@@ -106,7 +111,7 @@ function renderPlayerSlots() {
   $$('.player-slot-select').forEach(sel => existing.push(sel.value));
   container.innerHTML = '';
   const allOpts = LEADERS.sort((a, b) => a.name.localeCompare(b.name))
-    .map(l => `<option value="${l.id}">${l.name} (${l.civ})</option>`).join('');
+    .map(l => `<option value="${l.id}">${leaderLabel(l)}</option>`).join('');
   for (let i = 0; i < slots; i++) {
     const row = document.createElement('div');
     row.className = 'opponent-row';
@@ -268,7 +273,7 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
   // Header — full width
   let header = `
     <div class="strategy-section">
-      <h3>${leader.name} (${leader.civ}) — ${capitalize(victory)} Victory</h3>
+      <h3>${leaderLabel(leader)} — ${capitalize(victory)} Victory</h3>
       <div style="font-size:12px;color:#888;margin-bottom:8px;">${modeLabel} · ${bbgMode?'BBG':'Vanilla'} · ${capitalize(mapType)} · ${sizeLabel} · ${playerCount} players · ${GAME_SPEED_DATA[$('#planner-speed')?.value]?.label || 'Standard'} speed${getActiveGameModes().length > 0 ? ' · ' + getActiveGameModes().map(m => GAME_MODE_TIPS[m]?.name || m).join(', ') : ''}</div>
     </div>`;
 
@@ -286,6 +291,24 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     </div>
     ${opponents.length > 0 ? '<p style="font-size:11px;color:#555;margin-top:6px;">Scores adjusted for opponent matchups.</p>' : ''}
   `, true);
+
+  // Pantheon recommendation based on victory type and leader
+  const topPantheons = recommendPantheons(victory, 3, leader);
+  left += collapsible('Recommended Pantheons', `
+    <div class="pantheon-rec-list">
+      ${topPantheons.map((p, i) => `
+        <div class="pantheon-rec-item ${i === 0 ? 'pantheon-rec-best' : ''}">
+          <div class="pantheon-rec-rank">${i === 0 ? '★' : i + 1}</div>
+          <div class="pantheon-rec-info">
+            <span class="pantheon-rec-name">${p.name}</span>
+            <span class="pantheon-rec-desc">${p.desc}</span>
+            <span class="pantheon-rec-tip">${p.tip}</span>
+          </div>
+          <div class="synergy-bar" style="flex:0 0 80px;"><div class="synergy-fill" style="width:${Math.min(100, p.adjustedScore)}%;background:${i === 0 ? '#00c850' : p.adjustedScore >= 50 ? '#f59e0b' : '#555'}"></div></div>
+        </div>`).join('')}
+    </div>
+    ${leader ? '<p style="font-size:11px;color:#555;margin-top:6px;">Scores adjusted for leader and civilization synergy.</p>' : ''}
+  `);
 
   left += collapsible(`Map: ${capitalize(mapType)} · ${sizeLabel}`, `
     <p>${mapTip}</p>
@@ -461,7 +484,7 @@ function renderMatchupContent(you, opponents) {
   let html = '';
   rated.forEach(({ opp, random, threatLevel, threatInfo, oppVictory }) => {
     html += `<div class="matchup-card threat-${threatLevel}">
-      <h4>${opp.name} (${opp.civ})${random ? ' <span class="random-badge">Random</span>' : ''}</h4>
+      <h4>${leaderLabel(opp)}${random ? ' <span class="random-badge">Random</span>' : ''}</h4>
       <p><strong>Likely going:</strong> ${capitalize(oppVictory)}</p>
       <p><strong>Threat:</strong> <span style="color:${threatLevel==='high'?'#e84040':threatLevel==='medium'?'#f59e0b':'#00c850'}">${capitalize(threatLevel)}</span> — ${threatInfo.threat}</p>
       <ul style="list-style:none;padding:0;margin-top:4px;">${getCounterTips(you, opp).map(t=>`<li style="font-size:12px;color:#ccc;padding:2px 0;">→ ${t}</li>`).join('')}</ul>
@@ -558,7 +581,7 @@ function exportAllCards() {
   if (!lastTeamCards || lastTeamCards.length === 0) return;
   lastTeamCards.forEach((card, i) => {
     setTimeout(() => {
-      downloadCard(card.leader.name + ' (' + card.leader.civ + ')', card.html);
+      downloadCard(leaderLabel(card.leader), card.html);
     }, i * 300); // stagger downloads so browser doesn't block them
   });
 }
