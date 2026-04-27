@@ -368,6 +368,14 @@ function buildStrategyHTML(leader, opponents, mapType, mapSize, playerCount) {
     var content = '<div class="build-order">' + data.priorities.map(function(item, i) {
       return '<div class="build-step"><span class="build-step-num">' + (i+1) + '</span><span class="build-step-text">' + item + '</span></div>';
     }).join('') + '</div>';
+    var govRec = (typeof getGovernmentRec === 'function') ? getGovernmentRec(victory, era) : null;
+    if (govRec) {
+      content += '<div style="margin-top:8px;padding:8px 10px;background:#1a1a2e;border-left:3px solid #7c3aed;border-radius:0 4px 4px 0;">';
+      content += '<div style="font-size:12px;font-weight:600;color:#a78bfa;margin-bottom:2px;">Government: ' + govRec.name + '</div>';
+      content += '<div style="font-size:11px;color:#ccc;">' + govRec.why + '</div>';
+      if (govRec.alt) content += '<div style="font-size:11px;color:#888;margin-top:4px;">Alt: ' + govRec.alt + '</div>';
+      content += '</div>';
+    }
     return '<div class="era-collapse ' + (isAncient ? 'open' : '') + '">' +
       '<div class="era-collapse-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
         '<span class="era-collapse-title">' + capitalize(era) + ' Era — ' + data.focus + '</span>' +

@@ -221,6 +221,57 @@ test('HTML has all 15 map type options', () => {
 // === 7. Logic Tests ===
 console.log('\n=== Logic Tests ===');
 
+// Load government data
+const govCode = fs.readFileSync('data/governments.js', 'utf8');
+const govData = new Function(govCode + '; return { GOVERNMENT_RECS, getGovernmentRec };')();
+
+test('data/governments.js has valid syntax', () => {
+  new Function(govCode);
+});
+
+test('GOVERNMENT_RECS has all 5 victory types', () => {
+  ['domination', 'science', 'culture', 'religion', 'diplomacy'].forEach(v => {
+    assert(govData.GOVERNMENT_RECS[v], `Missing GOVERNMENT_RECS.${v}`);
+  });
+});
+
+test('Each victory type has classical, medieval, modern, future recs', () => {
+  ['domination', 'science', 'culture', 'religion', 'diplomacy'].forEach(v => {
+    ['classical', 'medieval', 'modern', 'future'].forEach(era => {
+      const rec = govData.GOVERNMENT_RECS[v][era];
+      assert(rec, `Missing ${v}.${era}`);
+      assert(rec.name, `Missing name for ${v}.${era}`);
+      assert(rec.why, `Missing why for ${v}.${era}`);
+    });
+  });
+});
+
+test('getGovernmentRec returns null for ancient era', () => {
+  assert(govData.getGovernmentRec('domination', 'ancient') === null);
+});
+
+test('getGovernmentRec returns Oligarchy for domination classical', () => {
+  const rec = govData.getGovernmentRec('domination', 'classical');
+  assert(rec.name === 'Oligarchy', `Expected Oligarchy, got ${rec.name}`);
+});
+
+test('getGovernmentRec returns Theocracy for religion medieval', () => {
+  const rec = govData.getGovernmentRec('religion', 'medieval');
+  assert(rec.name === 'Theocracy', `Expected Theocracy, got ${rec.name}`);
+});
+
+test('getGovernmentRec maps renaissance to medieval tier', () => {
+  const rec = govData.getGovernmentRec('science', 'renaissance');
+  assert(rec !== null, 'Renaissance should map to medieval tier');
+  assert(rec.name === govData.GOVERNMENT_RECS.science.medieval.name);
+});
+
+test('getGovernmentRec maps atomic to future tier', () => {
+  const rec = govData.getGovernmentRec('diplomacy', 'atomic');
+  assert(rec !== null, 'Atomic should map to future tier');
+  assert(rec.name === govData.GOVERNMENT_RECS.diplomacy.future.name);
+});
+
 // Load functions from builds.js
 const buildsFns = new Function(buildsCode + `; return {
   getMapDensity, getLeaderMapAdvice, analyzeMapFairness,
